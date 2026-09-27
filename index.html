@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0f24">
 <title>The Kemosabes: Juke Joint Blues & Soul</title>
-<meta name="description" content="The Kemosabes: a Rhythm, Blues, &amp; Soul band from Mumbai. The Ultimate Juke Joint Blues &amp; Soul Experience. Watch us live and join the Congregation.">
+<meta name="description" content="The Kemosabes: a Rhythm, Blues, &amp; Soul band from Mumbai. The Ultimate Juke Joint Experience. Watch us live and join the Congregation.">
 
 <meta property="og:title" content="The Kemosabes">
 <meta property="og:description" content="A Rhythm, Blues, &amp; Soul band from Mumbai. Watch us live and join the Congregation.">
@@ -97,6 +97,14 @@
   .intro, #book .lead{font-family:"Ubuntu",system-ui,sans-serif; font-size:1.3rem; line-height:1.55; color:var(--cream-dim); margin:0 0 1.8rem;}
   .wrap{max-width:640px; margin:0 auto; padding:0 16px;}
   .wrap-wide{max-width:1040px; margin:0 auto; padding:0 16px;}
+  @media (min-width:1400px){
+    .wrap{max-width:760px;}
+    .wrap-wide{max-width:1320px;}
+  }
+  @media (min-width:1800px){
+    .wrap{max-width:840px;}
+    .wrap-wide{max-width:1520px;}
+  }
   section{padding:3rem 0;}
   .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
 
@@ -408,7 +416,8 @@
   .nav-toggle{display:none;}
   @media (min-width:1200px){ body{padding-left:210px;} }
   @media (max-width:1199px){
-    .sidenav{width:auto; transform:translateX(-105%); transition:transform .25s ease; justify-content:center; border-radius:0 14px 14px 0; padding:1.4rem 1rem; min-width:220px; background:rgba(10,15,36,.97); border-right:0;}
+    .sidenav{width:auto; transform:translateX(-105%); transition:transform .25s ease; justify-content:center; border-radius:0 14px 14px 0; padding:1.4rem 1rem; min-width:220px; background:rgba(10,15,36,.5); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-right:0; box-shadow:2px 0 24px rgba(0,0,0,.4);}
+    .sidenav a{text-shadow:0 1px 3px rgba(0,0,0,.6);}
     .sidenav.open{transform:translateX(0);}
     .sidenav-title{display:none;}
     .sidenav a{font-size:1.2rem; padding:.55rem .7rem;}
@@ -514,7 +523,7 @@
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="The Kemosabes logo" fetchpriority="high">
   <h1 class="visually-hidden">The Kemosabes</h1>
-  <p class="tagline">The Ultimate Juke Joint Blues &amp; Soul Experience</p>
+  <p class="tagline">The Ultimate Juke Joint Experience</p>
   <p class="subline">Est. 2024 · Mumbai · A Rhythm, Blues, &amp; Soul Band</p>
   <div class="icon-row">
     <a class="icon-btn" href="https://www.instagram.com/thekemosabes" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg></a>
