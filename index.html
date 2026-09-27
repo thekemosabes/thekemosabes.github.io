@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0f24">
+<title>The Kemosabes: Juke Joint Blues & Soul</title>
+<meta name="description" content="The Kemosabes: a Rhythm, Blues, &amp; Soul band from Mumbai. The Ultimate Juke Joint Blues &amp; Soul Experience. Watch us live and join the Congregation.">
+
+<meta property="og:title" content="The Kemosabes">
+<meta property="og:description" content="A Rhythm, Blues, &amp; Soul band from Mumbai. Watch us live and join the Congregation.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:type" content="website">
+<!-- OG: add og:url once the site has its final address -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Kemosabes">
+<meta name="twitter:description" content="A Rhythm, Blues, &amp; Soul band from Mumbai. Watch us live and join the Congregation.">
+<meta name="twitter:image" content="assets/og-image.jpg">
+
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Londrina+Solid:wght@300;400&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "The Kemosabes",
+  "genre": ["Blues", "Soul", "Rhythm and Blues"],
+  "foundingDate": "2024",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Mumbai, India"
+  },
+  "email": "mailto:thekemosabes@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/thekemosabes",
+    "https://www.youtube.com/@The_Kemosabes"
+  ],
+  "member": [
+    {"@type": "Person", "name": "Karan Gera"},
+    {"@type": "Person", "name": "Farhaan Mistry"},
+    {"@type": "Person", "name": "Karan Lekhyani"},
+    {"@type": "Person", "name": "Ben Khambatta"},
+    {"@type": "Person", "name": "Jade Sequeira"},
+    {"@type": "Person", "name": "Zion D'Souza"}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#0a0f24; --ink-2:rgba(17,24,54,.88); --ink-3:#1a2347;
+    --cream:#f3e6c9; --cream-dim:#c9bc9f;
+    --brass:#d9a441; --brass-deep:#a8762a;
+    --oxblood:#9b2f25;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%; background:#0a0f24;}
+  body{
+    margin:0; color:var(--cream);
+    font-family:"Ubuntu",system-ui,sans-serif; font-size:1.2rem; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+    padding-top:56px;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2;
+    background:url("assets/stage-bg.webp") center/cover no-repeat;
+  }
+  body::after{
+    content:""; position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(ellipse 700px 500px at 50% -10%, rgba(217,164,65,.2), transparent 65%),
+      radial-gradient(circle, transparent 35%, rgba(10,15,36,.62) 100%),
+      linear-gradient(180deg, transparent 0%, rgba(10,15,36,.55) 100%);
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:"Abril Fatface",Georgia,serif;  margin:0 0 .5em;font-weight:400;}
+  h2{font-weight:900; font-size:clamp(2.1rem,8vw,2.8rem); line-height:1.15; letter-spacing:.005em; margin:0 0 .9rem;}
+  h3{font-size:1.5rem; line-height:1.25; margin:0 0 .35rem;}
+  @media (min-width:900px){
+    h2{font-size:clamp(2.31rem,8vw,3.08rem);}
+    h3{font-size:1.65rem;}
+  }
+  .kicker{
+    font-family:"Londrina Solid",sans-serif;  font-size:1.6rem;
+    text-transform:uppercase;  color:var(--brass);
+    display:block; margin-bottom:.6rem;
+  font-weight:400;letter-spacing:.07em; text-shadow:0 0 14px rgba(217,164,65,.35);}
+  .intro, #book .lead{font-family:"Ubuntu",system-ui,sans-serif; font-size:1.3rem; line-height:1.55; color:var(--cream-dim); margin:0 0 1.8rem;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 16px;}
+  .wrap-wide{max-width:1040px; margin:0 auto; padding:0 16px;}
+  section{padding:3rem 0;}
+  .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+
+  /* grain overlay */
+  html::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:1000;
+    opacity:.06; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* focus */
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--brass); outline-offset:3px; border-radius:4px;
+  }
+
+  /* divider */
+  .divider{display:flex; align-items:center; gap:.75rem; max-width:640px; margin:0 auto; padding:0 16px; color:var(--brass);}
+  .divider::before,.divider::after{content:""; flex:1; height:1px; background:var(--brass-deep); opacity:.55;}
+  .divider span{font-size:1rem;}
+
+  /* icon buttons */
+  .icon{width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
+  .icon-row{display:flex; justify-content:center; gap:.9rem; flex-wrap:wrap; margin:1.4rem 0;}
+  .icon-btn{
+    width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--ink-2); border:1px solid var(--ink-3); color:var(--cream);
+    transition:box-shadow .2s, border-color .2s, transform .2s;
+  }
+  .icon-btn:hover, .icon-btn:focus-visible{border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.55); transform:translateY(-1px);}
+
+  /* HERO */
+  .hero{
+    position:relative; padding:2rem 16px 1.2rem; text-align:center; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; top:-20%; left:50%; width:600px; height:600px; transform:translateX(-50%);
+    background:radial-gradient(circle, rgba(217,164,65,.28), transparent 65%);
+    pointer-events:none; z-index:0;
+  }
+  .hero > *{position:relative; z-index:1;}
+  .hero-logo{
+    width:78vw; max-width:300px; height:auto; margin:0 auto 1rem; display:block;
+    filter:drop-shadow(0 0 28px rgba(217,164,65,.35));
+  }
+  @media (min-width:600px){.hero-logo{max-width:360px;}}
+  .hero h1{font-size:2.1rem; color:var(--cream); letter-spacing:.02em; margin-bottom:.3em;}
+  .tagline{font-family:"Abril Fatface",Georgia,serif; font-weight:400; font-style:normal; font-size:clamp(1.45rem,5.8vw,2rem); line-height:1.25; letter-spacing:.01em; color:var(--brass); margin:.2rem auto .6em; max-width:22ch; text-shadow:0 2px 12px rgba(0,0,0,.7);}
+  .subline{font-family:"Londrina Solid",sans-serif;  font-size:clamp(1.07rem,4vw,1.2rem); line-height:1.5; color:var(--cream); text-transform:uppercase;  text-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:300;letter-spacing:.06em;}
+
+  /* ALBUM banner */
+  #album{padding:.4rem 16px 1.4rem;}
+  .album-card{
+    max-width:640px; margin:0 auto; padding:1.6rem 1.4rem; text-align:center;
+    background:linear-gradient(180deg, var(--ink-2), var(--ink));
+    border:1px solid var(--brass-deep); border-radius:14px;
+    box-shadow:0 0 24px rgba(217,164,65,.12);
+  }
+  .album-card h2{font-size:1.5rem; color:var(--brass); margin-bottom:.4em;}
+  .album-card p{color:var(--cream-dim); margin:0 0 1.1em;}
+
+  /* BUTTONS / PILLS */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5em;
+    min-height:48px; padding:.7em 1.3em; border-radius:999px;
+    background:transparent; border:1px solid var(--brass); color:var(--cream);
+    font-family:"Ubuntu",system-ui,sans-serif; font-weight:500; font-size:1.15rem; text-decoration:none;
+    transition:box-shadow .2s, background .2s, transform .2s; cursor:pointer;
+  }
+  .btn:hover, .btn:focus-visible{box-shadow:0 0 18px rgba(217,164,65,.5); transform:translateY(-1px);}
+  .btn.solid{background:rgba(217,164,65,.14); border-color:var(--brass); color:var(--cream);}
+  .btn.solid:hover, .btn.solid:focus-visible{box-shadow:0 0 20px rgba(155,47,37,.65);}
+
+  /* LINK STACK */
+  #links{padding-top:2rem;}
+  .link-stack{display:flex; flex-direction:column; gap:.85rem;}
+  .link-pill{
+    display:flex; align-items:center; gap:.7em; width:100%; min-height:48px;
+    padding:.85em 1.1em; border-radius:14px;
+    background:var(--ink-2); border:1px solid var(--brass); color:var(--cream);
+    text-decoration:none; font-weight:600;
+    transition:box-shadow .2s, border-color .2s, transform .2s;
+  }
+  .link-pill:hover, .link-pill:focus-visible{background:var(--brass); border-color:var(--brass); color:var(--ink); box-shadow:0 0 20px rgba(217,164,65,.55); transform:translateY(-1px);}
+  .link-pill:hover .icon, .link-pill:focus-visible .icon, .link-pill:hover .chev, .link-pill:focus-visible .chev{color:var(--ink);}
+  .link-pill .icon{flex:none; color:var(--brass);}
+  .link-pill span.label{flex:1; text-align:left;}
+  .link-pill .chev{flex:none; color:var(--brass); font-size:1.1rem;}
+
+  .ticket{
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:.25em;
+    padding:1.1em 1.2em; border-radius:14px; border:1px dashed var(--brass);
+    background:repeating-linear-gradient(180deg, var(--ink-2), var(--ink-2) 8px, var(--ink-3) 8px, var(--ink-3) 9px);
+    position:relative;
+  }
+  .ticket-label{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--brass);font-weight:300;letter-spacing:.06em;}
+  .ticket-date{font-family:"Londrina Solid",sans-serif;  font-size:1.50rem; text-transform:uppercase;  color:var(--cream);font-weight:300;letter-spacing:.06em;}
+  .ticket-venue{color:var(--cream-dim);}
+
+  /* GOSPEL */
+  #gospel{
+    position:relative; padding:4rem 0; background-color:#050812;
+    background-image:linear-gradient(180deg, rgba(10,15,36,.88), rgba(10,15,36,.93)), url("assets/gallery/shisha-preacher-bw.webp");
+    background-size:cover; background-position:center; text-align:center;
+  }
+  #gospel .kicker{text-align:center;}
+  .verse{font-family:"Londrina Solid",sans-serif; font-weight:300; font-style:normal; font-size:clamp(1.3rem,5.4vw,1.9rem); line-height:1.5; letter-spacing:.06em; color:var(--cream); margin:0 0 2rem;}
+  .verse span{display:block;}
+  #gospel h2{font-size:1.4rem; color:var(--brass); margin-bottom:.15em;}
+  /* WATCH US LIVE */
+  .video{position:relative;}
+  .yt{
+    display:block; width:100%; aspect-ratio:16/9; border:0; padding:0; margin:0; cursor:pointer;
+    background:#000 center/cover no-repeat; border-radius:10px; position:relative; overflow:hidden;
+  }
+  .yt img{width:100%; height:100%; object-fit:cover; display:block;}
+  .yt .play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);}
+  .yt-frame{position:relative; width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden; background:#000;}
+  .yt-frame iframe{width:100%; height:100%; border:0; display:block;}
+  .video-caption{font-weight:600; margin:.6em 0 .1em; font-size:1.2rem; line-height:1.55;}
+  .video-fallback{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem; text-transform:uppercase;  color:var(--cream-dim); text-decoration:none;font-weight:300;letter-spacing:.06em;}
+  .video-fallback:hover{color:var(--brass);}
+  .video-featured{margin-bottom:2.2rem;}
+  .video-grid{display:flex; gap:1.2rem;}
+  .video-grid > .video{flex:0 0 240px; scroll-snap-align:start;}
+  @media (min-width:700px){.video-grid > .video{flex-basis:280px;}}
+  .watch-more{text-align:center; margin-top:2rem;}
+  #watch .intro{color:var(--cream-dim); text-align:center;}
+
+  /* ORIGINALS */
+  #originals .intro{color:var(--cream-dim); text-align:center;}
+  .song-card{
+    background:var(--ink-2); border:1px solid var(--ink-3); border-radius:12px;
+    padding:.2em 1.1em; margin-bottom:1rem;
+  }
+  .song-card summary{
+    cursor:pointer; padding:1em 0; list-style:none; display:flex; flex-direction:column; gap:.35rem;
+  }
+  .song-card summary::-webkit-details-marker{display:none;}
+  .song-title{font-family:"Abril Fatface",Georgia,serif;  font-size:1.5rem; line-height:1.25; color:var(--cream);font-weight:400;}
+  .song-meta{font-family:"Ubuntu",system-ui,sans-serif; font-style:normal; font-size:1.2rem; line-height:1.55; color:var(--cream-dim);}
+  .song-body{padding:0 0 1.2em;}
+  .watch-links{display:flex; flex-direction:column; gap:0; margin-top:1em; padding-top:.9em; border-top:1px solid var(--ink-3);}
+  .watch-links a{display:flex; align-items:center; min-height:44px; border-bottom:1px dashed var(--ink-3); font-family:"Londrina Solid",sans-serif;  font-size:0.95rem; text-transform:uppercase;  color:var(--brass); text-decoration:none;font-weight:300;letter-spacing:.06em;}
+  .watch-links a:hover{color:var(--cream);}
+
+  /* LISTENING */
+  #listening .intro{color:var(--cream-dim); text-align:center;}
+  .listen-grid{display:flex; flex-direction:column; gap:1.4rem;}
+  .listen-card{background:var(--ink-2); border:1px solid var(--ink-3); border-radius:12px; padding:1.1rem;}
+  .listen-card h3{color:var(--brass);}
+  .listen-card .song-meta{margin-bottom:.7em; display:block;}
+  .listen-card iframe{width:100%; border:0; border-radius:8px; display:block;}
+  .listen-card .video-fallback{display:inline-block; margin-top:.5em;}
+
+  /* BAND */
+  #band .intro{color:var(--cream-dim); text-align:center;}
+  .band-row{display:flex; gap:1.1rem;}
+  .band-row > .band-card{flex:0 0 220px; scroll-snap-align:start; display:flex; flex-direction:column; gap:.9rem;}
+  @media (min-width:700px){.band-row > .band-card{flex-basis:250px;}}
+  .band-card .portrait{margin:0; position:relative;}
+  .band-card .portrait img{display:block; width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; object-position:center 30%; filter:grayscale(1); border-radius:8px;}
+  .band-card .portrait figcaption{position:absolute; left:0; right:0; bottom:0; padding:1.6em .6em .45em; border-radius:0 0 8px 8px; background:linear-gradient(transparent, rgba(0,0,0,.78)); font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream-dim);font-weight:300;letter-spacing:.06em;}
+  .band-card .portrait figcaption a{color:inherit; text-decoration:none;}
+  .portrait-btn{display:block; width:100%; padding:0; margin:0; border:0; background:none; cursor:pointer; position:relative; text-align:left; border-radius:8px;}
+  .portrait-btn img{transition:filter .25s, box-shadow .25s;}
+  .portrait-btn.is-active img{filter:grayscale(0); box-shadow:0 0 0 2px var(--brass);}
+  .portrait-tag{position:absolute; top:0; left:0; right:0; padding:.6em .6em .9em; border-radius:8px 8px 0 0; background:linear-gradient(rgba(0,0,0,.85), transparent); text-align:left; opacity:0; transform:translateY(-4px); transition:opacity .2s, transform .2s; pointer-events:none;}
+  .portrait-btn.is-active .portrait-tag{opacity:1; transform:translateY(0);}
+  .portrait-tag-title{display:block; font-family:"Abril Fatface",Georgia,serif;  font-size:1rem; line-height:1.2; color:var(--brass);font-weight:400;}
+  .portrait-tag-name{display:block; font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream);font-weight:300;letter-spacing:.06em;}
+  .songbook-sub{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem; text-transform:uppercase;  color:var(--cream-dim); text-align:center; margin:-1.2rem 0 1.8rem;font-weight:300;letter-spacing:.06em;}
+  .hear-original{margin-bottom:1em;}
+  .member-card{background:var(--ink-2); border:1px solid var(--ink-3); border-radius:12px; padding:1.1rem; transition:box-shadow .3s, transform .3s, border-color .3s; flex:1;}
+  .member-card.is-highlighted{border-color:var(--brass); box-shadow:0 0 20px rgba(217,164,65,.4); transform:translateY(-3px);}
+  .is-highlighted{outline:3px solid var(--brass); outline-offset:4px; border-radius:10px; transition:outline-color .4s;}
+  .member-title{font-family:"Abril Fatface",Georgia,serif;  color:var(--brass); font-size:1.5rem; line-height:1.25; margin-bottom:.35rem;font-weight:400;}
+  .member-name{font-weight:600; margin-bottom:.1em;}
+  .member-role{color:var(--cream-dim); margin-bottom:.4em;}
+  .member-handle{
+    display:inline-flex; align-items:center; gap:.5em; min-height:44px;
+    padding:.55em 1em; border-radius:999px; border:1px solid var(--brass);
+    font-family:"Londrina Solid",sans-serif; font-size:0.95rem; 
+    color:var(--brass); text-decoration:none;
+    transition:box-shadow .2s, border-color .2s, transform .2s;
+  font-weight:300;letter-spacing:.06em;}
+  .member-handle .icon{width:16px; height:16px; flex:none;}
+  .member-handle:hover, .member-handle:focus-visible{color:var(--cream); border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.45); transform:translateY(-1px);}
+  .member-title, .member-name{pointer-events:none;}
+
+  /* STAGES */
+  .stage-banner{width:100%; height:auto; border-radius:12px; margin-bottom:1.6rem;}
+  .year-group{background:var(--ink-2); border:1px solid var(--ink-3); border-radius:12px; margin-bottom:1rem; padding:.2em 1.1em;}
+  .year-group summary{cursor:pointer; padding:.9em 0; font-family:"Abril Fatface",Georgia,serif;  font-size:1.5rem; line-height:1.25; color:var(--brass); list-style:none;font-weight:400;}
+  .year-group summary::-webkit-details-marker{display:none;}
+  .show-list{padding:0 0 1em; margin:0; list-style:none;}
+  .show-list li{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:1em; padding:.55em 0;
+    border-top:1px solid var(--ink-3); font-size:1.07rem;
+  }
+  .show-list li:first-child{border-top:0;}
+  .show-info{display:flex; flex-direction:column; gap:.15em; flex:1; min-width:0;}
+  .show-list li{align-items:center;}
+  .poster{flex:0 0 58px; width:58px; height:74px; border-radius:5px; overflow:hidden; border:1px solid var(--ink-3); display:block;}
+  .poster img{width:100%; height:100%; object-fit:cover; display:block;}
+  .poster:hover, .poster:focus-visible{border-color:var(--brass); box-shadow:0 0 12px rgba(217,164,65,.45);}
+  .poster-none{display:flex; align-items:center; justify-content:center; color:var(--brass-deep); background:var(--ink-3);}
+  .show-title{font-family:"Ubuntu",system-ui,sans-serif; font-weight:500; color:var(--cream);}
+  .show-venue{color:var(--cream-dim);}
+  .show-date{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem; text-transform:uppercase;  color:var(--cream-dim); white-space:nowrap;font-weight:300;letter-spacing:.06em;}
+
+  .banner-fig{margin:0 0 1.6rem;} .banner-fig .stage-banner{margin-bottom:0;}
+  .photo-credit{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream-dim); text-align:center; margin:.8rem 0 0;font-weight:300;letter-spacing:.06em;}
+  .photo-credit a, .fine a{color:inherit;}
+  .footer-wordmark{display:block; width:min(280px,75vw); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 0 18px rgba(217,164,65,.25));}
+  .sticky-bar a .icon{margin-right:.2em;}
+  .poster-dialog{border:0; padding:0; background:transparent; max-width:92vw; max-height:92vh;}
+  .poster-dialog::backdrop{background:rgba(5,8,20,.9);}
+  .poster-dialog img{display:block; max-width:92vw; max-height:88vh; width:auto; height:auto; border-radius:8px;}
+  /* FOOTER */
+  #book{text-align:center; padding-bottom:3rem;}
+  #book .lead{color:var(--cream-dim); margin-bottom:1.4rem;}
+  .footer-btns{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.6rem;}
+  .fine{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem; text-transform:uppercase;  color:var(--cream-dim); margin:.3em 0;font-weight:300;letter-spacing:.06em;}
+
+  /* STICKY BAR */
+  .sticky-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:500;
+    display:flex; gap:.6rem; padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom));
+    background:rgba(10,15,36,.96); border-top:1px solid var(--ink-3);
+    backdrop-filter:blur(6px);
+    transform:translateY(100%); transition:transform .25s ease;
+  }
+  .sticky-bar.show{transform:translateY(0);}
+  .sticky-bar a{flex:1; min-height:48px; border-radius:999px; font-size:1.02rem;}
+  body.has-stickybar{padding-bottom:calc(72px + env(safe-area-inset-bottom));}
+  @media (min-width:900px){
+    .sticky-bar{display:none;}
+    body.has-stickybar{padding-bottom:0;}
+  }
+.watch-label{display:block;width:100%;font-family:"Londrina Solid",sans-serif;font-size:0.95rem;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.4remfont-weight:300;letter-spacing:.06em;}
+
+  .yt .play{width:64px; height:64px;}
+  .video-fallback{display:inline-flex; align-items:center; min-height:44px;}
+  .song-card summary, .year-group summary{position:relative; padding-right:3.4rem;}
+  .song-card summary::after, .year-group summary::after{
+    content:"+"; position:absolute; right:0; top:50%; transform:translateY(-50%);
+    display:flex; align-items:center; justify-content:center;
+    width:2.2rem; height:2.2rem; border-radius:50%; border:1.5px solid var(--brass);
+    font-family:"Abril Fatface",Georgia,serif; font-size:1.4rem; line-height:1; color:var(--brass);
+  }
+  .song-card:hover summary::after, .year-group:hover summary::after{background:var(--brass); color:var(--ink);}
+  .song-card[open] > summary::after, .year-group[open] > summary::after{content:"\2212"; background:var(--brass); color:var(--ink);}
+  .show-list li{display:grid; grid-template-columns:58px 1fr; grid-template-areas:"poster date" "poster info"; column-gap:.9em; row-gap:.1em; align-items:start;}
+  .show-list li .poster{grid-area:poster; align-self:center;}
+  .show-list li .show-info{grid-area:info;}
+  .show-list li .show-date{grid-area:date; text-align:left; color:var(--brass);}
+  .show-strip{display:flex; gap:1.1rem;}
+  .show-strip > .show-card{flex:0 0 190px; scroll-snap-align:start;}
+  @media (min-width:700px){.show-strip > .show-card{flex-basis:230px;}}
+  .poster-lg{display:block; width:100%; border-radius:8px; overflow:hidden; border:1px solid var(--ink-3);}
+  .poster-lg img{width:100%; height:auto; display:block; object-fit:cover;}
+  .poster-lg:hover, .poster-lg:focus-visible{border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.45);}
+  .show-card .show-info{display:flex; flex-direction:column; gap:.15em; margin:.6em 0 0;}
+  .show-card .show-date{color:var(--brass);}
+  .portrait-btn{font:inherit; color:inherit;}
+  .verse span{white-space:nowrap;}
+  h1,h2,h3,h4,summary,.song-title,.member-title{font-weight:400;}
+  body{font-family:"Ubuntu",system-ui,sans-serif;}
+  .orig-credit{margin:.2rem 0 1rem; color:var(--cream-dim);}
+  .orig-credit a{color:var(--brass); text-decoration:underline; text-underline-offset:3px; display:inline-flex; align-items:center; min-height:44px;}
+  /* CAROUSEL (shared: From the Gram + Live Moments) */
+  .carousel{position:relative; display:flex; align-items:center; gap:.4rem;}
+  .car-track{display:flex; width:100%; min-width:0; flex:1 1 auto; overflow-x:auto; scroll-snap-type:x mandatory; gap:12px; padding:.2rem 2px 10px; scrollbar-width:none; scroll-behavior:smooth;}
+  .car-track::-webkit-scrollbar{display:none;}
+  .car-arrow{flex:none; width:40px; height:40px; border-radius:50%; border:1.5px solid var(--brass); background:rgba(10,15,36,.92); color:var(--brass); font-size:1.4rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.4);}
+  .car-arrow:hover:not(:disabled), .car-arrow:focus-visible:not(:disabled){background:var(--brass); color:var(--ink);}
+  .car-arrow:disabled{cursor:default; border-color:rgba(217,164,65,.35); color:rgba(243,230,201,.4);}
+  .car-progress{max-width:220px; height:4px; margin:.6rem auto 0; border-radius:999px; background:var(--ink-3); overflow:hidden;}
+  .car-progress-fill{display:block; height:100%; width:20%; background:var(--brass); border-radius:999px; transition:width .15s linear, transform .15s linear; transform:translateX(0);}
+  @media (max-width:599px){.car-arrow{display:none;}}
+
+  .ig-row > .ig-card{flex:0 0 180px; scroll-snap-align:start;}
+  @media (min-width:700px){.ig-row > .ig-card{flex-basis:210px;}}
+  .ig-play{position:relative; width:100%; aspect-ratio:1/1; border-radius:12px; border:1px solid var(--brass-deep); overflow:hidden; padding:0; cursor:pointer; font:inherit; display:block;}
+  .ig-thumb{width:100%; height:100%; object-fit:cover;}
+  .ig-scrim{position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.15) 40%, rgba(10,15,36,.88) 100%);}
+  .ig-playicon{position:absolute; top:38%; left:50%; transform:translate(-50%,-50%); color:var(--cream); filter:drop-shadow(0 0 6px rgba(0,0,0,.6));}
+  .ig-play:hover .ig-playicon, .ig-play:focus-visible .ig-playicon{color:var(--brass);}
+  .ig-text{position:absolute; left:0; right:0; bottom:0; padding:.6rem .7rem; display:flex; flex-direction:column; text-align:left; color:var(--cream);}
+  .ig-play:hover, .ig-play:focus-visible{box-shadow:0 0 18px rgba(217,164,65,.45);}
+  .ig-title{font-family:"Abril Fatface",Georgia,serif; font-size:1.05rem; line-height:1.15;}
+  .ig-sub{color:var(--cream-dim); font-size:.85rem;}
+  .ig-cta{font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em; text-transform:uppercase; color:var(--brass); font-size:.8rem; margin-top:.2rem;}
+  .ig-card .video-fallback{display:block; margin-top:.4rem; font-size:.85rem;}
+  .ig-frame{width:100%; aspect-ratio:4/5.6; border:0; border-radius:12px; background:#fff;}
+  .cuts{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.8rem; margin-top:.6rem;}
+  .cut .yt-sm{position:relative; width:100%; aspect-ratio:16/9; border:0; padding:0; border-radius:8px; overflow:hidden; cursor:pointer; background:#000; display:block;}
+  .cut .yt-sm .play{width:40px; height:40px;}
+  .cut .yt-frame{border-radius:8px;}
+  .cut-cap{display:block; margin-top:.35rem; font-size:.95rem; line-height:1.35; color:var(--cream-dim); text-decoration:none; min-height:0;}
+  .cut-cap:hover,.cut-cap:focus-visible{color:var(--brass);}
+  .watch-links a.cut-cap{border-bottom:0; min-height:0; display:block;}
+  html{scroll-behavior:smooth;} section, header, footer{scroll-margin-top:12px;}
+  .sidenav{position:fixed; left:0; top:0; bottom:0; width:210px; z-index:600; display:flex; flex-direction:column; gap:.15rem; padding:5.5rem 1rem 1.5rem; background:rgba(10,15,36,.82); border-right:1px solid var(--ink-3); backdrop-filter:blur(6px); overflow-y:auto;}
+  .sidenav-title{font-family:"Londrina Solid",sans-serif; font-weight:400; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; color:var(--cream-dim); margin:0 .6rem 1rem;}
+  .sidenav a{font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em; font-size:1rem; color:var(--cream-dim); text-decoration:none; padding:.35rem .6rem; border-left:2px solid transparent; border-radius:4px;}
+  .sidenav a:hover,.sidenav a:focus-visible{color:var(--cream);}
+  .sidenav a.is-current{color:var(--brass); border-left-color:var(--brass); background:rgba(217,164,65,.08);}
+  .nav-toggle{display:none;}
+  @media (min-width:1200px){ body{padding-left:210px;} }
+  @media (max-width:1199px){
+    .sidenav{width:auto; transform:translateX(-105%); transition:transform .25s ease; justify-content:center; border-radius:0 14px 14px 0; padding:1.4rem 1rem; min-width:220px; background:rgba(10,15,36,.97); border-right:0;}
+    .sidenav.open{transform:translateX(0);}
+    .sidenav-title{display:none;}
+    .sidenav a{font-size:1.2rem; padding:.55rem .7rem;}
+    .nav-toggle{display:inline-flex; align-items:center; gap:.4rem; flex:none; min-height:40px; padding:0 .8rem; border-radius:999px; border:1px solid var(--brass-deep); background:rgba(10,15,36,.9); color:var(--cream); font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em; font-size:.95rem; cursor:pointer;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .sidenav{transition:none;}}
+  .btn.solid:hover, .btn.solid:focus-visible{background:var(--brass); border-color:var(--brass); color:var(--ink); box-shadow:0 0 20px rgba(217,164,65,.55);}
+  .btn.solid:hover .icon, .btn.solid:focus-visible .icon{color:var(--ink);}
+  #book{position:relative; background:linear-gradient(180deg, rgba(10,15,36,.65), rgba(10,15,36,.5) 40%, rgba(10,15,36,.72)), url("assets/gallery/highspirits-congregation.webp") center 30%/cover no-repeat;}
+  .gallery > figure{flex:0 0 200px; scroll-snap-align:start; margin:0;}
+  @media (min-width:700px){.gallery > figure{flex-basis:240px;}}
+  .gallery a.lb{display:block; border-radius:8px; overflow:hidden; border:1px solid var(--ink-3);}
+  .gallery a.lb:hover, .gallery a.lb:focus-visible{border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.4);}
+  .gallery img{display:block; width:100%; height:260px; object-fit:cover;}
+  @media (min-width:700px){.gallery img{height:310px;}}
+  .gallery figcaption{font-size:.85rem; color:var(--cream-dim); margin:.35rem .1rem 0; line-height:1.35;}
+  .gallery figcaption a{color:inherit;}
+  .gospel-title{font-family:"Abril Fatface",Georgia,serif; font-weight:400; color:var(--brass); font-size:clamp(1.9rem,7vw,2.6rem); line-height:1.15; margin:0 0 1.2rem;}
+  .gospel-grid{display:grid; gap:2rem; align-items:center;}
+  @media (min-width:900px){.gospel-grid{grid-template-columns:1.1fr .9fr;}}
+  .gospel-text{text-align:center;}
+  .gospel-embed{max-width:420px; width:100%; margin:0 auto;}
+  .gospel-embed iframe{width:100%; aspect-ratio:4/5.9; border:0; border-radius:12px; background:#fff;}
+  .story{font-size:1.25rem; line-height:1.7; color:var(--cream);}
+  .gallery figcaption a, .band-card .portrait figcaption a, .photo-credit a{white-space:nowrap;}
+  @media (min-width:900px){.gospel-grid .verse{font-size:1.45rem;} .gospel-grid .verse span{white-space:normal;}}
+  .stats{display:flex; justify-content:center; gap:1.2rem; margin:1.4rem 0 1.8rem; flex-wrap:wrap;}
+  .stat{display:flex; flex-direction:column; align-items:center; min-width:90px;}
+  .stat-num{font-family:"Abril Fatface",Georgia,serif; font-size:clamp(2.8rem,12vw,4rem); line-height:1; color:var(--brass); text-shadow:0 0 22px rgba(217,164,65,.35);}
+  .stat-label{font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em; text-transform:uppercase; color:var(--cream-dim); font-size:.95rem; margin-top:.3rem; text-align:center;}
+  .story strong{color:var(--brass); font-weight:700;}
+  .story-coda{display:flex; flex-direction:column; align-items:center; gap:.2rem; margin:1.8rem 0 2.4rem; font-family:"Abril Fatface",Georgia,serif; font-size:clamp(1.7rem,7vw,2.4rem); color:var(--cream); line-height:1.2;}
+  .gospel-card{position:relative; padding:3rem 0 2.6rem; text-align:center; background:linear-gradient(180deg, rgba(10,15,36,.62), rgba(10,15,36,.58)), url("assets/gallery/shisha-preacher-bw.webp") center/cover no-repeat; border-top:1px solid var(--ink-3); border-bottom:1px solid var(--ink-3);}
+  .gospel-close{font-family:"Abril Fatface",Georgia,serif; color:var(--brass); font-size:clamp(1.3rem,5vw,1.7rem); line-height:1.35; margin:1.4rem 0 0;}
+  .stage-cta{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.6rem;}
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; max-width:520px; margin-left:auto; margin-right:auto;}
+  .stat{min-width:0;}
+  .stat-label{font-size:.9rem; line-height:1.2;}
+  .gram-title{display:flex; align-items:center; justify-content:center; gap:.6rem;} .gram-title .icon{color:var(--brass); flex:none;}
+  .tab-switch{display:flex; justify-content:center; gap:.8rem; flex-wrap:wrap; margin:0 0 2rem;}
+  .tab-btn{font-family:"Abril Fatface",Georgia,serif; font-size:1.15rem; padding:.55em 1.3em; border-radius:999px; border:1.5px solid var(--brass); background:transparent; color:var(--cream); cursor:pointer; min-height:44px;}
+  .tab-btn:hover, .tab-btn:focus-visible{background:rgba(217,164,65,.18);}
+  .tab-btn.is-active{background:var(--brass); color:var(--ink);}
+  .tab-panel[hidden]{display:none;}
+
+  /* TOP BAR */
+  .topbar{position:fixed; top:0; left:0; right:0; z-index:700; display:flex; align-items:center; gap:.6rem; height:56px; padding:0 12px; background:rgba(10,15,36,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--ink-3);}
+  @media (min-width:1200px){.topbar{left:210px;}}
+  .topbar-search{flex:1 1 auto; min-width:0; display:flex; align-items:center; gap:.5rem; background:var(--ink-2); border:1px solid var(--ink-3); border-radius:999px; padding:0 .8rem; height:38px;}
+  .topbar-search .icon{flex:none; color:var(--cream-dim);}
+  .topbar-search input{flex:1; min-width:0; background:transparent; border:0; outline:0; color:var(--cream); font:1rem/1.2 "Ubuntu",system-ui,sans-serif;}
+  .topbar-search input::placeholder{color:var(--cream-dim);}
+  .topbar-search:focus-within{border-color:var(--brass);}
+  .topbar-cta{display:flex; gap:.5rem; flex:none;}
+  .topbar-btn{min-height:38px; padding:0 .9rem; font-size:.95rem; gap:.4rem;}
+  @media (max-width:480px){
+    .topbar{gap:.4rem; padding:0 8px;}
+    .topbar-btn{width:38px; height:38px; padding:0; justify-content:center; border-radius:50%;}
+    .topbar-btn .btn-label{display:none;}
+    .nav-toggle{padding:0; width:40px; justify-content:center;}
+    .nav-toggle span:last-child{display:none;}
+  }
+  @media (min-width:1200px){.nav-toggle{display:none;}}
+  .search-hit{animation:none;}
+</style>
+<!-- ANALYTICS (click analytics, free & privacy-friendly, no cookies/consent banner needed):
+     1. Sign up free at https://www.goatcounter.com (email only, no card, no traffic limit for a personal site).
+     2. Settings will give you a site code like "thekemosabes.goatcounter.com".
+     3. Replace THEKEMOSABES in the two lines below with that code, then republish this file.
+     Until you do this, the lines below load nothing (fail silently) and the site works exactly as normal. -->
+<script data-goatcounter="https://THEKEMOSABES.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.3 9.1v5.8l5.2-2.9z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.6L4 20z"/><path d="M8.6 9.4c.2-.5.4-.5.6-.5h.5c.2 0 .3 0 .5.4.2.4.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.3.4-.2.2-.3.3-.1.6.5.9 1.1 1.5 2 1.9.2.1.4.1.5-.1.2-.2.5-.6.7-.8.1-.2.3-.2.5-.1.5.3 1.4.6 1.6.7.2.1.3.2.3.3 0 .2 0 .7-.3 1.2-.3.5-1.3 1-1.8 1-.5 0-1.3-.1-3-1.3-2-1.4-3.1-3.2-3.3-3.6-.1-.2-.5-1.1-.5-1.8 0-.8.5-1.2.6-1.4z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21" fill="rgba(10,15,36,.55)" stroke="#d9a441" stroke-width="2"/><path d="M19 15.5l16 8.5-16 8.5z" fill="#f3e6c9"/></symbol>
+</svg>
+
+<!-- SECTION NAV: labels must match section ids below -->
+<div class="topbar">
+  <button type="button" class="nav-toggle" aria-controls="sidenav" aria-expanded="false"><span aria-hidden="true">☰</span> Menu</button>
+  <div class="topbar-search">
+    <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <input type="search" id="site-search" placeholder="Search the site…" aria-label="Search the site" autocomplete="off">
+  </div>
+  <div class="topbar-cta">
+    <a class="btn topbar-btn" href="https://drive.google.com/file/d/176Rwmrj_vBc1HOWXrikCqfRd3n9nyuln/view?usp=sharing" target="_blank" rel="noopener">
+      <svg class="icon" width="18" height="18" aria-hidden="true" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v5h5"/></svg>
+      <span class="btn-label">Press Kit</span>
+    </a>
+    <a class="btn solid topbar-btn" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes">
+      <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-email"></use></svg>
+      <span class="btn-label">Book Us</span>
+    </a>
+  </div>
+  <p id="search-status" class="visually-hidden" aria-live="polite"></p>
+</div>
+<nav id="sidenav" class="sidenav" aria-label="Site menu"><span class="sidenav-title">Menu</span><a href="#top" data-sec="top">Home</a><a href="#watch" data-sec="watch">From the Bandstand</a><a href="#stages" data-sec="stages">Our Shows</a><a href="#gram" data-sec="gram">On Instagram</a><a href="#moments" data-sec="moments">Live Moments</a><a href="#originals" data-sec="originals">Original Music</a><a href="#covers" data-sec="covers">Covers &amp; Impressions</a><a href="#band" data-sec="band">Meet the Band</a><a href="#story" data-sec="story">Our Story</a><a href="#listening" data-sec="listening">Listening</a><a href="#book" data-sec="book">Book Us</a></nav>
+<header class="hero" id="top">
+  <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="The Kemosabes logo" fetchpriority="high">
+  <h1 class="visually-hidden">The Kemosabes</h1>
+  <p class="tagline">The Ultimate Juke Joint Blues &amp; Soul Experience</p>
+  <p class="subline">Est. 2024 · Mumbai · A Rhythm, Blues, &amp; Soul Band</p>
+  <div class="icon-row">
+    <a class="icon-btn" href="https://www.instagram.com/thekemosabes" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg></a>
+    <a class="icon-btn" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"></use></svg></a>
+    <a class="icon-btn" href="https://chat.whatsapp.com/GtEWxiJI1fZ9UlY1nmgKnY?mode=gi_t" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg></a>
+    <a class="icon-btn" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg></a>
+  </div>
+</header>
+
+<!-- ALBUM SECTION (parked until recording is done): restore by removing this comment wrapper, and move it to sit just below the next-show ticket in the Links section
+<section id="album" data-editable="album">
+  
+  <div class="album-card">
+    <span class="kicker">Coming Soon</span>
+    <h2>Our First Record</h2>
+    <p>In the studio now, recording and mastering. The Congregation hears it first.</p>
+    <a class="btn solid" href="https://chat.whatsapp.com/GtEWxiJI1fZ9UlY1nmgKnY?mode=gi_t" target="_blank" rel="noopener">Join the Congregation on WhatsApp</a>
+  </div>
+</section>
+-->
+
+<section id="links">
+  <div class="wrap link-stack">
+    <!-- SHOWS: add/remove shows here -->
+    <div class="ticket" role="group" aria-label="Upcoming show">
+      <span class="ticket-label">Live &amp; In Session</span>
+      <span class="ticket-date">16 Oct 2026</span>
+      <span class="ticket-venue">High Note, Mumbai</span>
+    </div>
+
+    <a class="link-pill" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#icon-youtube"></use></svg>
+      <span class="label">See Us Live on YouTube</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-pill" href="https://www.instagram.com/thekemosabes" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+      <span class="label">Follow us on Instagram</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-pill" href="https://chat.whatsapp.com/GtEWxiJI1fZ9UlY1nmgKnY?mode=gi_t" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+      <span class="label">Join Our Community of Soul &amp; Blues on WhatsApp</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-pill" href="https://drive.google.com/file/d/176Rwmrj_vBc1HOWXrikCqfRd3n9nyuln/view?usp=sharing" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v5h5"/></svg>
+      <span class="label">Press Kit · 2026 Band Profile</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+    <!-- SUBSCRIBE: responses land in a Google Sheet linked to this Form. Announce shows/releases to that list manually. -->
+    <a class="link-pill" href="https://docs.google.com/forms/d/e/1FAIpQLScDb28Hpdu8_cQJLCRFcjVc7JNslmh2JecKnvI2S2MmSfXScw/viewform" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/><path d="M15 3l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="label">Get Updates on Shows &amp; Releases</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+
+
+    <a class="link-pill" href="#listening">
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></svg>
+      <span class="label">Recommended Listening</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-pill" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes">
+      <svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>
+      <span class="label">Book The Kemosabes</span><span class="chev" aria-hidden="true">›</span>
+    </a>
+    <div id="linkstack-sentinel" aria-hidden="true"></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<section id="watch">
+  <div class="wrap-wide">
+    <span class="kicker" style="text-align:center;display:block">From the Bandstand</span>
+    <p class="intro">Straight from the heart to the juke joint floor.</p>
+
+    <div class="video video-featured">
+      <button class="yt" data-id="S6kOc7U_mo0" data-title="Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Blank Slate">
+        <img src="https://i.ytimg.com/vi/S6kOc7U_mo0/hqdefault.jpg" loading="lazy" alt="Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025">
+        <svg class="icon play" width="64" height="64" aria-hidden="true"><use href="#icon-play"></use></svg>
+      </button>
+      <p class="video-caption">Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025</p>
+      <a class="video-fallback" href="https://www.youtube.com/watch?v=S6kOc7U_mo0" target="_blank" rel="noopener">Open on YouTube ↗</a>
+    </div>
+
+    <div class="carousel" data-carousel>
+      <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+      <div class="video-grid car-track">
+<div class="video">
+        <button class="yt" data-id="yu12yTbeVR0" data-title="Time to Unite (Pts 1 &amp; 2) · The Bluebop Cafe, Mumbai · Dec 2025" aria-label="Play: Time to Unite (Pts 1 &amp; 2)">
+          <img src="https://i.ytimg.com/vi/yu12yTbeVR0/hqdefault.jpg" loading="lazy" alt="Time to Unite (Pts 1 &amp; 2) · The Bluebop Cafe, Mumbai · Dec 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Time to Unite (Pts 1 &amp; 2) · The Bluebop Cafe, Mumbai · Dec 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=yu12yTbeVR0" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="uMicDNYhD9g" data-title="A Fool in Love · Shisha Cafe, Pune · Jun 2026" aria-label="Play: A Fool in Love">
+          <img src="https://i.ytimg.com/vi/uMicDNYhD9g/hqdefault.jpg" loading="lazy" alt="A Fool in Love · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">A Fool in Love · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=uMicDNYhD9g" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="1w1HXDUnHiY" data-title="Donna · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Donna">
+          <img src="https://i.ytimg.com/vi/1w1HXDUnHiY/hqdefault.jpg" loading="lazy" alt="Donna · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Donna · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=1w1HXDUnHiY" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="o57MaqdsWbc" data-title="Orion in The Sky · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Orion in The Sky">
+          <img src="https://i.ytimg.com/vi/o57MaqdsWbc/hqdefault.jpg" loading="lazy" alt="Orion in The Sky · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Orion in The Sky · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=o57MaqdsWbc" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="Ih8QVAP-xZc" data-title="Young Town Stranger · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Young Town Stranger">
+          <img src="https://i.ytimg.com/vi/Ih8QVAP-xZc/hqdefault.jpg" loading="lazy" alt="Young Town Stranger · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Young Town Stranger · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=Ih8QVAP-xZc" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="Ul8j-KKNkHk" data-title="Johnny B. Goode (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Johnny B. Goode (Cover)">
+          <img src="https://i.ytimg.com/vi/Ul8j-KKNkHk/hqdefault.jpg" loading="lazy" alt="Johnny B. Goode (Cover) · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Johnny B. Goode (Cover) · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=Ul8j-KKNkHk" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="vPiO-Rl_luc" data-title="Hit The Road Jack (Cover) · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Hit The Road Jack (Cover)">
+          <img src="https://i.ytimg.com/vi/vPiO-Rl_luc/hqdefault.jpg" loading="lazy" alt="Hit The Road Jack (Cover) · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Hit The Road Jack (Cover) · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=vPiO-Rl_luc" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="_cz4TRQjCqY" data-title="To Know You Is To Love You (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: To Know You Is To Love You (Cover)">
+          <img src="https://i.ytimg.com/vi/_cz4TRQjCqY/hqdefault.jpg" loading="lazy" alt="To Know You Is To Love You (Cover) · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">To Know You Is To Love You (Cover) · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=_cz4TRQjCqY" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="jV6OkmemYHI" data-title="Hound Dog (Cover) · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Hound Dog (Cover)">
+          <img src="https://i.ytimg.com/vi/jV6OkmemYHI/hqdefault.jpg" loading="lazy" alt="Hound Dog (Cover) · High Spirits Cafe, Pune · Apr 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Hound Dog (Cover) · High Spirits Cafe, Pune · Apr 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=jV6OkmemYHI" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="DlU-POo0_ko" data-title="Blues Power (Improvisation) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Blues Power (Improvisation)">
+          <img src="https://i.ytimg.com/vi/DlU-POo0_ko/hqdefault.jpg" loading="lazy" alt="Blues Power (Improvisation) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blues Power (Improvisation) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=DlU-POo0_ko" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+    </div>
+      <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+    </div>
+    <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+
+    <p class="watch-more">
+      <a class="btn" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener">More Live Cuts on YouTube</a>
+    </p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<section id="stages">
+  <div class="wrap">
+    <h2 style="text-align:center">Our Shows So Far</h2>
+    <p class="intro" style="text-align:center">Across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Cobbler &amp; Crew, Soul Fry, High Spirits Cafe, and more.</p>
+    <figure class="banner-fig"><img class="stage-banner" src="assets/gallery/band-and-fans-groupshot.webp" width="1400" height="935" alt="The Kemosabes with the crowd after a show" loading="lazy"><figcaption class="photo-credit">Photo © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+
+    <details class="year-group" open>
+      <summary>2026</summary>
+      <div class="carousel" data-carousel>
+        <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+        <div class="show-strip car-track">
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-09-11.webp" target="_blank" rel="noopener" aria-label="View poster: Tribute to 3 Kings: BB, Freddie &amp; Albert"><img src="assets/posters/2026-09-11.webp" width="600" height="749" alt="Poster for Tribute to 3 Kings: BB, Freddie &amp; Albert" loading="lazy"></a><div class="show-info"><span class="show-title">Tribute to 3 Kings: BB, Freddie &amp; Albert</span><span class="show-venue">Shisha Cafe, Pune</span><span class="show-date">11 Sep</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-07-03.webp" target="_blank" rel="noopener" aria-label="View poster: Bumpin' Rhythm &amp; Boppin' Boogie"><img src="assets/posters/2026-07-03.webp" width="466" height="578" alt="Poster for Bumpin' Rhythm &amp; Boppin' Boogie" loading="lazy"></a><div class="show-info"><span class="show-title">Bumpin' Rhythm &amp; Boppin' Boogie</span><span class="show-venue">The Bluebop Cafe, Mumbai</span><span class="show-date">3 Jul</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-06-12.webp" target="_blank" rel="noopener" aria-label="View poster: Rhythm Reignition &amp; Soul Serenade"><img src="assets/posters/2026-06-12.webp" width="432" height="540" alt="Poster for Rhythm Reignition &amp; Soul Serenade" loading="lazy"></a><div class="show-info"><span class="show-title">Rhythm Reignition &amp; Soul Serenade</span><span class="show-venue">Shisha Cafe, Pune</span><span class="show-date">12 Jun</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-04-29.webp" target="_blank" rel="noopener" aria-label="View poster: Souls High, Spirits Blue"><img src="assets/posters/2026-04-29.webp" width="480" height="600" alt="Poster for Souls High, Spirits Blue" loading="lazy"></a><div class="show-info"><span class="show-title">Souls High, Spirits Blue</span><span class="show-venue">High Spirits Cafe, Pune</span><span class="show-date">29 Apr</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-04-03.webp" target="_blank" rel="noopener" aria-label="View poster: Jumpin' Jivin' Juke Joint Blues"><img src="assets/posters/2026-04-03.webp" width="480" height="600" alt="Poster for Jumpin' Jivin' Juke Joint Blues" loading="lazy"></a><div class="show-info"><span class="show-title">Jumpin' Jivin' Juke Joint Blues</span><span class="show-venue">The Bluebop Cafe, Mumbai</span><span class="show-date">3 Apr</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-03-11.webp" target="_blank" rel="noopener" aria-label="View poster: Rambunctious Rhythm Revue"><img src="assets/posters/2026-03-11.webp" width="368" height="460" alt="Poster for Rambunctious Rhythm Revue" loading="lazy"></a><div class="show-info"><span class="show-title">Rambunctious Rhythm Revue</span><span class="show-venue">Cobbler &amp; Crew, Pune</span><span class="show-date">11 Mar</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-02-28.webp" target="_blank" rel="noopener" aria-label="View poster: A Night of Blues"><img src="assets/posters/2026-02-28.webp" width="368" height="460" alt="Poster for A Night of Blues" loading="lazy"></a><div class="show-info"><span class="show-title">A Night of Blues</span><span class="show-venue">Soul Fry, Mumbai · as The Kemosabes (Abbreviated), 3-piece</span><span class="show-date">28 Feb</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-02-22.webp" target="_blank" rel="noopener" aria-label="View poster: At The Crossroads"><img src="assets/posters/2026-02-22.webp" width="368" height="460" alt="Poster for At The Crossroads" loading="lazy"></a><div class="show-info"><span class="show-title">At The Crossroads</span><span class="show-venue">The Stables, Mumbai</span><span class="show-date">22 Feb</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-02-21.webp" target="_blank" rel="noopener" aria-label="View poster: Rollin' in Rhythm, Blues &amp; Soul"><img src="assets/posters/2026-02-21.webp" width="368" height="460" alt="Poster for Rollin' in Rhythm, Blues &amp; Soul" loading="lazy"></a><div class="show-info"><span class="show-title">Rollin' in Rhythm, Blues &amp; Soul</span><span class="show-venue">Shisha Cafe, Pune</span><span class="show-date">21 Feb</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2026-01-01.webp" target="_blank" rel="noopener" aria-label="View poster: Resolutions of Rhythm, Blues &amp; Soul"><img src="assets/posters/2026-01-01.webp" width="432" height="540" alt="Poster for Resolutions of Rhythm, Blues &amp; Soul" loading="lazy"></a><div class="show-info"><span class="show-title">Resolutions of Rhythm, Blues &amp; Soul</span><span class="show-venue">Cobbler &amp; Crew, Pune</span><span class="show-date">1 Jan</span></div></div>
+        </div>
+        <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+      </div>
+      <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+    </details>
+
+    <details class="year-group">
+      <summary>2025</summary>
+      <div class="carousel" data-carousel>
+        <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+        <div class="show-strip car-track">
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-12-24.webp" target="_blank" rel="noopener" aria-label="View poster: Boppin' &amp; Boogyin'"><img src="assets/posters/2025-12-24.webp" width="480" height="600" alt="Poster for Boppin' &amp; Boogyin'" loading="lazy"></a><div class="show-info"><span class="show-title">Boppin' &amp; Boogyin'</span><span class="show-venue">The Bluebop Cafe, Mumbai</span><span class="show-date">26 Dec</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-12-24.webp" target="_blank" rel="noopener" aria-label="View poster: Merryin' Mistletoe Mojo"><img src="assets/posters/2025-12-24.webp" width="480" height="600" alt="Poster for Merryin' Mistletoe Mojo" loading="lazy"></a><div class="show-info"><span class="show-title">Merryin' Mistletoe Mojo</span><span class="show-venue">Cobbler &amp; Crew, Pune</span><span class="show-date">24 Dec</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-10-18.webp" target="_blank" rel="noopener" aria-label="View poster: A Night of Blues"><img src="assets/posters/2025-10-18.webp" width="480" height="598" alt="Poster for A Night of Blues" loading="lazy"></a><div class="show-info"><span class="show-title">A Night of Blues</span><span class="show-venue">Soul Fry, Mumbai · as The Kemosabes (Abbreviated), 3-piece</span><span class="show-date">18 Oct</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-10-10.webp" target="_blank" rel="noopener" aria-label="View poster: Jukin' With The Groove"><img src="assets/posters/2025-10-10.webp" width="428" height="522" alt="Poster for Jukin' With The Groove" loading="lazy"></a><div class="show-info"><span class="show-title">Jukin' With The Groove</span><span class="show-venue">Shisha Cafe, Pune</span><span class="show-date">10 Oct</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-09-12.webp" target="_blank" rel="noopener" aria-label="View poster: Moanin' &amp; Groovin'"><img src="assets/posters/2025-09-12.webp" width="396" height="552" alt="Poster for Moanin' &amp; Groovin'" loading="lazy"></a><div class="show-info"><span class="show-title">Moanin' &amp; Groovin'</span><span class="show-venue">The Bluebop Cafe, Mumbai</span><span class="show-date">12 Sep</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-08-30.webp" target="_blank" rel="noopener" aria-label="View poster: International Blues Day"><img src="assets/posters/2025-08-30.webp" width="420" height="532" alt="Poster for International Blues Day" loading="lazy"></a><div class="show-info"><span class="show-title">International Blues Day</span><span class="show-venue">antiSOCIAL, Mumbai</span><span class="show-date">30 Aug</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-08-16.webp" target="_blank" rel="noopener" aria-label="View poster: Blisterin' Blues N' Simmerin' Soul"><img src="assets/posters/2025-08-16.webp" width="360" height="640" alt="Poster for Blisterin' Blues N' Simmerin' Soul" loading="lazy"></a><div class="show-info"><span class="show-title">Blisterin' Blues N' Simmerin' Soul</span><span class="show-venue">antiSOCIAL, Mumbai</span><span class="show-date">16 Aug</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-07-16.webp" target="_blank" rel="noopener" aria-label="View poster: Sensationally Live"><img src="assets/posters/2025-07-16.webp" width="432" height="540" alt="Poster for Sensationally Live" loading="lazy"></a><div class="show-info"><span class="show-title">Sensationally Live</span><span class="show-venue">Cobbler &amp; Crew, Pune</span><span class="show-date">16 Jul</span></div></div>
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2025-05-09.webp" target="_blank" rel="noopener" aria-label="View poster: An Evening of Classic &amp; Progressive Blues"><img src="assets/posters/2025-05-09.webp" width="432" height="540" alt="Poster for An Evening of Classic &amp; Progressive Blues" loading="lazy"></a><div class="show-info"><span class="show-title">An Evening of Classic &amp; Progressive Blues</span><span class="show-venue">Shisha Cafe, Pune</span><span class="show-date">9 May</span></div></div>
+        </div>
+        <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+      </div>
+      <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+    </details>
+
+    <details class="year-group">
+      <summary>2024</summary>
+      <div class="carousel" data-carousel>
+        <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+        <div class="show-strip car-track">
+        <div class="show-card"><a class="poster-lg" href="assets/posters/2024-12-11.webp" target="_blank" rel="noopener" aria-label="View poster: Freshly Minted &amp; Live · Wednesday Blues Jive"><img src="assets/posters/2024-12-11.webp" width="480" height="600" alt="Poster for Freshly Minted &amp; Live · Wednesday Blues Jive" loading="lazy"></a><div class="show-info"><span class="show-title">Freshly Minted &amp; Live · Wednesday Blues Jive</span><span class="show-venue">Cobbler &amp; Crew, Pune (our first)</span><span class="show-date">11 Dec</span></div></div>
+        </div>
+        <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+      </div>
+      <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+    </details>
+      <div class="stage-cta">
+      <a class="btn solid" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-email"></use></svg>Book The Kemosabes</a>
+      <a class="btn" href="https://drive.google.com/file/d/176Rwmrj_vBc1HOWXrikCqfRd3n9nyuln/view?usp=sharing" target="_blank" rel="noopener">Press Kit · 2026 Band Profile ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<!-- INSTAGRAM SNIPPETS: add/remove reels by copying an .ig-card block and changing data-reel + href -->
+<section id="gram">
+  <div class="wrap-wide">
+    <h2 class="gram-title" style="text-align:center"><svg class="icon" width="40" height="40" aria-hidden="true"><use href="#icon-instagram"></use></svg>From the ’Gram</h2>
+    <div class="carousel" data-carousel>
+      <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+      <div class="ig-row car-track">      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DWqYUKAEXyJ" data-kind="p" aria-label="Play To Know You Is To Love You (Intro) on Instagram">
+          <img class="ig-thumb" src="assets/ig/DWqYUKAEXyJ.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">To Know You Is To Love You (Intro)</span><span class="ig-sub">Live at The Bluebop Cafe</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/p/DWqYUKAEXyJ/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DQWYHyWDJDA" aria-label="Play Old Love on Instagram">
+          <img class="ig-thumb" src="assets/ig/DQWYHyWDJDA.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Old Love</span><span class="ig-sub">Cover · Eric Clapton &amp; Robert Cray</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DQWYHyWDJDA/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DP6VHNDEvqt" aria-label="Play Got My Mojo Workin&#x27; on Instagram">
+          <img class="ig-thumb" src="assets/ig/DP6VHNDEvqt.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Got My Mojo Workin&#x27;</span><span class="ig-sub">Cover · Muddy Waters</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DP6VHNDEvqt/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DNSyhcds2KT" aria-label="Play Johnny B. Goode on Instagram">
+          <img class="ig-thumb" src="assets/ig/DNSyhcds2KT.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Johnny B. Goode</span><span class="ig-sub">Cover · Chuck Berry</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DNSyhcds2KT/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="Da2EwftuzQm" aria-label="Play Blank Slate on Instagram">
+          <img class="ig-thumb" src="assets/ig/Da2EwftuzQm.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Blank Slate</span><span class="ig-sub">Live at The Bluebop Cafe</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/Da2EwftuzQm/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DaNi8XGOuxR" aria-label="Play Donna on Instagram">
+          <img class="ig-thumb" src="assets/ig/DaNi8XGOuxR.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Donna</span><span class="ig-sub">Live at The Bluebop Cafe</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DaNi8XGOuxR/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DVleB8pjD-m" aria-label="Play Time to Unite (Pt. 1) on Instagram">
+          <img class="ig-thumb" src="assets/ig/DVleB8pjD-m.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Time to Unite (Pt. 1)</span><span class="ig-sub">Live at Shisha Cafe</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DVleB8pjD-m/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DPYv2USjLdf" aria-label="Play Young Town Stranger on Instagram">
+          <img class="ig-thumb" src="assets/ig/DPYv2USjLdf.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Young Town Stranger</span><span class="ig-sub">Snippet</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DPYv2USjLdf/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DWljD-vDKLi" aria-label="Play A Fool in Love on Instagram">
+          <img class="ig-thumb" src="assets/ig/DWljD-vDKLi.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">A Fool in Love</span><span class="ig-sub">Snippet</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DWljD-vDKLi/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DDzDBx8AkgG" aria-label="Play Orion in The Sky on Instagram">
+          <img class="ig-thumb" src="assets/ig/DDzDBx8AkgG.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Orion in The Sky</span><span class="ig-sub">Snippet</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DDzDBx8AkgG/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DYguKWcgoCF" aria-label="Play Hound Dog on Instagram">
+          <img class="ig-thumb" src="assets/ig/DYguKWcgoCF.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">Hound Dog</span><span class="ig-sub">Cover · Big Mama Thornton</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DYguKWcgoCF/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      <div class="ig-card">
+        <button type="button" class="ig-play" data-reel="DO-YKkMDEhZ" aria-label="Play To Know You Is To Love You on Instagram">
+          <img class="ig-thumb" src="assets/ig/DO-YKkMDEhZ.webp" alt="" loading="lazy">
+          <span class="ig-scrim"></span>
+          <svg class="icon ig-playicon" width="34" height="34" aria-hidden="true"><use href="#icon-play"></use></svg>
+          <span class="ig-text"><span class="ig-title">To Know You Is To Love You</span><span class="ig-sub">Cover · B.B. King</span><span class="ig-cta">Tap to play ▶</span></span>
+        </button>
+        <a class="video-fallback" href="https://www.instagram.com/reel/DO-YKkMDEhZ/" target="_blank" rel="noopener">Open on Instagram ↗</a>
+      </div>
+      </div>
+      <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+    </div>
+    <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+    <div style="text-align:center;margin-top:1.2rem"><a class="btn" href="https://www.instagram.com/thekemosabes/" target="_blank" rel="noopener">Follow us on Instagram</a></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<!-- LIVE MOMENTS GALLERY: add a photo by copying a <figure> line; big file in assets/gallery/NAME.webp, thumbnail NAME-t.webp -->
+<section id="moments">
+  <div class="wrap-wide">
+    <span class="kicker" style="text-align:center;display:block">Live Moments</span>
+    <h2 style="text-align:center">Caught in the Act</h2>
+    <div class="carousel" data-carousel>
+      <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+      <div class="gallery car-track">
+<figure><a class="lb" href="assets/gallery/antisocial-drums-sticks.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-drums-sticks-t.webp" width="427" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-lowangle.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-lowangle-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-harp-kneel-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-harp-kneel-bw-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-keys-neon.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-keys-neon-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-bass-leap.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Jun 2026"><img src="assets/gallery/shisha-bass-leap-t.webp" width="360" height="640" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Jun 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-red.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-red-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/highspirits-mural.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Spirits Cafe, Pune · Apr 2026"><img src="assets/gallery/highspirits-mural-t.webp" width="640" height="427" alt="The Kemosabes live at High Spirits Cafe, Pune" loading="lazy"></a><figcaption>High Spirits Cafe, Pune · Apr 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-bw-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-drums.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-drums-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-action-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-action-bw-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-spotlight.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-spotlight-t.webp" width="480" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-bass.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-bass-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-warm.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-warm-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-congregation.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-congregation-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-kneel.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Jun 2026"><img src="assets/gallery/shisha-kneel-t.webp" width="404" height="640" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Jun 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/highspirits-redstage.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Spirits Cafe, Pune · Apr 2026"><img src="assets/gallery/highspirits-redstage-t.webp" width="640" height="427" alt="The Kemosabes live at High Spirits Cafe, Pune" loading="lazy"></a><figcaption>High Spirits Cafe, Pune · Apr 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/ibd-guitar-red.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: International Blues Day · antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/ibd-guitar-red-t.webp" width="360" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>International Blues Day · antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/ibd-guitar-blondies.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: International Blues Day · antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/ibd-guitar-blondies-t.webp" width="360" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>International Blues Day · antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-jump-airborne.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-jump-airborne-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-lekhyani-keys.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-lekhyani-keys-t.webp" width="640" height="448" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-lekhyani-rehearsal.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-lekhyani-rehearsal-t.webp" width="640" height="448" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © Celeste X Frames</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune · Jan 2026"><img src="assets/gallery/cobbler-fullband-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · Jan 2026</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/stables-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Stables, Mumbai · Feb 2026"><img src="assets/gallery/stables-fullband-t.webp" width="640" height="360" alt="The Kemosabes live at The Stables, Mumbai" loading="lazy"></a><figcaption>The Stables, Mumbai · Feb 2026</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-guitar-silhouette.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Feb 2026"><img src="assets/gallery/shisha-guitar-silhouette-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Feb 2026</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/soulfry-zion-vocals.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Soul Fry, Mumbai · Feb 2026"><img src="assets/gallery/soulfry-zion-vocals-t.webp" width="427" height="640" alt="The Kemosabes live at Soul Fry, Mumbai" loading="lazy"></a><figcaption>Soul Fry, Mumbai · Feb 2026 · © Walrus Photography</figcaption></figure>
+      </div>
+      <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+    </div>
+    <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<section id="songbook">
+  <div class="wrap">
+    <span class="kicker" style="text-align:center;display:block">Songbook</span>
+    <h2 style="text-align:center">Our Songbook</h2>
+    <div class="tab-switch" role="tablist" aria-label="Songbook">
+      <button type="button" class="tab-btn is-active" data-tab="originals" role="tab" aria-selected="true" aria-controls="originals" id="tabbtn-originals">Original Music</button>
+      <button type="button" class="tab-btn" data-tab="covers" role="tab" aria-selected="false" aria-controls="covers" id="tabbtn-covers">Covers &amp; Impressions</button>
+    </div>
+
+    <div class="tab-panel" id="originals" role="tabpanel" aria-labelledby="tabbtn-originals">
+      <p class="intro">Written by The Kemosabes. Lived before they were performed: love, loss, struggle, fellowship, celebration.</p>
+    <p class="songbook-sub">From our upcoming debut album</p>
+
+    <details class="song-card">
+      <summary><span class="song-title">Young Town Stranger</span><span class="song-meta">Based on True Events in the Life of A Kemosabe</span></summary>
+      <div class="song-body">
+        <div class="watch-links"><span class="watch-label">3 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="Ih8QVAP-xZc" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/Ih8QVAP-xZc/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=Ih8QVAP-xZc" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="BAE1AgAGfgU" data-title="Shisha Cafe, Pune · May 2025" aria-label="Play: Shisha Cafe, Pune · May 2025"><img src="https://i.ytimg.com/vi/BAE1AgAGfgU/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=BAE1AgAGfgU" target="_blank" rel="noopener">Shisha Cafe, Pune · May 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="nCJOAVcYv40" data-title="The Demo" aria-label="Play: The Demo"><img src="https://i.ytimg.com/vi/nCJOAVcYv40/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=nCJOAVcYv40" target="_blank" rel="noopener">The Demo ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Blank Slate</span><span class="song-meta">On Battling Anxiety, The Quest for a Fresh Start</span></summary>
+      <div class="song-body">
+        <div class="watch-links"><span class="watch-label">7 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="U4lPICNa1X0" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/U4lPICNa1X0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=U4lPICNa1X0" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="S6kOc7U_mo0" data-title="antiSOCIAL, Mumbai" aria-label="Play: antiSOCIAL, Mumbai"><img src="https://i.ytimg.com/vi/S6kOc7U_mo0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=S6kOc7U_mo0" target="_blank" rel="noopener">antiSOCIAL, Mumbai ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="22MhNOqiyGE" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/22MhNOqiyGE/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=22MhNOqiyGE" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="KERsC-7pHNg" data-title="Shisha Cafe, Pune · Jun 2026" aria-label="Play: Shisha Cafe, Pune · Jun 2026"><img src="https://i.ytimg.com/vi/KERsC-7pHNg/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=KERsC-7pHNg" target="_blank" rel="noopener">Shisha Cafe, Pune · Jun 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="qQ04rh1RrQ4" data-title="High Spirits Cafe, Pune · Apr 2026" aria-label="Play: High Spirits Cafe, Pune · Apr 2026"><img src="https://i.ytimg.com/vi/qQ04rh1RrQ4/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=qQ04rh1RrQ4" target="_blank" rel="noopener">High Spirits Cafe, Pune · Apr 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="U04NWhOOt9U" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/U04NWhOOt9U/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=U04NWhOOt9U" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="WA3vhUtNbHw" data-title="Cobbler &amp; Crew, Pune · Jul 2025 (snippet)" aria-label="Play: Cobbler &amp; Crew, Pune · Jul 2025 (snippet)"><img src="https://i.ytimg.com/vi/WA3vhUtNbHw/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=WA3vhUtNbHw" target="_blank" rel="noopener">Cobbler &amp; Crew, Pune · Jul 2025 (snippet) ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Time to Unite (Pts 1 &amp; 2)</span><span class="song-meta">A Clarion Call for Unity Against Oppression</span></summary>
+      <div class="song-body">
+        <div class="watch-links"><span class="watch-label">5 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="yu12yTbeVR0" data-title="Parts 1 &amp; 2 · The Bluebop Cafe, Mumbai · Dec 2025" aria-label="Play: Parts 1 &amp; 2 · The Bluebop Cafe, Mumbai · Dec 2025"><img src="https://i.ytimg.com/vi/yu12yTbeVR0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=yu12yTbeVR0" target="_blank" rel="noopener">Parts 1 &amp; 2 · The Bluebop Cafe, Mumbai · Dec 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="9zXFmVdtT3A" data-title="Parts 1 &amp; 2 · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Parts 1 &amp; 2 · Shisha Cafe, Pune · Jun 2026"><img src="https://i.ytimg.com/vi/9zXFmVdtT3A/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=9zXFmVdtT3A" target="_blank" rel="noopener">Parts 1 &amp; 2 · Shisha Cafe, Pune · Jun 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="GyPq_OmiIEU" data-title="Part 1 · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Part 1 · High Spirits Cafe, Pune · Apr 2026"><img src="https://i.ytimg.com/vi/GyPq_OmiIEU/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=GyPq_OmiIEU" target="_blank" rel="noopener">Part 1 · High Spirits Cafe, Pune · Apr 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="LeXSzq1pXz8" data-title="Part 1 · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Part 1 · Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/LeXSzq1pXz8/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=LeXSzq1pXz8" target="_blank" rel="noopener">Part 1 · Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="1V-U7DqcV_M" data-title="Part 2 · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Part 2 · Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/1V-U7DqcV_M/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=1V-U7DqcV_M" target="_blank" rel="noopener">Part 2 · Shisha Cafe, Pune · Oct 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">A Fool in Love</span><span class="song-meta">Being with your beloved doesn't need anythin' fancy, just each other</span></summary>
+      <div class="song-body">
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="uMicDNYhD9g" data-title="Shisha Cafe, Pune · Jun 2026" aria-label="Play: Shisha Cafe, Pune · Jun 2026"><img src="https://i.ytimg.com/vi/uMicDNYhD9g/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=uMicDNYhD9g" target="_blank" rel="noopener">Shisha Cafe, Pune · Jun 2026 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Donna</span><span class="song-meta">Celebrating how your partner lights up your life</span></summary>
+      <div class="song-body">
+        <div class="watch-links"><span class="watch-label">4 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="1w1HXDUnHiY" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/1w1HXDUnHiY/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=1w1HXDUnHiY" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="3TNjazmVzeI" data-title="Shisha Cafe, Pune · Jun 2026" aria-label="Play: Shisha Cafe, Pune · Jun 2026"><img src="https://i.ytimg.com/vi/3TNjazmVzeI/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=3TNjazmVzeI" target="_blank" rel="noopener">Shisha Cafe, Pune · Jun 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="TeUdxebGzds" data-title="High Spirits Cafe, Pune · Apr 2026" aria-label="Play: High Spirits Cafe, Pune · Apr 2026"><img src="https://i.ytimg.com/vi/TeUdxebGzds/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=TeUdxebGzds" target="_blank" rel="noopener">High Spirits Cafe, Pune · Apr 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="T6nOKf_hJkc" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/T6nOKf_hJkc/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=T6nOKf_hJkc" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Orion in The Sky</span><span class="song-meta">An Elegy for Anna-Marie</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Co-written with <a href="https://www.instagram.com/thefacelessman27" target="_blank" rel="noopener">Abraham Ranjan ↗</a>, who wrote its defining notes.</p>
+        <div class="watch-links"><span class="watch-label">2 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="o57MaqdsWbc" data-title="Shisha Cafe, Pune · Jun 2026" aria-label="Play: Shisha Cafe, Pune · Jun 2026"><img src="https://i.ytimg.com/vi/o57MaqdsWbc/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=o57MaqdsWbc" target="_blank" rel="noopener">Shisha Cafe, Pune · Jun 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="VHgi7Bmyf_Y" data-title="Cobbler &amp; Crew, Pune · Dec 2024" aria-label="Play: Cobbler &amp; Crew, Pune · Dec 2024"><img src="https://i.ytimg.com/vi/VHgi7Bmyf_Y/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=VHgi7Bmyf_Y" target="_blank" rel="noopener">Cobbler &amp; Crew, Pune · Dec 2024 ↗</a></div></div></div>
+      </div>
+    </details>
+    </div>
+
+    <div class="tab-panel" id="covers" role="tabpanel" aria-labelledby="tabbtn-covers" hidden>
+      <p class="intro">The songs that raised us, played our way.</p>
+
+    <details class="song-card">
+      <summary><span class="song-title">Hit The Road Jack</span><span class="song-meta">Original by Ray Charles</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=uSiHqxgE2d0" target="_blank" rel="noopener" aria-label="Original recording by Ray Charles on YouTube">Ray Charles ↗</a></p>
+        <div class="watch-links"><span class="watch-label">5 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="vPiO-Rl_luc" data-title="Shisha Cafe, Pune · Jun 2026" aria-label="Play: Shisha Cafe, Pune · Jun 2026"><img src="https://i.ytimg.com/vi/vPiO-Rl_luc/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=vPiO-Rl_luc" target="_blank" rel="noopener">Shisha Cafe, Pune · Jun 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="MQt3-3nyX-g" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/MQt3-3nyX-g/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=MQt3-3nyX-g" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="P86mroIK9aA" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/P86mroIK9aA/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=P86mroIK9aA" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="RCN_1y4eDt0" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/RCN_1y4eDt0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=RCN_1y4eDt0" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="CnOpen_KsR4" data-title="Cobbler &amp; Crew, Pune · Dec 2024" aria-label="Play: Cobbler &amp; Crew, Pune · Dec 2024"><img src="https://i.ytimg.com/vi/CnOpen_KsR4/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=CnOpen_KsR4" target="_blank" rel="noopener">Cobbler &amp; Crew, Pune · Dec 2024 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">To Know You Is To Love You</span><span class="song-meta">First recorded by Syreeta · also recorded by B.B. King</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Written by Stevie Wonder &amp; Syreeta Wright. Original recording: <a href="https://www.youtube.com/watch?v=8UlXvTP9WRQ" target="_blank" rel="noopener" aria-label="Original recording by Syreeta on YouTube">Syreeta ↗</a> · Also recorded by <a href="https://www.youtube.com/watch?v=-9VQXP-vNl0" target="_blank" rel="noopener" aria-label="B.B. King version on YouTube">B.B. King ↗</a></p>
+        <div class="watch-links"><span class="watch-label">2 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="eKNj9a9fYKE" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/eKNj9a9fYKE/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=eKNj9a9fYKE" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="_cz4TRQjCqY" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/_cz4TRQjCqY/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=_cz4TRQjCqY" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Hound Dog</span><span class="song-meta">Original by Big Mama Thornton</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=Vr51BN3m67U" target="_blank" rel="noopener" aria-label="Original recording by Big Mama Thornton on YouTube">Big Mama Thornton ↗</a></p>
+        <div class="watch-links"><span class="watch-label">2 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="jV6OkmemYHI" data-title="High Spirits Cafe, Pune · Apr 2026" aria-label="Play: High Spirits Cafe, Pune · Apr 2026"><img src="https://i.ytimg.com/vi/jV6OkmemYHI/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=jV6OkmemYHI" target="_blank" rel="noopener">High Spirits Cafe, Pune · Apr 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="YQgjzev9yG8" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/YQgjzev9yG8/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=YQgjzev9yG8" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Blues Power</span><span class="song-meta">Original by Albert King</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=1zfcHDtGww0" target="_blank" rel="noopener" aria-label="Original recording by Albert King on YouTube">Albert King ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="DlU-POo0_ko" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/DlU-POo0_ko/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=DlU-POo0_ko" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Old Love</span><span class="song-meta">Original by Eric Clapton &amp; Robert Cray</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=kjKbuwhiW6s" target="_blank" rel="noopener" aria-label="Original recording by Eric Clapton &amp; Robert Cray on YouTube">Eric Clapton &amp; Robert Cray ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="5N2fSOVZlL8" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/5N2fSOVZlL8/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=5N2fSOVZlL8" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Johnny B. Goode</span><span class="song-meta">Original by Chuck Berry</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=Y-9Y4CCIWnM" target="_blank" rel="noopener" aria-label="Original recording by Chuck Berry on YouTube">Chuck Berry ↗</a></p>
+        <div class="watch-links"><span class="watch-label">2 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="PfRKiBblaSw" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/PfRKiBblaSw/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=PfRKiBblaSw" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="Ul8j-KKNkHk" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/Ul8j-KKNkHk/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=Ul8j-KKNkHk" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Got My Mojo Workin'</span><span class="song-meta">Original by Muddy Waters</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=-APvKTcUW9Y" target="_blank" rel="noopener" aria-label="Original recording by Muddy Waters on YouTube">Muddy Waters ↗</a></p>
+        <div class="watch-links"><span class="watch-label">7 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="oRNILX_FbWU" data-title="High Spirits Cafe, Pune · Apr 2026" aria-label="Play: High Spirits Cafe, Pune · Apr 2026"><img src="https://i.ytimg.com/vi/oRNILX_FbWU/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=oRNILX_FbWU" target="_blank" rel="noopener">High Spirits Cafe, Pune · Apr 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="b9IaVSg2ZmA" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/b9IaVSg2ZmA/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=b9IaVSg2ZmA" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="ut0vGEtt6JE" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/ut0vGEtt6JE/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=ut0vGEtt6JE" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="qnR1Rg6sh60" data-title="Shisha Cafe, Pune · May 2025" aria-label="Play: Shisha Cafe, Pune · May 2025"><img src="https://i.ytimg.com/vi/qnR1Rg6sh60/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=qnR1Rg6sh60" target="_blank" rel="noopener">Shisha Cafe, Pune · May 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="JETys-8wrNM" data-title="Cobbler &amp; Crew, Pune · Dec 2024" aria-label="Play: Cobbler &amp; Crew, Pune · Dec 2024"><img src="https://i.ytimg.com/vi/JETys-8wrNM/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=JETys-8wrNM" target="_blank" rel="noopener">Cobbler &amp; Crew, Pune · Dec 2024 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="ZO2kapYufkE" data-title="Cobbler &amp; Crew, Pune · Dec 2024 (another cut)" aria-label="Play: Cobbler &amp; Crew, Pune · Dec 2024 (another cut)"><img src="https://i.ytimg.com/vi/ZO2kapYufkE/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=ZO2kapYufkE" target="_blank" rel="noopener">Cobbler &amp; Crew, Pune · Dec 2024 (another cut) ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="N1XcgTGgjAE" data-title="The Demo" aria-label="Play: The Demo"><img src="https://i.ytimg.com/vi/N1XcgTGgjAE/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=N1XcgTGgjAE" target="_blank" rel="noopener">The Demo ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Boom Boom</span><span class="song-meta">Original by John Lee Hooker</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=o_6SlT3Yy10" target="_blank" rel="noopener" aria-label="Original recording by John Lee Hooker on YouTube">John Lee Hooker ↗</a></p>
+        <div class="watch-links"><span class="watch-label">2 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="WnoLjrve_qA" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/WnoLjrve_qA/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=WnoLjrve_qA" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="BNW5mvf3yEU" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/BNW5mvf3yEU/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=BNW5mvf3yEU" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Sweet Home Chicago</span><span class="song-meta">Original by Robert Johnson</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=aXTQeNIoiwo" target="_blank" rel="noopener" aria-label="Original recording by Robert Johnson on YouTube">Robert Johnson ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="ppivxvyTp8M" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/ppivxvyTp8M/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=ppivxvyTp8M" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Shake Your Money Maker</span><span class="song-meta">Original by Elmore James</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=837GaWUZ4Yk" target="_blank" rel="noopener" aria-label="Original recording by Elmore James on YouTube">Elmore James ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="f8JhRaqkoWU" data-title="Shisha Cafe, Pune · May 2025" aria-label="Play: Shisha Cafe, Pune · May 2025"><img src="https://i.ytimg.com/vi/f8JhRaqkoWU/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=f8JhRaqkoWU" target="_blank" rel="noopener">Shisha Cafe, Pune · May 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Pride and Joy</span><span class="song-meta">Original by Stevie Ray Vaughan</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=I3MTGhRC82s" target="_blank" rel="noopener" aria-label="Original recording by Stevie Ray Vaughan on YouTube">Stevie Ray Vaughan ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="zi2EK9AS-F0" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/zi2EK9AS-F0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=zi2EK9AS-F0" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Little Wing</span><span class="song-meta">Original by Jimi Hendrix</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=35luFxHO5E0" target="_blank" rel="noopener" aria-label="Original recording by Jimi Hendrix on YouTube">Jimi Hendrix ↗</a></p>
+        <div class="watch-links"><span class="watch-label">2 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="9bAXRFStFck" data-title="Shisha Cafe, Pune · Oct 2025" aria-label="Play: Shisha Cafe, Pune · Oct 2025"><img src="https://i.ytimg.com/vi/9bAXRFStFck/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=9bAXRFStFck" target="_blank" rel="noopener">Shisha Cafe, Pune · Oct 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="sSDQ7OUK9Ns" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/sSDQ7OUK9Ns/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=sSDQ7OUK9Ns" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Still Got The Blues</span><span class="song-meta">Original by Gary Moore</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=0dWDM0k3OE8" target="_blank" rel="noopener" aria-label="Original recording by Gary Moore on YouTube">Gary Moore ↗</a></p>
+        <div class="watch-links"><span class="watch-label">3 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="zkTHloFr3_0" data-title="High Spirits Cafe, Pune · Apr 2026" aria-label="Play: High Spirits Cafe, Pune · Apr 2026"><img src="https://i.ytimg.com/vi/zkTHloFr3_0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=zkTHloFr3_0" target="_blank" rel="noopener">High Spirits Cafe, Pune · Apr 2026 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="LsNc6knyFII" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/LsNc6knyFII/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=LsNc6knyFII" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="5YMi5gBIX14" data-title="antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: antiSOCIAL, Mumbai · Aug 2025"><img src="https://i.ytimg.com/vi/5YMi5gBIX14/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=5YMi5gBIX14" target="_blank" rel="noopener">antiSOCIAL, Mumbai · Aug 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">The Loner</span><span class="song-meta">Original by Gary Moore</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=TXUbCnoe6BA" target="_blank" rel="noopener" aria-label="Original recording by Gary Moore on YouTube">Gary Moore ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="hjAYwYylLqk" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/hjAYwYylLqk/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=hjAYwYylLqk" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Just The Two Of Us</span><span class="song-meta">Original by Grover Washington Jr. feat. Bill Withers</span></summary>
+      <div class="song-body">
+        <p class="orig-credit">Original recording: <a href="https://www.youtube.com/watch?v=6IO74QV6wHY" target="_blank" rel="noopener" aria-label="Original recording by Grover Washington Jr. feat. Bill Withers on YouTube">Grover Washington Jr. feat. Bill Withers ↗</a></p>
+        <div class="watch-links"><span class="watch-label">Watch it live</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="vzC3w53TvDY" data-title="The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/vzC3w53TvDY/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=vzC3w53TvDY" target="_blank" rel="noopener">The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div></div></div>
+      </div>
+    </details>
+
+    <details class="song-card">
+      <summary><span class="song-title">Jams &amp; Improvisations</span><span class="song-meta">Made up on the spot</span></summary>
+      <div class="song-body">
+        <div class="watch-links"><span class="watch-label">3 live cuts</span><div class="cuts"><div class="cut"><button type="button" class="yt yt-sm" data-id="HIlay7b7TOA" data-title="Delta Blues Medley · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Delta Blues Medley · The Bluebop Cafe, Mumbai · Sep 2025"><img src="https://i.ytimg.com/vi/HIlay7b7TOA/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=HIlay7b7TOA" target="_blank" rel="noopener">Delta Blues Medley · The Bluebop Cafe, Mumbai · Sep 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="9X1ZfTn1H50" data-title="Improvisations · Shisha Cafe, Pune · May 2025" aria-label="Play: Improvisations · Shisha Cafe, Pune · May 2025"><img src="https://i.ytimg.com/vi/9X1ZfTn1H50/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=9X1ZfTn1H50" target="_blank" rel="noopener">Improvisations · Shisha Cafe, Pune · May 2025 ↗</a></div><div class="cut"><button type="button" class="yt yt-sm" data-id="R73t1Vjtci0" data-title="Progressive Blues Jam · 3 Wise Monkeys · Feb 2024" aria-label="Play: Progressive Blues Jam · 3 Wise Monkeys · Feb 2024"><img src="https://i.ytimg.com/vi/R73t1Vjtci0/mqdefault.jpg" width="320" height="180" loading="lazy" alt=""><svg class="icon play" width="40" height="40" aria-hidden="true"><use href="#icon-play"></use></svg></button><a class="cut-cap" href="https://www.youtube.com/watch?v=R73t1Vjtci0" target="_blank" rel="noopener">Progressive Blues Jam · 3 Wise Monkeys · Feb 2024 ↗</a></div></div></div>
+      </div>
+    </details>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<section id="band">
+  <div class="wrap-wide">
+    <h2 style="text-align:center">Meet The Kemosabes</h2>
+    <p class="intro">Six souls. One congregation. Tap a photo to bring it to life.</p>
+
+    <div class="carousel" data-carousel>
+      <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+      <div class="band-row car-track">
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-karan-gera" aria-label="Show who this is: The Brown Kemosabe"><img src="assets/portrait-1.webp" width="600" height="898" alt="Karan Gera, vocals &amp; harmonica" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Brown Kemosabe</span><span class="portrait-tag-name">Karan Gera</span></span></button><figcaption>© <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+        <div class="member-card" id="member-karan-gera">
+        <p class="member-title">The Brown Kemosabe</p>
+        <p class="member-name">Karan Gera</p>
+        <p class="member-role">The Chief<br>Vocals, Harmonicas, and Principal Songwriter</p>
+        <a class="member-handle" href="https://www.instagram.com/brownkemosabe" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@brownkemosabe</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-farhaan" aria-label="Show who this is: The Wah-Wah Kemosabe"><img src="assets/portrait-6.webp" width="600" height="800" alt="Farhaan Mistry, lead guitar" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Wah-Wah Kemosabe</span><span class="portrait-tag-name">Farhaan Mistry</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-farhaan">
+        <p class="member-title">The Wah-Wah Kemosabe</p>
+        <p class="member-name">Farhaan Mistry</p>
+        <p class="member-role">Lead Guitar</p>
+        <a class="member-handle" href="https://www.instagram.com/farhaan_mistry" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@farhaan_mistry</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-karan-lekhyani" aria-label="Show who this is: The Kinetic Kemosabe"><img src="assets/portrait-4.webp" width="538" height="957" alt="Karan Lekhyani, piano" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Kinetic Kemosabe</span><span class="portrait-tag-name">Karan Lekhyani</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-karan-lekhyani">
+        <p class="member-title">The Kinetic Kemosabe</p>
+        <p class="member-name">Karan Lekhyani</p>
+        <p class="member-role">Piano &amp; Keys</p>
+        <a class="member-handle" href="https://www.instagram.com/thepianoman___" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@thepianoman___</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-ben" aria-label="Show who this is: The Principal Kemosabe"><img src="assets/portrait-5.webp" width="511" height="766" alt="Ben Khambatta, bass" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Principal Kemosabe</span><span class="portrait-tag-name">Ben Khambatta</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-ben">
+        <p class="member-title">The Principal Kemosabe</p>
+        <p class="member-name">Ben Khambatta</p>
+        <p class="member-role">Bass</p>
+        <a class="member-handle" href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@walrus_of_the_south</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-jade" aria-label="Show who this is: The Pocket Kemosabe"><img src="assets/portrait-3.webp" width="600" height="634" alt="Jade Sequeira, drums" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Pocket Kemosabe</span><span class="portrait-tag-name">Jade Sequeira</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-jade">
+        <p class="member-title">The Pocket Kemosabe</p>
+        <p class="member-name">Jade Sequeira</p>
+        <p class="member-role">Drums &amp; Percussion</p>
+        <a class="member-handle" href="https://www.instagram.com/sickj.in" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@sickj.in</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-zion" aria-label="Show who this is: The Ubiquitous Kemosabe"><img src="assets/portrait-2.webp" width="600" height="900" alt="Zion D'Souza, rhythm guitar" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Ubiquitous Kemosabe</span><span class="portrait-tag-name">Zion D'Souza</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-zion">
+        <p class="member-title">The Ubiquitous Kemosabe</p>
+        <p class="member-name">Zion D'Souza</p>
+        <p class="member-role">Rhythm Guitar &amp; Backing Vocals</p>
+        <a class="member-handle" href="https://www.instagram.com/_ziondsouza_" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@_ziondsouza_</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      </div>
+      <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+    </div>
+    <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<!-- OUR STORY & GOSPEL: edit the show count, paragraphs and gospel here -->
+<section id="story">
+  <div class="wrap">
+    <span class="kicker" style="text-align:center;display:block">How It Began</span>
+    <h2 style="text-align:center">Our Story</h2>
+    <div class="stats">
+      <div class="stat"><span class="stat-num" data-editable="show-count">20</span><span class="stat-label">Shows since Dec 2024</span></div>
+      <div class="stat"><span class="stat-num">7</span><span class="stat-label">Venues</span></div>
+      <div class="stat"><span class="stat-num">2</span><span class="stat-label">Cities</span></div>
+    </div>
+    <p class="story">Freshly minted in Mumbai. We went live, for real, in December 2024, at Cobbler &amp; Crew, Pune, and we haven't stopped since: <strong>20 shows</strong> and counting, across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Soul Fry and High Spirits Cafe. Every night the Congregation grows, one juke joint at a time.</p>
+    <p class="story">We write our own music about real experiences such as anxiety, love, loss, compassion, unity, and the beauty of life! We don't do mere covers. We do impressions of our deepest blues and soul influences. Our songbook will soon be available on our debut album.</p>
+    <p class="story-coda"><span>It's Church.</span><span>It's Therapy.</span><span>It's The Blues.</span></p>
+  </div>
+  <div class="gospel-card" id="gospel">
+    <div class="wrap">
+      <h3 class="gospel-title">The Gospel of The Kemosabes</h3>
+      <p class="verse">
+      <span>We Are All Kemosabes</span>
+      <span>We All Have Struggle</span>
+      <span>We All Have Love</span>
+      <span>When We Share Them With Each Other</span>
+      <span>We'll Touch The Stars Above</span>
+    </p>
+      <p class="gospel-close">This Is The Way Of The Kemosabes<br>And These Are Our Blues</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<section id="listening">
+  <div class="wrap">
+    <h2 style="text-align:center">Recommended Listening</h2>
+    <p class="intro">Where our blues come from. Four playlists, spun by the band.</p>
+    <div class="listen-grid">
+      <div class="listen-card">
+        <h3>Blues, An Origin Story</h3>
+        <span class="song-meta">A compilation of the most adapted, influential pieces and standards which have built the foundation of The Blues from across the 20th Century.</span>
+        <iframe src="https://open.spotify.com/embed/playlist/4cggAYklqQDJK4W1fmJjpA?theme=0" height="152" loading="lazy" allow="encrypted-media" title="Blues, An Origin Story playlist"></iframe>
+        <a class="video-fallback" href="https://open.spotify.com/playlist/4cggAYklqQDJK4W1fmJjpA" target="_blank" rel="noopener">Open in Spotify ↗</a>
+      </div>
+      <div class="listen-card">
+        <h3>The Eternal Power of Soul</h3>
+        <span class="song-meta">From pioneers to modern geniuses of Soul and Funk, sprinkled with a healthy dose of Rhythm &amp; Blues. ✊🏾</span>
+        <iframe src="https://open.spotify.com/embed/playlist/12vYwb2My9E1PeFwiSWZdc?theme=0" height="152" loading="lazy" allow="encrypted-media" title="The Eternal Power of Soul playlist"></iframe>
+        <a class="video-fallback" href="https://open.spotify.com/playlist/12vYwb2My9E1PeFwiSWZdc" target="_blank" rel="noopener">Open in Spotify ↗</a>
+      </div>
+      <div class="listen-card">
+        <h3>Blues Forever</h3>
+        <span class="song-meta">Experience the endless influence of the most historically heartfelt form of music - The Blues!</span>
+        <iframe src="https://open.spotify.com/embed/playlist/2IKw3wt5Zcl3cNODrVUvKi?theme=0" height="152" loading="lazy" allow="encrypted-media" title="Blues Forever playlist"></iframe>
+        <a class="video-fallback" href="https://open.spotify.com/playlist/2IKw3wt5Zcl3cNODrVUvKi" target="_blank" rel="noopener">Open in Spotify ↗</a>
+      </div>
+      <div class="listen-card">
+        <h3>Soul Revolution: Power To The People</h3>
+        <span class="song-meta">The Soul Anthems of Resistance and Struggle against Injustice. All Power to The People. ✊🏿</span>
+        <iframe src="https://open.spotify.com/embed/playlist/0L6ZpbGJBN9O1UcpAF0IhZ?theme=0" height="152" loading="lazy" allow="encrypted-media" title="Soul Revolution: Power To The People playlist"></iframe>
+        <a class="video-fallback" href="https://open.spotify.com/playlist/0L6ZpbGJBN9O1UcpAF0IhZ" target="_blank" rel="noopener">Open in Spotify ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="book">
+  <div class="wrap">
+    <img class="footer-wordmark" src="assets/wordmark.webp" width="800" height="352" alt="The Kemosabes" loading="lazy">
+    <h2>Come Shimmy With Us!</h2>
+    <p class="lead">Bookings, collaborations and fellowship.</p>
+    <div class="footer-btns">
+      <a class="btn" href="mailto:thekemosabes@gmail.com">Email us</a>
+      <a class="btn" href="https://api.whatsapp.com/send?phone=918076112334" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+    <div class="icon-row">
+      <a class="icon-btn" href="https://www.instagram.com/thekemosabes" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg></a>
+      <a class="icon-btn" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"></use></svg></a>
+      <a class="icon-btn" href="https://api.whatsapp.com/send?phone=918076112334" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg></a>
+      <a class="icon-btn" href="mailto:thekemosabes@gmail.com" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg></a>
+    </div>
+    <p class="fine">© 2026 The Kemosabes · Mumbai</p>
+    <p class="fine">Photography: <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a> (@tothegloriousunknown) · <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a> (@shotinfocus101)</p>
+  </div>
+</footer>
+
+<nav class="sticky-bar" aria-label="Quick links">
+  <a class="btn" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-youtube"></use></svg>YouTube</a>
+  <a class="btn solid" href="https://chat.whatsapp.com/GtEWxiJI1fZ9UlY1nmgKnY?mode=gi_t" target="_blank" rel="noopener"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Congregation</a>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+  // Click analytics: one delegated listener labels and counts every meaningful click.
+  // Sends to GoatCounter if the script above is configured; otherwise this is a harmless no-op.
+  function track(label){
+    try{
+      if(window.goatcounter && window.goatcounter.count){
+        window.goatcounter.count({path:label, title:label, event:true});
+      }
+    }catch(e){}
+  }
+  function labelFor(el){
+    var yt=el.closest(".yt[data-id]"); if(yt) return "play-video:"+yt.getAttribute("data-id");
+    var ig=el.closest(".ig-play[data-reel]"); if(ig) return "play-reel:"+ig.getAttribute("data-reel");
+    var tab=el.closest(".tab-btn[data-tab]"); if(tab) return "songbook-tab:"+tab.getAttribute("data-tab");
+    var portrait=el.closest(".portrait-btn[data-member]"); if(portrait) return "meet-member:"+portrait.getAttribute("data-member");
+    var lb=el.closest("a.poster, a.lb"); if(lb) return "lightbox-open";
+    var arrow=el.closest(".car-prev"); if(arrow) return "carousel-prev";
+    var arrow2=el.closest(".car-next"); if(arrow2) return "carousel-next";
+    var a=el.closest("a[href]");
+    if(a){
+      var href=a.getAttribute("href")||"";
+      if(href.indexOf("mailto:")===0) return "click-email";
+      if(href.indexOf("#")===0) return "nav:"+href.slice(1);
+      try{
+        var u=new URL(href, location.href);
+        return "link:"+u.hostname.replace(/^www\\./,"")+(u.pathname!=="/"?u.pathname.slice(0,40):"");
+      }catch(e){ return "link:"+href.slice(0,40); }
+    }
+    var btn=el.closest("button");
+    if(btn){ return "button:"+(btn.textContent||"").trim().replace(/\\s+/g,' ').slice(0,30); }
+    return null;
+  }
+  document.addEventListener("click", function(e){
+    var el=e.target.closest("a[href], button");
+    if(!el) return;
+    var label=labelFor(el);
+    if(label) track(label);
+  }, true);
+
+  // Site search: jumps to the first (then next) matching title/name on the page.
+  (function(){
+    var input=document.getElementById("site-search"), status=document.getElementById("search-status");
+    if(!input) return;
+    var SEL='.song-title, .song-meta, .member-name, .member-title, h2, .ig-title, .show-title, .show-venue, .listen-card h3';
+    var items=[], lastQuery="", matchIndex=-1, hitTimer=null;
+    function buildIndex(){
+      items=[]; document.querySelectorAll(SEL).forEach(function(el){
+        var text=el.textContent.trim(); if(!text) return;
+        items.push({el:el, text:text.toLowerCase()});
+      });
+    }
+    function reveal(el){
+      var tabPanel=el.closest(".tab-panel[hidden]");
+      if(tabPanel){ var btn=document.querySelector('.tab-btn[data-tab="'+tabPanel.id+'"]'); if(btn) btn.click(); }
+      var details=el.closest("details"); if(details && !details.open) details.open=true;
+      var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var target=details||el;
+      target.scrollIntoView({behavior:reduce?"auto":"smooth", block:"center"});
+      if(hitTimer) clearTimeout(hitTimer);
+      target.classList.add("is-highlighted");
+      hitTimer=setTimeout(function(){ target.classList.remove("is-highlighted"); },2600);
+    }
+    function runSearch(next){
+      var q=input.value.trim().toLowerCase();
+      if(!q){ status.textContent=""; matchIndex=-1; lastQuery=""; return; }
+      if(q!==lastQuery){ buildIndex(); lastQuery=q; matchIndex=-1; }
+      var matches=items.filter(function(it){ return it.text.indexOf(q)>-1; });
+      if(!matches.length){ status.textContent='No matches for "'+input.value.trim()+'"'; return; }
+      matchIndex = next ? (matchIndex+1)%matches.length : 0;
+      reveal(matches[matchIndex].el);
+      status.textContent = matches.length>1 ? "Match "+(matchIndex+1)+" of "+matches.length+" — press Enter for next" : "1 match found";
+    }
+    var deb=null;
+    input.addEventListener("input",function(){ clearTimeout(deb); deb=setTimeout(function(){ runSearch(false); },250); });
+    input.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); runSearch(true); } else if(e.key==="Escape"){ input.value=""; status.textContent=""; input.blur(); } });
+  })();
+
+  // Songbook tabs (Original Music / Covers & Impressions)
+  var songbook=document.getElementById("songbook");
+  if(songbook){
+    var tabBtns=songbook.querySelectorAll(".tab-btn");
+    function activateTab(name, scroll){
+      tabBtns.forEach(function(b){
+        var on=b.dataset.tab===name;
+        b.classList.toggle("is-active",on); b.setAttribute("aria-selected",on?"true":"false");
+        var panel=document.getElementById(b.dataset.tab);
+        if(panel) panel.hidden=!on;
+      });
+      if(scroll){ var target=document.getElementById(name); if(target) target.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"start"}); }
+    }
+    tabBtns.forEach(function(b){ b.addEventListener("click",function(){ activateTab(b.dataset.tab,false); }); });
+    document.querySelectorAll("a[href=\"#originals\"], a[href=\"#covers\"]").forEach(function(a){
+      a.addEventListener("click",function(e){ e.preventDefault(); activateTab(a.getAttribute("href").slice(1), true); });
+    });
+  }
+
+  // Carousels: arrow buttons + scroll progress (From the Gram, Live Moments)
+  document.querySelectorAll("[data-carousel]").forEach(function(car){
+    var track=car.querySelector(".car-track");
+    var prev=car.querySelector(".car-prev"), next=car.querySelector(".car-next");
+    var fill=car.parentElement.querySelector(".car-progress-fill");
+    function update(){
+      var max=track.scrollWidth-track.clientWidth;
+      var pct=max>0 ? Math.min(1,Math.max(0,track.scrollLeft/max)) : 0;
+      if(fill){ var w=Math.max(track.clientWidth/track.scrollWidth*100,12); fill.style.width=w+"%"; fill.style.transform="translateX("+(pct*(100/w-1)*100)+"%)"; }
+      if(prev) prev.disabled = track.scrollLeft<=2;
+      if(next) next.disabled = max<=2 || track.scrollLeft>=max-2;
+    }
+    if(prev) prev.addEventListener("click",function(){ track.scrollBy({left:-track.clientWidth*0.85, behavior:"smooth"}); });
+    if(next) next.addEventListener("click",function(){ track.scrollBy({left:track.clientWidth*0.85, behavior:"smooth"}); });
+    track.addEventListener("scroll",function(){ window.requestAnimationFrame(update); }, {passive:true});
+    window.addEventListener("resize",update);
+    update();
+  });
+
+  // Re-measure carousels when a closed year accordion opens (its carousel had zero width while hidden).
+  document.querySelectorAll(".year-group").forEach(function(y){
+    y.addEventListener("toggle", function(){ window.dispatchEvent(new Event("resize")); });
+  });
+
+  var nav=document.getElementById("sidenav"), tog=document.querySelector(".nav-toggle");
+  if(nav&&tog){
+    tog.addEventListener("click",function(){var o=nav.classList.toggle("open"); tog.setAttribute("aria-expanded",o);});
+    nav.addEventListener("click",function(e){if(e.target.closest("a")){nav.classList.remove("open"); tog.setAttribute("aria-expanded","false");}});
+    if("IntersectionObserver" in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){nav.querySelectorAll("a").forEach(function(a){a.classList.toggle("is-current",a.dataset.sec===en.target.id);});}});},{rootMargin:"-45% 0px -50% 0px"});
+      nav.querySelectorAll("a").forEach(function(a){var t=document.getElementById(a.dataset.sec); if(t) io.observe(t);});
+    }
+  }
+
+  document.addEventListener("click", function(e){
+    var b = e.target.closest(".ig-play"); if(!b) return;
+    var f = document.createElement("iframe");
+    f.className = "ig-frame"; f.loading = "lazy"; f.allow = "autoplay; encrypted-media; picture-in-picture";
+    f.title = b.getAttribute("aria-label"); f.src = "https://www.instagram.com/" + (b.getAttribute("data-kind")||"reel") + "/" + b.getAttribute("data-reel") + "/embed/";
+    b.replaceWith(f);
+  });
+
+
+  var dlg = document.createElement("dialog");
+  if(typeof dlg.showModal === "function"){
+    dlg.className = "poster-dialog";
+    var big = document.createElement("img"); dlg.appendChild(big); document.body.appendChild(dlg);
+    dlg.addEventListener("click", function(){ dlg.close(); });
+    document.addEventListener("click", function(e){
+      var a = e.target.closest("a.poster, a.lb"); if(!a) return;
+      e.preventDefault(); big.src = a.getAttribute("href"); big.alt = a.querySelector("img").alt; dlg.showModal();
+    });
+  }
+
+  // Lite YouTube embed: swap thumbnail for iframe. Clicking a carousel video loads it into the featured player instead of playing inline.
+  function mountYt(container, id, title){
+    var old = container.querySelector(".yt, .yt-frame");
+    var frame = document.createElement("div");
+    frame.className = "yt-frame";
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("title", title);
+    frame.appendChild(iframe);
+    if(old) old.replaceWith(frame);
+  }
+  document.addEventListener("click", function(e){
+    var btn = e.target.closest(".yt");
+    if(!btn) return;
+    var id = btn.getAttribute("data-id");
+    var title = btn.getAttribute("data-title") || "Video";
+    var gridItem = btn.closest("#watch .video-grid .video");
+    if(gridItem){
+      var featured = document.querySelector("#watch .video-featured");
+      if(featured){
+        mountYt(featured, id, title);
+        var cap = featured.querySelector(".video-caption"); if(cap) cap.textContent = title;
+        var fb = featured.querySelector(".video-fallback"); if(fb) fb.href = "https://www.youtube.com/watch?v=" + id;
+        featured.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"});
+      }
+      return;
+    }
+    mountYt(btn.parentElement, id, title);
+  });
+
+  // Sticky bottom bar: show once the link stack has been scrolled past.
+  var sentinel = document.getElementById("linkstack-sentinel");
+  var bar = document.querySelector(".sticky-bar");
+  if(sentinel && bar && "IntersectionObserver" in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var past = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        bar.classList.toggle("show", past);
+        document.body.classList.toggle("has-stickybar", past);
+      });
+    }, {threshold: 0});
+    obs.observe(sentinel);
+  }
+})();
+
+(function(){
+  "use strict";
+  var portraitButtons = document.querySelectorAll(".portrait-btn");
+  if(!portraitButtons.length) return;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var highlightTimer = null;
+  portraitButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      portraitButtons.forEach(function(b){ b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      var targetId = btn.getAttribute("data-member");
+      var card = targetId && document.getElementById(targetId);
+      if(!card) return;
+      card.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block: "center"});
+      document.querySelectorAll(".member-card.is-highlighted").forEach(function(c){ c.classList.remove("is-highlighted"); });
+      void card.offsetWidth;
+      card.classList.add("is-highlighted");
+      if(highlightTimer) clearTimeout(highlightTimer);
+      highlightTimer = setTimeout(function(){ card.classList.remove("is-highlighted"); }, 2800);
+    });
+  });
+})();
+</script>
+</body>
+</html>
