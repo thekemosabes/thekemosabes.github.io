@@ -112,6 +112,54 @@ scale = 1400 / max(im.size)
 im.resize([round(d*scale) for d in im.size], Image.LANCZOS).save(full_out, "WEBP", quality=82, method=6)
 ```
 
+## Copy rule: don't repeat the same descriptor twice in a row
+
+The hero tagline ("The Ultimate Juke Joint Experience") deliberately does **not** say
+"...Blues & Soul Experience" — the subline directly below it already says "A Rhythm, Blues,
+& Soul Band," so repeating "Blues & Soul" in both lines back-to-back reads redundant. When
+editing copy that sits in a stack (tagline → subline → kicker, etc.), check the adjacent
+lines for repeated descriptors before finalizing wording, not just each line in isolation.
+
+## Responsive container widths (`.wrap` / `.wrap-wide`)
+
+Base: `.wrap{max-width:640px}` (text-heavy sections — intros, songbook, footer) and
+`.wrap-wide{max-width:1040px}` (carousels, galleries, the hero). Both scale up at two large
+breakpoints so the page doesn't look like a narrow stranded column with huge dead margins on
+big monitors — this was a real complaint ("spread out better on desktop"), fixed by:
+```css
+@media (min-width:1400px){ .wrap{max-width:760px;} .wrap-wide{max-width:1320px;} }
+@media (min-width:1800px){ .wrap{max-width:840px;} .wrap-wide{max-width:1520px;} }
+```
+`.wrap` is intentionally kept *narrower* than `.wrap-wide` even at these larger sizes —
+paragraph text shouldn't stretch past a comfortable reading width, but carousels/galleries
+should use the extra room. If you add a third breakpoint or change these numbers, update
+both classes together so the ratio between them stays sensible.
+
+## Mobile side-nav: transparent, not a solid block
+
+The mobile/tablet nav drawer (`.sidenav` under the `max-width:1199px` media query) is
+deliberately translucent — `background:rgba(10,15,36,.5)` + `backdrop-filter:blur(18px)`,
+with a text-shadow on the links for legibility — so you can still see the blurred hero
+photo through it instead of it feeling like an opaque panel dropped on top of the page. The
+collapsed state is just the small "☰ Menu" pill (`.nav-toggle`) — don't replace that with
+an always-visible full nav on small screens; the pattern is "small indicator → tap → glass
+drawer expands," not "drawer always partially open."
+
+## `og-image.jpg` and link-preview caching (a real gotcha this session hit)
+
+`assets/og-image.jpg` (1200×630) should be the band logo centered on the site's dark
+background with the brass glow — **not** a candid/solo photo of one member. If you regenerate
+it, keep the same filename so no HTML changes are needed.
+
+**The confusing part:** WhatsApp (and most chat apps) snapshot the link preview *once, at
+the moment a message is sent*, and bake it into that message forever — reopening an old chat
+bubble will keep showing the old image even after the live file is fixed and verified correct
+(checksum-diff the live file against your local copy to prove this to yourself before chasing
+a phantom bug). To see a fix, send the link in a **new** message, or append a throwaway query
+string (`?x=1`) to force a guaranteed-fresh fetch. Meta's Sharing Debugger can force a re-scrape
+but requires logging into a Facebook account — not something to do on the band's behalf without
+asking first.
+
 ## Photo sourcing
 
 Band photos live across many albums in the band's Google Photos (`thekemosabes@gmail.com`),
