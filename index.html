@@ -1298,7 +1298,7 @@
     var ig=el.closest(".ig-play[data-reel]"); if(ig) return "play-reel:"+ig.getAttribute("data-reel");
     var tab=el.closest(".tab-btn[data-tab]"); if(tab) return "songbook-tab:"+tab.getAttribute("data-tab");
     var portrait=el.closest(".portrait-btn[data-member]"); if(portrait) return "meet-member:"+portrait.getAttribute("data-member");
-    var lb=el.closest("a.poster, a.lb"); if(lb) return "lightbox-open";
+    var lb=el.closest("a.poster, a.poster-lg, a.lb"); if(lb) return "lightbox-open";
     var arrow=el.closest(".car-prev"); if(arrow) return "carousel-prev";
     var arrow2=el.closest(".car-next"); if(arrow2) return "carousel-next";
     var a=el.closest("a[href]");
@@ -1428,7 +1428,7 @@
     var big = document.createElement("img"); dlg.appendChild(big); document.body.appendChild(dlg);
     dlg.addEventListener("click", function(){ dlg.close(); });
     document.addEventListener("click", function(e){
-      var a = e.target.closest("a.poster, a.lb"); if(!a) return;
+      var a = e.target.closest("a.poster, a.poster-lg, a.lb"); if(!a) return;
       e.preventDefault(); big.src = a.getAttribute("href"); big.alt = a.querySelector("img").alt; dlg.showModal();
     });
   }
