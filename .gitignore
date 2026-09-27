@@ -1,2 +1,6 @@
 _spec/
 .DS_Store
+build/
+src/
+kemosabes-site.zip
+qa-photo-credits.png
