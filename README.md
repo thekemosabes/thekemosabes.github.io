@@ -71,8 +71,8 @@ git push works with no credential prompt.
 - **No lyrics anywhere in the page source.** Not in a hidden div, not in a comment. Song
   cards get a title + one-line description + links to live versions only.
 - **Exact venue name spellings** (used consistently everywhere): Cobbler & Crew · Shisha
-  Cafe · The Stables · Soul Fry · The Bluebop Cafe · High Spirits Cafe · antiSOCIAL.
-- **Location is "Mumbai"**, not "Mumbai & Pune" (footer, meta description, etc.) even though
+  Cafe · The Stables · Soul Fry · The Bluebop Cafe · High Spirits Cafe · antiSOCIAL. There may be other venues, cross-reference their names on Google Maps before you add them, and use the exact nomenclature.
+- **Band Location is "Mumbai"**, not "Mumbai & Pune" (footer, meta description, etc.) even though
   some venues are in Pune.
 - **Never fabricate a photo credit or an Instagram handle.** If a photo's photographer isn't
   confirmed (no watermark, no known handle), either credit them by the plain-text name only
