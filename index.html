@@ -194,15 +194,24 @@
   .link-pill .chev{flex:none; color:var(--brass); font-size:1.1rem;}
 
   .ticket{
-    display:flex; flex-direction:column; align-items:center; text-align:center; gap:.25em;
-    padding:1.1em 1.2em; border-radius:14px; border:1px dashed var(--brass);
+    display:flex; flex-direction:row; align-items:center; text-align:left; gap:1.1em;
+    padding:1em 1.3em; border-radius:14px; border:1px dashed var(--brass);
     background:repeating-linear-gradient(180deg, var(--ink-2), var(--ink-2) 8px, var(--ink-3) 8px, var(--ink-3) 9px);
     position:relative;
   }
-  .ticket .poster-lg{max-width:130px; margin-bottom:.4em; border-color:var(--brass-deep);}
+  .ticket .poster-lg{flex:0 0 auto; width:160px; margin-bottom:0; border-color:var(--brass-deep);}
+  .ticket-info{display:flex; flex-direction:column; gap:.3em; flex:1 1 auto; min-width:0;}
   .ticket-label{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--brass);font-weight:300;letter-spacing:.06em;}
+  .ticket-title{font-family:"Abril Fatface",Georgia,serif; font-weight:400; color:var(--cream); font-size:1.3rem; line-height:1.2;}
+  .ticket-subtitle{color:var(--cream-dim); font-size:.92rem; font-style:italic; line-height:1.3;}
   .ticket-date{font-family:"Londrina Solid",sans-serif;  font-size:1.50rem; text-transform:uppercase;  color:var(--cream);font-weight:300;letter-spacing:.06em;}
   .ticket-venue{color:var(--cream-dim);}
+  @media (max-width:380px){
+    .ticket{gap:.8em; padding:.9em 1em;}
+    .ticket .poster-lg{width:120px;}
+    .ticket-title{font-size:1.1rem;}
+    .ticket-date{font-size:1.25rem;}
+  }
 
   /* GOSPEL */
   #gospel{
@@ -345,7 +354,7 @@
     .sticky-bar{display:none;}
     body.has-stickybar{padding-bottom:0;}
   }
-.watch-label{display:block;width:100%;font-family:"Londrina Solid",sans-serif;font-size:0.95rem;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.4remfont-weight:300;letter-spacing:.06em;}
+.watch-label{display:block;width:100%;font-family:"Londrina Solid",sans-serif;font-size:0.95rem;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.4rem;font-weight:300;letter-spacing:.06em;}
 
   .yt .play{width:64px; height:64px;}
   .video-fallback{display:inline-flex; align-items:center; min-height:44px;}
@@ -408,34 +417,36 @@
   .cut-cap{display:block; margin-top:.35rem; font-size:.95rem; line-height:1.35; color:var(--cream-dim); text-decoration:none; min-height:0;}
   .cut-cap:hover,.cut-cap:focus-visible{color:var(--brass);}
   .watch-links a.cut-cap{border-bottom:0; min-height:0; display:block;}
-  html{scroll-behavior:smooth;} section, header, footer{scroll-margin-top:12px;}
-  :root{ --rail-collapsed:60px; --rail-expanded:230px; }
+  html{scroll-behavior:smooth;} section, header, footer{scroll-margin-top:68px;}
+  :root{ --rail-collapsed:60px; --rail-expanded:262px; }
   body{padding-left:var(--rail-collapsed);}
   .sidenav{
     position:fixed; left:0; top:0; bottom:0; z-index:600; width:var(--rail-collapsed);
     display:flex; flex-direction:column; padding:5.5rem .5rem 1.5rem;
     background:transparent; overflow-x:hidden; overflow-y:auto; white-space:nowrap;
-    transition:width .22s ease;
+    transition:width .22s ease; pointer-events:none;
   }
-  .sidenav:hover, .sidenav:focus-within, .sidenav.open{ width:var(--rail-expanded); }
+  .sidenav:focus-within, .sidenav.open{ width:var(--rail-expanded); }
   .sidenav-title{
     font-family:"Londrina Solid",sans-serif; font-weight:400; letter-spacing:.08em; text-transform:uppercase;
     font-size:.85rem; color:var(--cream-dim); margin:0 .6rem 1rem;
     opacity:0; transition:opacity .15s ease;
   }
-  .sidenav:hover .sidenav-title, .sidenav:focus-within .sidenav-title, .sidenav.open .sidenav-title{opacity:1;}
+  .sidenav:focus-within .sidenav-title, .sidenav.open .sidenav-title{opacity:1;}
   .nav-links{
     display:flex; flex-direction:column; gap:.15rem; border-radius:14px; padding:.4rem;
     background:rgba(10,15,36,.55); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
     box-shadow:0 2px 14px rgba(0,0,0,.35); transition:background .22s ease, box-shadow .22s ease;
+    pointer-events:auto; overflow:hidden;
   }
-  .sidenav:hover .nav-links, .sidenav:focus-within .nav-links, .sidenav.open .nav-links{
+  .sidenav:focus-within .nav-links, .sidenav.open .nav-links{
     background:rgba(10,15,36,.8); box-shadow:0 6px 24px rgba(0,0,0,.5);
   }
   .sidenav a{
     display:flex; align-items:center; gap:1rem; font-family:"Londrina Solid",sans-serif; font-weight:300;
     letter-spacing:.06em; font-size:1rem; color:var(--cream-dim); text-decoration:none;
     padding:.62rem .5rem; border-left:2px solid transparent; border-radius:9px; flex:none;
+    overflow:hidden;
   }
   .sidenav a:hover,.sidenav a:focus-visible{color:var(--cream); background:rgba(255,255,255,.06);}
   .sidenav a.is-current{color:var(--brass); border-left-color:var(--brass); background:rgba(217,164,65,.14);}
@@ -445,10 +456,15 @@
   }
   .sidenav a.is-current .nav-icon{opacity:1; filter:drop-shadow(0 0 6px rgba(217,164,65,.65));}
   .sidenav .nav-label{opacity:0; transform:translateX(-6px); transition:opacity .16s ease, transform .16s ease;}
-  .sidenav:hover .nav-label, .sidenav:focus-within .nav-label, .sidenav.open .nav-label{opacity:1; transform:translateX(0);}
-  .topbar{left:var(--rail-collapsed);}
+  .sidenav:focus-within .nav-label, .sidenav.open .nav-label{opacity:1; transform:translateX(0);}
+  @media (hover:hover) and (pointer:fine){
+    .sidenav:hover{ width:var(--rail-expanded); }
+    .sidenav:hover .sidenav-title{opacity:1;}
+    .sidenav:hover .nav-links{background:rgba(10,15,36,.8); box-shadow:0 6px 24px rgba(0,0,0,.5);}
+    .sidenav:hover .nav-label{opacity:1; transform:translateX(0);}
+  }
   @media (max-width:480px){
-    :root{ --rail-collapsed:52px; --rail-expanded:210px; }
+    :root{ --rail-collapsed:52px; --rail-expanded:270px; }
     .sidenav a{font-size:1.05rem;}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .sidenav, .sidenav .nav-label{transition:none;}}
@@ -618,9 +634,13 @@
     <!-- SHOWS: add/remove shows here -->
     <div class="ticket" role="group" aria-label="Upcoming show">
       <a class="poster-lg" href="assets/posters/2026-10-16.webp" target="_blank" rel="noopener" aria-label="View poster: High Steppin' Rhythm N' Groove"><img src="assets/posters/2026-10-16.webp" width="640" height="800" alt="Poster for High Steppin' Rhythm N' Groove" loading="lazy"></a>
-      <span class="ticket-label">Live &amp; In Session</span>
-      <span class="ticket-date">16 Oct 2026</span>
-      <span class="ticket-venue">High Note, Mumbai</span>
+      <div class="ticket-info">
+        <span class="ticket-label">Live &amp; In Session</span>
+        <span class="ticket-title">High Steppin' Rhythm N' Groove</span>
+        <span class="ticket-subtitle">Soul, Blues, &amp; The Spitfire Truth!</span>
+        <span class="ticket-date">16 Oct 2026</span>
+        <span class="ticket-venue">High Note, Mumbai</span>
+      </div>
     </div>
 
     <a class="link-pill" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener">
@@ -1486,19 +1506,42 @@
   if(nav){
     // Touch/coarse-pointer devices don't get a reliable persistent :hover, so the first
     // tap anywhere on the collapsed rail expands it instead of following the link; a
-    // second tap on a link (now that labels are visible) navigates normally.
-    var isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-    if(isTouch){
-      document.addEventListener("click", function(e){
-        if(!nav.contains(e.target)){ nav.classList.remove("open"); return; }
-        if(!nav.classList.contains("open")){
+    // second tap on a link (now that labels are visible) navigates normally. Checked per
+    // interaction (not once at load) so a touchscreen laptop/tablet with both a finger and
+    // a trackpad still gets the right behavior for whichever it just used.
+    var lastPointerWasTouch = false;
+    document.addEventListener("pointerdown", function(e){ lastPointerWasTouch = (e.pointerType === "touch"); }, true);
+    // Capture phase, and ahead of every other click listener in this file: a tap that
+    // opens or dismisses the menu must not also reach whatever it landed on (a lightbox
+    // trigger, a carousel arrow, a video play button, etc.) underneath, or dismissing the
+    // menu doubles as accidentally activating page content -- a real bug on mobile, where
+    // this whole open/close path runs (desktop's hover expand/collapse is plain CSS and
+    // never touches page state, so it isn't affected).
+    document.addEventListener("click", function(e){
+      if(!lastPointerWasTouch) return;
+      if(!nav.contains(e.target)){
+        if(nav.classList.contains("open")){
+          nav.classList.remove("open");
           e.preventDefault();
-          nav.classList.add("open");
-          return;
+          e.stopPropagation();
         }
-        if(e.target.closest("a")) nav.classList.remove("open");
-      });
-    }
+        return;
+      }
+      if(!nav.classList.contains("open")){
+        e.preventDefault();
+        e.stopPropagation();
+        nav.classList.add("open");
+        return;
+      }
+      var link=e.target.closest("a");
+      if(link){ nav.classList.remove("open"); link.blur(); }
+    }, true);
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && nav.classList.contains("open")){
+        nav.classList.remove("open");
+        if(document.activeElement && nav.contains(document.activeElement)) document.activeElement.blur();
+      }
+    });
     if("IntersectionObserver" in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){nav.querySelectorAll("a").forEach(function(a){a.classList.toggle("is-current",a.dataset.sec===en.target.id);});}});},{rootMargin:"-45% 0px -50% 0px"});
       nav.querySelectorAll("a").forEach(function(a){var t=document.getElementById(a.dataset.sec); if(t) io.observe(t);});
