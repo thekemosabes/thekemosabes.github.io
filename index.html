@@ -489,7 +489,7 @@
   .tab-panel[hidden]{display:none;}
 
   /* TOP BAR */
-  .topbar{position:fixed; top:0; left:var(--rail-collapsed); right:0; z-index:700; display:flex; align-items:center; gap:.6rem; height:56px; padding:0 12px; background:rgba(10,15,36,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--ink-3); transition:left .22s ease;}
+  .topbar{position:fixed; top:0; left:var(--rail-collapsed); right:0; z-index:700; display:flex; align-items:center; gap:.6rem; height:56px; padding:0 12px 0 18px; background:rgba(10,15,36,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--ink-3); transition:left .22s ease;}
   .topbar-search{flex:1 1 0; min-width:0; display:flex; align-items:center; gap:.5rem; background:var(--ink-2); border:1px solid var(--ink-3); border-radius:999px; padding:0 .8rem; height:38px;}
   .topbar-search .icon{flex:none; color:var(--cream-dim);}
   .topbar-search input{flex:1; min-width:0; background:transparent; border:0; outline:0; color:var(--cream); font:1rem/1.2 "Ubuntu",system-ui,sans-serif;}
@@ -507,7 +507,7 @@
   .topbar-icon-btn .icon{width:18px; height:18px;}
   .topbar-icon-btn:hover, .topbar-icon-btn:focus-visible{border-color:var(--brass); box-shadow:0 0 12px rgba(217,164,65,.5); transform:translateY(-1px);}
   @media (max-width:480px){
-    .topbar{gap:.35rem; padding:0 8px;}
+    .topbar{gap:.35rem; padding:0 8px 0 14px;}
     .topbar-btn{width:36px; height:36px; padding:0; justify-content:center; border-radius:50%;}
     .topbar-btn .btn-label{display:none;}
     .book-us-label{display:none;}
@@ -534,6 +534,7 @@
   <symbol id="icon-play" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21" fill="rgba(10,15,36,.55)" stroke="#d9a441" stroke-width="2"/><path d="M19 15.5l16 8.5-16 8.5z" fill="#f3e6c9"/></symbol>
   <symbol id="icon-home" viewBox="0 0 24 24"><path d="M4 11.5l8-7 8 7"/><path d="M6 10v9.5h5V15h2v4.5h5V10"/></symbol>
   <symbol id="icon-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="10" rx="3"/><path d="M6 11a6 6 0 0012 0"/><path d="M12 17v3.5"/><path d="M9 20.5h6"/></symbol>
+  <symbol id="icon-video" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2.4"/><path d="M10 9l6 3-6 3z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="icon-ticket" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M12 6v12" stroke-dasharray="2.2 2.2"/></symbol>
   <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.6-2h6.8L17 8h3v11H4z"/><circle cx="12" cy="13.3" r="3.3"/></symbol>
   <symbol id="icon-note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
@@ -548,7 +549,7 @@
 <div class="topbar">
   <div class="topbar-search">
     <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-    <input type="search" id="site-search" placeholder="Search the site…" aria-label="Search the site" autocomplete="off">
+    <input type="search" id="site-search" placeholder="Search" aria-label="Search the site" autocomplete="off">
   </div>
   <div class="topbar-cta">
     <a class="btn topbar-btn" href="https://drive.google.com/file/d/176Rwmrj_vBc1HOWXrikCqfRd3n9nyuln/view?usp=sharing" target="_blank" rel="noopener">
@@ -566,7 +567,7 @@
 <nav id="sidenav" class="sidenav" aria-label="Site menu">
   <span class="sidenav-title">Menu</span>
   <a href="#top" data-sec="top"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-home"></use></svg><span class="nav-label">Home</span></a>
-  <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-mic"></use></svg><span class="nav-label">From the Bandstand</span></a>
+  <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-video"></use></svg><span class="nav-label">From the Bandstand</span></a>
   <a href="#stages" data-sec="stages"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-ticket"></use></svg><span class="nav-label">Our Shows</span></a>
   <a href="#gram" data-sec="gram"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span class="nav-label">On Instagram</span></a>
   <a href="#moments" data-sec="moments"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg><span class="nav-label">Live Moments</span></a>
