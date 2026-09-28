@@ -413,30 +413,31 @@
   body{padding-left:var(--rail-collapsed);}
   .sidenav{
     position:fixed; left:0; top:0; bottom:0; z-index:600; width:var(--rail-collapsed);
-    display:flex; flex-direction:column; gap:.4rem; padding:5.5rem .5rem 1.5rem;
+    display:flex; flex-direction:column; padding:5.5rem .5rem 1.5rem;
     background:transparent; overflow-x:hidden; overflow-y:auto; white-space:nowrap;
-    transition:width .22s ease, background .22s ease;
+    transition:width .22s ease;
   }
-  .sidenav:hover, .sidenav:focus-within, .sidenav.open{
-    width:var(--rail-expanded); background:rgba(10,15,36,.72);
-    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-    box-shadow:6px 0 30px rgba(0,0,0,.5); border-radius:0 18px 18px 0;
-    transition:width .22s ease, background .22s ease;
-  }
+  .sidenav:hover, .sidenav:focus-within, .sidenav.open{ width:var(--rail-expanded); }
   .sidenav-title{
     font-family:"Londrina Solid",sans-serif; font-weight:400; letter-spacing:.08em; text-transform:uppercase;
     font-size:.85rem; color:var(--cream-dim); margin:0 .6rem 1rem;
     opacity:0; transition:opacity .15s ease;
   }
   .sidenav:hover .sidenav-title, .sidenav:focus-within .sidenav-title, .sidenav.open .sidenav-title{opacity:1;}
+  .nav-links{
+    display:flex; flex-direction:column; gap:.15rem; border-radius:14px; padding:.4rem;
+    background:rgba(10,15,36,.55); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 2px 14px rgba(0,0,0,.35); transition:background .22s ease, box-shadow .22s ease;
+  }
+  .sidenav:hover .nav-links, .sidenav:focus-within .nav-links, .sidenav.open .nav-links{
+    background:rgba(10,15,36,.8); box-shadow:0 6px 24px rgba(0,0,0,.5);
+  }
   .sidenav a{
     display:flex; align-items:center; gap:1rem; font-family:"Londrina Solid",sans-serif; font-weight:300;
     letter-spacing:.06em; font-size:1rem; color:var(--cream-dim); text-decoration:none;
-    padding:.62rem .5rem; border-left:2px solid transparent; border-radius:12px;
-    background:rgba(10,15,36,.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 1px 6px rgba(0,0,0,.3); flex:none;
+    padding:.62rem .5rem; border-left:2px solid transparent; border-radius:9px; flex:none;
   }
-  .sidenav a:hover,.sidenav a:focus-visible{color:var(--cream); background:rgba(10,15,36,.8);}
+  .sidenav a:hover,.sidenav a:focus-visible{color:var(--cream); background:rgba(255,255,255,.06);}
   .sidenav a.is-current{color:var(--brass); border-left-color:var(--brass); background:rgba(217,164,65,.14);}
   .sidenav .nav-icon{
     flex:none; width:22px; height:22px; opacity:.9;
@@ -573,17 +574,19 @@
 </div>
 <nav id="sidenav" class="sidenav" aria-label="Site menu">
   <span class="sidenav-title">Menu</span>
-  <a href="#top" data-sec="top"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-home"></use></svg><span class="nav-label">Home</span></a>
-  <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-video"></use></svg><span class="nav-label">From the Bandstand</span></a>
-  <a href="#stages" data-sec="stages"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-ticket"></use></svg><span class="nav-label">Our Shows</span></a>
-  <a href="#gram" data-sec="gram"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span class="nav-label">On Instagram</span></a>
-  <a href="#moments" data-sec="moments"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg><span class="nav-label">Live Moments</span></a>
-  <a href="#originals" data-sec="originals"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-note"></use></svg><span class="nav-label">Original Music</span></a>
-  <a href="#covers" data-sec="covers"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-vinyl"></use></svg><span class="nav-label">Covers &amp; Impressions</span></a>
-  <a href="#band" data-sec="band"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg><span class="nav-label">Meet the Band</span></a>
-  <a href="#story" data-sec="story"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-book"></use></svg><span class="nav-label">Our Story</span></a>
-  <a href="#listening" data-sec="listening"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-headphones"></use></svg><span class="nav-label">Recommended Playlists</span></a>
-  <a href="#book" data-sec="book"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-calendar-check"></use></svg><span class="nav-label">Book Us</span></a>
+  <div class="nav-links">
+    <a href="#top" data-sec="top"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-home"></use></svg><span class="nav-label">Home</span></a>
+    <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-video"></use></svg><span class="nav-label">From the Bandstand</span></a>
+    <a href="#stages" data-sec="stages"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-ticket"></use></svg><span class="nav-label">Our Shows</span></a>
+    <a href="#gram" data-sec="gram"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span class="nav-label">On Instagram</span></a>
+    <a href="#moments" data-sec="moments"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg><span class="nav-label">Live Moments</span></a>
+    <a href="#originals" data-sec="originals"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-note"></use></svg><span class="nav-label">Original Music</span></a>
+    <a href="#covers" data-sec="covers"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-vinyl"></use></svg><span class="nav-label">Covers &amp; Impressions</span></a>
+    <a href="#band" data-sec="band"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg><span class="nav-label">Meet the Band</span></a>
+    <a href="#story" data-sec="story"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-book"></use></svg><span class="nav-label">Our Story</span></a>
+    <a href="#listening" data-sec="listening"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-headphones"></use></svg><span class="nav-label">Recommended Playlists</span></a>
+    <a href="#book" data-sec="book"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-calendar-check"></use></svg><span class="nav-label">Book Us</span></a>
+  </div>
 </nav>
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="The Kemosabes logo" fetchpriority="high">
