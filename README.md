@@ -167,15 +167,40 @@ paragraph text shouldn't stretch past a comfortable reading width, but carousels
 should use the extra room. If you add a third breakpoint or change these numbers, update
 both classes together so the ratio between them stays sensible.
 
-## Mobile side-nav: transparent, not a solid block
+## Site nav: a transparent icon rail, same pattern at every screen size
 
-The mobile/tablet nav drawer (`.sidenav` under the `max-width:1199px` media query) is
-deliberately translucent — `background:rgba(10,15,36,.5)` + `backdrop-filter:blur(18px)`,
-with a text-shadow on the links for legibility — so you can still see the blurred hero
-photo through it instead of it feeling like an opaque panel dropped on top of the page. The
-collapsed state is just the small "☰ Menu" pill (`.nav-toggle`) — don't replace that with
-an always-visible full nav on small screens; the pattern is "small indicator → tap → glass
-drawer expands," not "drawer always partially open."
+`#sidenav` is a persistent, glass-transparent icon rail — not a hamburger menu, not a drawer
+that hides completely. It's always visible, always the same collapsed width
+(`--rail-collapsed`, 52-60px depending on viewport), and expands to `--rail-expanded`
+(~210-230px) to reveal text labels next to the icons. There is no separate toggle button
+anymore (`.nav-toggle` was removed) — the rail itself is the control.
+
+- **Desktop (has a real mouse):** expands on `:hover` / `:focus-within`, pure CSS, no JS.
+- **Touch devices:** `:hover` doesn't behave reliably, so JS detects
+  `matchMedia("(hover: none), (pointer: coarse)")` and handles it explicitly — the first tap
+  anywhere on the (not-yet-open) rail adds `.open` and `preventDefault()`s the navigation;
+  a second tap on a link (now that labels are visible) navigates normally and then removes
+  `.open`. Tapping outside the rail while open closes it.
+- Both paths land on the same CSS: `.sidenav:hover, .sidenav:focus-within, .sidenav.open` all
+  trigger the same expanded state, so there's only one visual definition of "expanded" to
+  maintain.
+- Icons are "embossed" via a double `drop-shadow` (light top-left, dark bottom-right) at
+  `opacity:.9` so they read clearly at rest against any hero photo behind them, not just on
+  hover — that was an explicit requirement ("glyphs can always be visible").
+- Since the rail never fully disappears, `body` and `.topbar` both reserve
+  `left/padding-left: var(--rail-collapsed)` permanently (not just above some breakpoint like
+  the old design did) — the rail overlays content on expand rather than pushing it, so this
+  reserved space never needs to change.
+- **Every nav item needs an icon.** Each `<a>` is `<svg class="icon nav-icon"><use
+  href="#icon-NAME"></use></svg><span class="nav-label">Text</span>`. The icon symbols live
+  in the hidden `<svg>` sprite near the top of `<body>` — add a new `<symbol id="icon-...">`
+  there (24×24 viewBox, stroke-based, matching the existing set) before referencing it. Pick
+  an icon that matches the *content type*, not just a generic bullet — e.g. "From the
+  Bandstand" got a screen+play glyph (`icon-video`), not a microphone, because the section is
+  videos, not audio; "Live Moments" got a camera because it's photos.
+- If you add a new top-level section, add both the nav icon *and* update the scrollspy will
+  pick it up automatically (it just observes every `[data-sec]` target by id — no separate
+  registration needed).
 
 ## `og-image.jpg` and link-preview caching (a real gotcha this session hit)
 
@@ -191,6 +216,52 @@ a phantom bug). To see a fix, send the link in a **new** message, or append a th
 string (`?x=1`) to force a guaranteed-fresh fetch. Meta's Sharing Debugger can force a re-scrape
 but requires logging into a Facebook account — not something to do on the band's behalf without
 asking first.
+
+## Contact buttons in the topbar ("Book Us")
+
+Top-right of the topbar is Press Kit, then a "Book Us" label with **two** separate icon
+buttons next to it — WhatsApp and email — not one combined button. This was an explicit
+choice: bookers should be able to pick their preferred channel directly, not land on a
+generic mailto. Numbers/addresses currently wired:
+- WhatsApp: `https://api.whatsapp.com/send?phone=[booking number]&text=...` (band's booking
+  number, [booking number])
+- Email: `mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes`
+
+The `.book-us-label` text hides at `max-width:480px` (icons alone are enough at that width,
+matches how Press Kit's label already behaved) — if you add a third contact channel here,
+follow the same pattern (`.topbar-icon-btn`, 34-36px circle, hides label at the same
+breakpoint) rather than growing the visible label text, or you'll reintroduce the topbar
+overflow bug described below.
+
+## Adding a new show (the full checklist)
+
+A confirmed show touches **three** places, not one — miss any and it'll look inconsistent:
+1. **Poster asset**: `assets/posters/YYYY-MM-DD.webp`, resized so the long side is ~600-800px
+   (posters are a single file here, not a full+thumb pair like gallery photos — same file is
+   used for both the visible thumbnail and the lightbox's full view).
+2. **Hero ticket stub** (`.ticket` inside `#links`) — only ever shows the *next* upcoming
+   show. Replace its poster `<a class="poster-lg">`/`<img>` and the three ticket spans
+   (label/date/venue) with the new show's details when it becomes the soonest one.
+3. **Shows carousel** (`#stages`, the correct `.year-group`) — add a new `.show-card` as the
+   **first** card in that year (the list is newest-first). Keep an old show's card here even
+   after its ticket-stub turns over to a newer show — the carousel is the permanent archive,
+   the ticket stub is just "what's next."
+
+Venue name spelling still has to match the established list (see "Hard content rules"
+above) — if it's a brand-new venue not on that list, that's a real addition to make, not a
+typo to avoid.
+
+## Fixed-position elements need `overflow-x:hidden` on `<html>`, not just `<body>`
+
+`body{overflow-x:hidden}` alone does **not** reliably clip `position:fixed` elements (like
+the topbar and the nav rail) from an overflow bug elsewhere on the page — the initial
+containing block used for `right:0`/`left:...` on fixed elements can still be computed from
+`<html>`'s scrollWidth if `<html>` itself doesn't also have `overflow-x:hidden`. This
+actually happened: the topbar measurably extended ~17px past the viewport on mobile after
+the nav redesign, even though `.topbar{right:0}` "should" have stopped it dead at the edge.
+Both `html` and `body` now carry `overflow-x:hidden` — if a future mobile layout bug looks
+like "a fixed element is X px wider than the viewport for no visible reason," check this
+first before assuming the fixed element's own CSS is wrong.
 
 ## Photo sourcing
 
