@@ -21,6 +21,38 @@ python3 -m http.server 8765 --directory <repo folder>
 
 Then open http://localhost:8765/.
 
+## ⚠️ Before every `git add -A`: check what you're actually staging
+
+This bit the project once already — worth reading before you push.
+
+When this repo's local copy moved from a temporary scratch folder to its permanent home,
+the app auto-copied *everything* from the old location into the new one at the same paths —
+not just the site, but a `build/` archive of old drafts, and a `src/` folder containing the
+band's actual press-kit PDF, unreleased lyrics `.docx` files, and a raw saved copy of a
+YouTube page (which happened to contain YouTube's own embedded API keys, and GitHub's
+secret scanner flagged it as a leaked credential). A blind `git add -A` swept all of it into
+a commit and pushed it to this **public** repo before anyone noticed. Fixing it for real
+required both an untracking commit *and* a full `git filter-repo` history rewrite +
+force-push, since removing a file in a new commit does not remove it from earlier commits —
+anyone can still dig it out of git history/GitHub's commit view until the history itself is
+rewritten.
+
+**Rule going forward:**
+- Before any `git add -A`, run `git status` first and actually read the list — especially
+  right after a directory move, a restore-from-backup, or anything else that could have
+  dropped in files you didn't create in this session.
+- Only this repo's real content should ever be tracked: `index.html`, `assets/`,
+  `README.md`, `.gitignore`. If you see `build/`, `src/`, a `.zip`, loose screenshots, or
+  anything that isn't the site itself show up as untracked, that's a signal something
+  landed here that shouldn't have — `.gitignore` already excludes the known offenders
+  (`build/`, `src/`, `kemosabes-site.zip`, `qa-photo-credits.png`, `_spec/`), but a new one
+  could show up under a different name.
+- If something sensitive does get pushed anyway: removing it in a follow-up commit is not
+  enough on its own. It needs `git filter-repo --path <bad-path> --invert-paths` (or BFG)
+  run against full history, then `git push --force`. That's a history rewrite — always
+  confirm with Karan before force-pushing, but don't treat a plain removal commit as "handled"
+  when the leak is still sitting in history.
+
 ## Deploying (push = live)
 
 ```bash
