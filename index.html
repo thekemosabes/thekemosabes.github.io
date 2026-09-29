@@ -187,8 +187,9 @@
   .link-stack{display:flex; flex-direction:column; gap:.85rem;}
   @media (min-width:900px){
     #links .wrap{max-width:900px;}
-    .link-stack{display:grid; grid-template-columns:1fr 1fr; align-items:start; gap:.85rem 1rem;}
-    .link-stack > .ticket{grid-column:1/-1;}
+    .link-stack{display:block; column-count:2; column-gap:1rem;}
+    .link-stack > .ticket{column-span:all; margin:0 0 .85rem;}
+    .link-stack > .link-pill{break-inside:avoid; margin:0 0 .85rem;}
   }
   .link-pill{
     display:flex; align-items:center; gap:.7em; width:100%; min-height:48px;
@@ -662,12 +663,12 @@
   <div class="nav-links">
     <a href="#top" data-sec="top"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-home"></use></svg><span class="nav-label">Home</span></a>
     <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-video"></use></svg><span class="nav-label">From the Bandstand</span></a>
+    <a href="#band" data-sec="band"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg><span class="nav-label">Meet the Band</span></a>
     <a href="#stages" data-sec="stages"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-ticket"></use></svg><span class="nav-label">Our Shows</span></a>
     <a href="#gram" data-sec="gram"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span class="nav-label">On Instagram</span></a>
     <a href="#moments" data-sec="moments"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg><span class="nav-label">Live Moments</span></a>
     <a href="#originals" data-sec="originals"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-note"></use></svg><span class="nav-label">Original Music</span></a>
     <a href="#covers" data-sec="covers"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-vinyl"></use></svg><span class="nav-label">Covers &amp; Impressions</span></a>
-    <a href="#band" data-sec="band"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg><span class="nav-label">Meet the Band</span></a>
     <a href="#story" data-sec="story"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-book"></use></svg><span class="nav-label">Our Story</span></a>
     <a href="#listening" data-sec="listening"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-headphones"></use></svg><span class="nav-label">Recommended Listening</span></a>
     <a href="#book" data-sec="book"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-calendar-check"></use></svg><span class="nav-label">Book Us</span></a>
@@ -866,6 +867,77 @@
     </p>
   </div>
 </section>
+<div class="divider" aria-hidden="true"><span>★</span></div>
+
+<section id="band">
+  <div class="wrap-wide">
+    <h2>Meet The Kemosabes</h2>
+    <p class="intro">Six souls. One congregation. Tap a photo to bring it to life.</p>
+
+    <div class="carousel" data-carousel>
+      <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
+      <div class="band-row car-track">
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-karan-gera" aria-pressed="false" aria-label="Show who this is: The Brown Kemosabe"><img src="assets/portrait-1.webp" width="600" height="898" alt="Karan Gera, vocals &amp; harmonica" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Brown Kemosabe</span><span class="portrait-tag-name">Karan Gera</span></span></button><figcaption>© <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+        <div class="member-card" id="member-karan-gera">
+        <p class="member-title">The Brown Kemosabe</p>
+        <p class="member-name">Karan Gera</p>
+        <p class="member-role">The Chief<br>Vocals, Harmonicas, and Principal Songwriter</p>
+        <a class="member-handle" href="https://www.instagram.com/brownkemosabe" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@brownkemosabe</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-farhaan" aria-pressed="false" aria-label="Show who this is: The Wah-Wah Kemosabe"><img src="assets/portrait-6.webp" width="600" height="800" alt="Farhaan Mistry, lead guitar" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Wah-Wah Kemosabe</span><span class="portrait-tag-name">Farhaan Mistry</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-farhaan">
+        <p class="member-title">The Wah-Wah Kemosabe</p>
+        <p class="member-name">Farhaan Mistry</p>
+        <p class="member-role">Lead Guitar</p>
+        <a class="member-handle" href="https://www.instagram.com/farhaan_mistry" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@farhaan_mistry</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-karan-lekhyani" aria-pressed="false" aria-label="Show who this is: The Kinetic Kemosabe"><img src="assets/portrait-4.webp" width="538" height="957" alt="Karan Lekhyani, piano" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Kinetic Kemosabe</span><span class="portrait-tag-name">Karan Lekhyani</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-karan-lekhyani">
+        <p class="member-title">The Kinetic Kemosabe</p>
+        <p class="member-name">Karan Lekhyani</p>
+        <p class="member-role">Piano &amp; Keys</p>
+        <a class="member-handle" href="https://www.instagram.com/thepianoman___" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@thepianoman___</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-ben" aria-pressed="false" aria-label="Show who this is: The Cookie Kemosabe"><img src="assets/portrait-5.webp" width="511" height="766" alt="Ben Khambatta, bass" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Cookie Kemosabe</span><span class="portrait-tag-name">Ben Khambatta</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-ben">
+        <p class="member-title">The Cookie Kemosabe</p>
+        <p class="member-name">Ben Khambatta</p>
+        <p class="member-role">Bass</p>
+        <a class="member-handle" href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@walrus_of_the_south</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-jade" aria-pressed="false" aria-label="Show who this is: The Pocket Kemosabe"><img src="assets/portrait-3.webp" width="600" height="634" alt="Jade Sequeira, drums" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Pocket Kemosabe</span><span class="portrait-tag-name">Jade Sequeira</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-jade">
+        <p class="member-title">The Pocket Kemosabe</p>
+        <p class="member-name">Jade Sequeira</p>
+        <p class="member-role">Drums &amp; Percussion</p>
+        <a class="member-handle" href="https://www.instagram.com/sickj.in" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@sickj.in</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      <div class="band-card">
+        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-zion" aria-pressed="false" aria-label="Show who this is: The Ubiquitous Kemosabe"><img src="assets/portrait-2.webp" width="600" height="900" alt="Zion D'Souza, rhythm guitar" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Ubiquitous Kemosabe</span><span class="portrait-tag-name">Zion D'Souza</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+        <div class="member-card" id="member-zion">
+        <p class="member-title">The Ubiquitous Kemosabe</p>
+        <p class="member-name">Zion D'Souza</p>
+        <p class="member-role">Rhythm Guitar &amp; Backing Vocals</p>
+        <a class="member-handle" href="https://www.instagram.com/_ziondsouza_" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@_ziondsouza_</span><span aria-hidden="true">↗</span></a>
+      </div>
+      </div>
+      </div>
+      <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
+    </div>
+    <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+  </div>
+</section>
+
 
 <div class="divider" aria-hidden="true"><span>★</span></div>
 
@@ -1090,14 +1162,14 @@
 <figure><a class="lb" href="assets/gallery/antisocial-jump-airborne.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-jump-airborne-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/bluebop-lekhyani-keys.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-lekhyani-keys-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/bluebop-lekhyani-rehearsal.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-lekhyani-rehearsal-t.webp" width="640" height="448" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/cobbler-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune · Jan 2026"><img src="assets/gallery/cobbler-fullband-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · Jan 2026</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune · Jan 2026"><img src="assets/gallery/cobbler-fullband-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · Jan 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/stables-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Stables, Mumbai · Feb 2026"><img src="assets/gallery/stables-fullband-t.webp" width="640" height="360" alt="The Kemosabes live at The Stables, Mumbai" loading="lazy"></a><figcaption>The Stables, Mumbai · Feb 2026</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/shisha-guitar-silhouette.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Feb 2026"><img src="assets/gallery/shisha-guitar-silhouette-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Feb 2026</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-guitar-silhouette.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Feb 2026"><img src="assets/gallery/shisha-guitar-silhouette-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Feb 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/soulfry-zion-vocals.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Soul Fry, Mumbai · Feb 2026"><img src="assets/gallery/soulfry-zion-vocals-t.webp" width="427" height="640" alt="The Kemosabes live at Soul Fry, Mumbai" loading="lazy"></a><figcaption>Soul Fry, Mumbai · Feb 2026 · © Walrus Photography</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-bassist-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-bassist-bw-t.webp" width="1200" height="801" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-zion-acoustic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-zion-acoustic-t.webp" width="1200" height="801" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-omkar-1.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img src="assets/gallery/bluebop-omkar-1-t.webp" width="1200" height="800" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-omkar-2.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img src="assets/gallery/bluebop-omkar-2-t.webp" width="1200" height="1798" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-bassist-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-bassist-bw-t.webp" width="640" height="428" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-zion-acoustic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-zion-acoustic-t.webp" width="640" height="428" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-omkar-1.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img src="assets/gallery/bluebop-omkar-1-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-omkar-2.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img src="assets/gallery/bluebop-omkar-2-t.webp" width="640" height="959" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
       </div>
       <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
     </div>
@@ -1293,77 +1365,6 @@
       </div>
     </details>
     </div>
-  </div>
-</section>
-
-<div class="divider" aria-hidden="true"><span>★</span></div>
-
-<section id="band">
-  <div class="wrap-wide">
-    <h2>Meet The Kemosabes</h2>
-    <p class="intro">Six souls. One congregation. Tap a photo to bring it to life.</p>
-
-    <div class="carousel" data-carousel>
-      <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
-      <div class="band-row car-track">
-      <div class="band-card">
-        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-karan-gera" aria-pressed="false" aria-label="Show who this is: The Brown Kemosabe"><img src="assets/portrait-1.webp" width="600" height="898" alt="Karan Gera, vocals &amp; harmonica" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Brown Kemosabe</span><span class="portrait-tag-name">Karan Gera</span></span></button><figcaption>© <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-        <div class="member-card" id="member-karan-gera">
-        <p class="member-title">The Brown Kemosabe</p>
-        <p class="member-name">Karan Gera</p>
-        <p class="member-role">The Chief<br>Vocals, Harmonicas, and Principal Songwriter</p>
-        <a class="member-handle" href="https://www.instagram.com/brownkemosabe" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@brownkemosabe</span><span aria-hidden="true">↗</span></a>
-      </div>
-      </div>
-      <div class="band-card">
-        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-farhaan" aria-pressed="false" aria-label="Show who this is: The Wah-Wah Kemosabe"><img src="assets/portrait-6.webp" width="600" height="800" alt="Farhaan Mistry, lead guitar" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Wah-Wah Kemosabe</span><span class="portrait-tag-name">Farhaan Mistry</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-        <div class="member-card" id="member-farhaan">
-        <p class="member-title">The Wah-Wah Kemosabe</p>
-        <p class="member-name">Farhaan Mistry</p>
-        <p class="member-role">Lead Guitar</p>
-        <a class="member-handle" href="https://www.instagram.com/farhaan_mistry" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@farhaan_mistry</span><span aria-hidden="true">↗</span></a>
-      </div>
-      </div>
-      <div class="band-card">
-        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-karan-lekhyani" aria-pressed="false" aria-label="Show who this is: The Kinetic Kemosabe"><img src="assets/portrait-4.webp" width="538" height="957" alt="Karan Lekhyani, piano" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Kinetic Kemosabe</span><span class="portrait-tag-name">Karan Lekhyani</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-        <div class="member-card" id="member-karan-lekhyani">
-        <p class="member-title">The Kinetic Kemosabe</p>
-        <p class="member-name">Karan Lekhyani</p>
-        <p class="member-role">Piano &amp; Keys</p>
-        <a class="member-handle" href="https://www.instagram.com/thepianoman___" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@thepianoman___</span><span aria-hidden="true">↗</span></a>
-      </div>
-      </div>
-      <div class="band-card">
-        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-ben" aria-pressed="false" aria-label="Show who this is: The Cookie Kemosabe"><img src="assets/portrait-5.webp" width="511" height="766" alt="Ben Khambatta, bass" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Cookie Kemosabe</span><span class="portrait-tag-name">Ben Khambatta</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-        <div class="member-card" id="member-ben">
-        <p class="member-title">The Cookie Kemosabe</p>
-        <p class="member-name">Ben Khambatta</p>
-        <p class="member-role">Bass</p>
-        <a class="member-handle" href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@walrus_of_the_south</span><span aria-hidden="true">↗</span></a>
-      </div>
-      </div>
-      <div class="band-card">
-        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-jade" aria-pressed="false" aria-label="Show who this is: The Pocket Kemosabe"><img src="assets/portrait-3.webp" width="600" height="634" alt="Jade Sequeira, drums" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Pocket Kemosabe</span><span class="portrait-tag-name">Jade Sequeira</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-        <div class="member-card" id="member-jade">
-        <p class="member-title">The Pocket Kemosabe</p>
-        <p class="member-name">Jade Sequeira</p>
-        <p class="member-role">Drums &amp; Percussion</p>
-        <a class="member-handle" href="https://www.instagram.com/sickj.in" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@sickj.in</span><span aria-hidden="true">↗</span></a>
-      </div>
-      </div>
-      <div class="band-card">
-        <figure class="portrait"><button type="button" class="portrait-btn" data-member="member-zion" aria-pressed="false" aria-label="Show who this is: The Ubiquitous Kemosabe"><img src="assets/portrait-2.webp" width="600" height="900" alt="Zion D'Souza, rhythm guitar" loading="lazy"><span class="portrait-tag" aria-hidden="true"><span class="portrait-tag-title">The Ubiquitous Kemosabe</span><span class="portrait-tag-name">Zion D'Souza</span></span></button><figcaption>© <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-        <div class="member-card" id="member-zion">
-        <p class="member-title">The Ubiquitous Kemosabe</p>
-        <p class="member-name">Zion D'Souza</p>
-        <p class="member-role">Rhythm Guitar &amp; Backing Vocals</p>
-        <a class="member-handle" href="https://www.instagram.com/_ziondsouza_" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg><span>@_ziondsouza_</span><span aria-hidden="true">↗</span></a>
-      </div>
-      </div>
-      </div>
-      <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
-    </div>
-    <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
   </div>
 </section>
 
