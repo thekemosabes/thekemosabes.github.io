@@ -143,8 +143,9 @@
   /* HERO */
   .hero{
     position:relative; padding:2rem 16px 1.2rem; text-align:center; overflow:hidden;
-    background:linear-gradient(180deg, rgba(10,15,36,.4), rgba(10,15,36,.55) 55%, rgba(10,15,36,.7)), url("assets/hero-antisocial.webp") center 55%/cover no-repeat, var(--ink);
+    background:linear-gradient(180deg, rgba(10,15,36,.4), rgba(10,15,36,.55) 55%, rgba(10,15,36,.7)), url("assets/hero-antisocial.webp") center 0%/cover no-repeat, var(--ink);
   }
+  @media (max-width:699px){.hero{background-size:auto,auto 125%,auto; background-position:0 0,50% 0,0 0;}}
   .hero::before{
     content:""; position:absolute; top:-20%; left:50%; width:600px; height:600px; transform:translateX(-50%);
     background:radial-gradient(circle, rgba(217,164,65,.28), transparent 65%);
