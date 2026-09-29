@@ -244,6 +244,24 @@
   .video-grid > .video{flex:0 0 240px; scroll-snap-align:start;}
   @media (min-width:700px){.video-grid > .video{flex-basis:280px;}}
   .watch-more{text-align:center; margin-top:2rem;}
+  @media (min-width:1100px){
+    #watch .wrap-wide{max-width:1500px;}
+    .watch-layout{display:grid; grid-template-columns:1.5fr 1fr; align-items:stretch; gap:2rem;}
+    .watch-layout .video-featured{margin-bottom:0;}
+    .watch-list{display:flex; flex-direction:column; min-height:0;}
+    .watch-list .carousel{flex:1; min-height:0; display:block;}
+    .watch-list .car-arrow{display:none;}
+    .watch-list .car-track{
+      display:flex; flex-direction:column; height:100%; overflow-x:visible; overflow-y:auto;
+      scroll-snap-type:none; gap:.6rem; padding:.2rem .4rem .2rem 2px;
+    }
+    .watch-list .video-grid > .video{flex:none; width:auto; display:flex; align-items:center; gap:.8rem;}
+    .watch-list .video-grid > .video .yt{width:150px; flex:none; aspect-ratio:16/9; border-radius:8px;}
+    .watch-list .video-grid > .video .yt .play{width:26px; height:26px;}
+    .watch-list .video-grid > .video .video-caption{margin:0; font-size:.95rem; line-height:1.3;}
+    .watch-list .video-grid > .video .video-fallback{font-size:.8rem; margin-top:.2rem;}
+    .watch-list .car-progress{display:none;}
+  }
 
   /* ORIGINALS */
   .song-card{
@@ -278,6 +296,12 @@
   .band-row{display:flex; gap:1.1rem;}
   .band-row > .band-card{flex:0 0 220px; min-width:0; scroll-snap-align:start; display:flex; flex-direction:column; gap:.9rem;}
   @media (min-width:700px){.band-row > .band-card{flex-basis:250px;}}
+  @media (min-width:1300px){
+    #band .wrap-wide{max-width:1700px;}
+    #band .band-row{overflow-x:visible;}
+    #band .band-row > .band-card{flex:1 1 0; flex-basis:0; max-width:280px;}
+    #band .carousel .car-arrow, #band .car-progress{display:none;}
+  }
   .band-card .portrait{margin:0; position:relative;}
   .band-card .portrait img{display:block; width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; object-position:center 30%; filter:grayscale(1); border-radius:8px;}
   .band-card .portrait figcaption{position:absolute; left:0; right:0; bottom:0; padding:1.6em .6em .45em; border-radius:0 0 8px 8px; background:linear-gradient(transparent, rgba(0,0,0,.78)); font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream-dim);font-weight:300;letter-spacing:.06em;}
@@ -487,6 +511,11 @@
   .gallery a.lb:hover, .gallery a.lb:focus-visible{border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.4);}
   .gallery img{display:block; width:auto; height:260px; object-fit:cover;}
   @media (min-width:700px){.gallery img{height:310px;}}
+  @media (min-width:1100px){
+    #moments .wrap-wide{max-width:1600px;}
+    .gallery img{height:420px;}
+    .gallery figcaption{font-size:.9rem; max-width:min(100%,380px);}
+  }
   .gallery figcaption{max-width:min(100%,320px); font-size:.85rem; color:var(--cream-dim); margin:.35rem .1rem 0; line-height:1.35;}
   .gallery figcaption a{color:inherit;}
   .gospel-title{font-family:"Abril Fatface",Georgia,serif; font-weight:400; color:var(--brass); font-size:clamp(1.9rem,7vw,2.6rem); line-height:1.15; margin:0 0 1.2rem;}
@@ -499,6 +528,17 @@
   .stat-label{font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em; text-transform:uppercase; color:var(--cream-dim); font-size:.95rem; margin-top:.3rem; text-align:center;}
   .story strong{color:var(--brass); font-weight:700;}
   .story-coda{display:flex; flex-direction:column; align-items:center; gap:.2rem; margin:1.8rem 0 2.4rem; font-family:"Abril Fatface",Georgia,serif; font-size:clamp(1.7rem,7vw,2.4rem); color:var(--cream); line-height:1.2;}
+  @media (min-width:1100px){
+    .story-wrap{max-width:1200px;}
+    .story-layout{display:grid; grid-template-columns:320px 1fr; gap:3.5rem; align-items:start;}
+    .story-head{position:sticky; top:96px; text-align:left;}
+    .story-head .kicker, .story-head h2{text-align:left;}
+    .story-head .stats{display:flex; flex-direction:column; align-items:flex-start; gap:1.4rem; max-width:none; margin:1.6rem 0 0;}
+    .story-head .stat{flex-direction:row; align-items:baseline; gap:.6rem; min-width:0;}
+    .story-head .stat-label{text-align:left; margin-top:0;}
+    .story-body{text-align:left; max-width:68ch;}
+    .story-body .story-coda{align-items:flex-start; text-align:left;}
+  }
   .gospel-card{position:relative; padding:4rem 0; text-align:center; background:linear-gradient(180deg, rgba(10,15,36,.88), rgba(10,15,36,.93)), url("assets/gallery/shisha-preacher-bw.webp") center/cover no-repeat, #050812; border-top:1px solid var(--ink-3); border-bottom:1px solid var(--ink-3);}
   .gospel-close{font-family:"Abril Fatface",Georgia,serif; color:var(--brass); font-size:clamp(1.3rem,5vw,1.7rem); line-height:1.35; margin:1.4rem 0 0;}
   .stage-cta{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.6rem;}
@@ -719,6 +759,7 @@
     <h2 class="kicker">From the Bandstand</h2>
     <p class="intro">Straight from the heart to the juke joint floor.</p>
 
+    <div class="watch-layout">
     <div class="video video-featured">
       <button class="yt" data-id="S6kOc7U_mo0" data-title="Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Blank Slate">
         <img src="https://i.ytimg.com/vi/S6kOc7U_mo0/hqdefault.jpg" loading="lazy" alt="Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025">
@@ -728,6 +769,7 @@
       <a class="video-fallback" href="https://www.youtube.com/watch?v=S6kOc7U_mo0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
     </div>
 
+    <div class="watch-list">
     <div class="carousel" data-carousel>
       <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
       <div class="video-grid car-track">
@@ -815,6 +857,8 @@
       <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
     </div>
     <div class="car-progress" aria-hidden="true"><span class="car-progress-fill"></span></div>
+    </div>
+    </div>
 
     <p class="watch-more">
       <a class="btn" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener">More Live Cuts on YouTube</a>
@@ -1322,7 +1366,9 @@
 
 <!-- OUR STORY & GOSPEL: edit the show count, paragraphs and gospel here -->
 <section id="story">
-  <div class="wrap">
+  <div class="wrap story-wrap">
+    <div class="story-layout">
+    <div class="story-head">
     <span class="kicker">How It Began</span>
     <h2>Our Story</h2>
     <div class="stats">
@@ -1330,9 +1376,13 @@
       <div class="stat"><span class="stat-num">7</span><span class="stat-label">Venues</span></div>
       <div class="stat"><span class="stat-num">2</span><span class="stat-label">Cities</span></div>
     </div>
+    </div>
+    <div class="story-body">
     <p class="story">Freshly minted in Mumbai. We went live, for real, in December 2024, at Cobbler &amp; Crew, Pune, and we haven't stopped since: <strong>20 shows</strong> and counting, across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Soul Fry and High Spirits Cafe. Every night the Congregation grows, one juke joint at a time.</p>
     <p class="story">We write our own music about real experiences such as anxiety, love, loss, compassion, unity, and the beauty of life! We don't do mere covers. We do impressions of our deepest blues and soul influences. Our songbook will soon be available on our debut album.</p>
     <p class="story-coda"><span>It's Church.</span><span>It's Therapy.</span><span>It's The Blues.</span></p>
+    </div>
+    </div>
   </div>
   <div class="gospel-card" id="gospel">
     <div class="wrap">
@@ -1541,11 +1591,22 @@
       var max=track.scrollWidth-track.clientWidth;
       var pct=max>0 ? Math.min(1,Math.max(0,track.scrollLeft/max)) : 0;
       if(fill){ var w=Math.max(track.clientWidth/track.scrollWidth*100,12); fill.style.width=w+"%"; fill.style.transform="translateX("+(pct*(100/w-1)*100)+"%)"; }
-      if(prev) prev.disabled = track.scrollLeft<=2;
-      if(next) next.disabled = max<=2 || track.scrollLeft>=max-2;
+      if(prev) prev.disabled = max<=2;
+      if(next) next.disabled = max<=2;
     }
-    if(prev) prev.addEventListener("click",function(){ track.scrollBy({left:-track.clientWidth*0.85, behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}); });
-    if(next) next.addEventListener("click",function(){ track.scrollBy({left:track.clientWidth*0.85, behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}); });
+    function motion(){ return window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"; }
+    function wrapToStart(){ track.firstElementChild.scrollIntoView({inline:"start", block:"nearest", behavior:"instant"}); }
+    function wrapToEnd(){ track.lastElementChild.scrollIntoView({inline:"start", block:"nearest", behavior:"instant"}); }
+    if(prev) prev.addEventListener("click",function(){
+      var max=track.scrollWidth-track.clientWidth;
+      if(track.scrollLeft<=2 && max>2){ wrapToEnd(); }
+      else{ track.scrollBy({left:-track.clientWidth*0.85, behavior:motion()}); }
+    });
+    if(next) next.addEventListener("click",function(){
+      var max=track.scrollWidth-track.clientWidth;
+      if(track.scrollLeft>=max-2 && max>2){ wrapToStart(); }
+      else{ track.scrollBy({left:track.clientWidth*0.85, behavior:motion()}); }
+    });
     track.addEventListener("scroll",function(){ window.requestAnimationFrame(update); }, {passive:true});
     window.addEventListener("resize",update);
     update();
