@@ -453,6 +453,7 @@
   html{scroll-behavior:smooth;} section, header, footer{scroll-margin-top:68px;}
   :root{ --rail-collapsed:78px; --rail-expanded:262px; }
   body{padding-left:var(--rail-collapsed);}
+  .mob-menu-btn, .mob-nav-overlay{ display:none !important; }
   .sidenav{
     position:fixed; left:0; top:0; bottom:0; z-index:600; width:var(--rail-collapsed);
     display:flex; flex-direction:column; padding:5.5rem .5rem 1.5rem;
@@ -500,9 +501,52 @@
     .sidenav:hover .nav-label{opacity:1; max-width:200px; transform:translateX(0);}
     .sidenav:hover a{ justify-content:flex-start; gap:1rem; }
   }
-  @media (max-width:480px){
-    :root{ --rail-collapsed:68px; --rail-expanded:270px; }
-    .sidenav a{font-size:1.05rem;}
+  @media (max-width:599px){
+    body{padding-left:0;}
+    .sidenav{display:none;}
+    .topbar{left:0;}
+    /* Floating hamburger pill */
+    .mob-menu-btn{
+      display:flex; align-items:center; gap:.55em;
+      position:fixed; top:12px; left:12px; z-index:800;
+      padding:.55em 1.1em; border-radius:999px;
+      background:rgba(10,15,36,.88); border:1.5px solid var(--brass);
+      color:var(--cream); font-family:"Londrina Solid",sans-serif;
+      font-weight:300; letter-spacing:.07em; font-size:1rem;
+      cursor:pointer; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 2px 12px rgba(0,0,0,.5);
+      transition:border-color .18s, box-shadow .18s;
+    }
+    .mob-menu-btn:hover,.mob-menu-btn:focus-visible{border-color:var(--cream); box-shadow:0 0 16px rgba(217,164,65,.4);}
+    .mob-menu-btn .mob-hamburger{display:flex; flex-direction:column; gap:4px; width:18px;}
+    .mob-menu-btn .mob-hamburger span{display:block; height:2px; background:var(--cream); border-radius:2px; transition:transform .2s, opacity .2s;}
+    .mob-menu-btn[aria-expanded="true"] .mob-hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+    .mob-menu-btn[aria-expanded="true"] .mob-hamburger span:nth-child(2){opacity:0;}
+    .mob-menu-btn[aria-expanded="true"] .mob-hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+    /* Mobile nav overlay */
+    .mob-nav-overlay{
+      display:none; position:fixed; inset:0; z-index:790;
+      background:rgba(5,8,22,.6); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+    }
+    .mob-nav-overlay.open{display:block;}
+    .mob-nav-drawer{
+      position:fixed; top:0; left:0; right:0; z-index:795;
+      max-height:90dvh; overflow-y:auto;
+      background:rgba(10,15,36,.97); border-bottom:1px solid rgba(217,164,65,.25);
+      padding:5rem 1.2rem 1.4rem; box-shadow:0 8px 32px rgba(0,0,0,.6);
+      transform:translateY(-100%); transition:transform .28s cubic-bezier(.4,0,.2,1);
+    }
+    .mob-nav-overlay.open .mob-nav-drawer{transform:translateY(0);}
+    .mob-nav-drawer a{
+      display:flex; align-items:center; gap:.9em;
+      padding:.78em .6em; border-radius:9px; border-left:2px solid transparent;
+      font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em;
+      font-size:1.1rem; color:var(--cream-dim); text-decoration:none;
+    }
+    .mob-nav-drawer a:hover,.mob-nav-drawer a:focus-visible{color:var(--cream); background:rgba(255,255,255,.06);}
+    .mob-nav-drawer a.is-current{color:var(--brass); border-left-color:var(--brass); background:rgba(217,164,65,.12);}
+    .mob-nav-drawer .nav-icon{flex:none; width:22px; height:22px; opacity:.9;}
+    .mob-nav-drawer a.is-current .nav-icon{filter:drop-shadow(0 0 6px rgba(217,164,65,.65)); opacity:1;}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
@@ -660,6 +704,28 @@
     </div>
   </div>
   <p id="search-status" class="visually-hidden" aria-live="polite"></p>
+</div>
+
+<!-- Mobile hamburger button (only visible on small screens via CSS) -->
+<button id="mob-menu-btn" class="mob-menu-btn" aria-controls="mob-nav-overlay" aria-expanded="false" aria-label="Open site menu">
+  <span class="mob-hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+  Menu
+</button>
+<!-- Mobile nav overlay -->
+<div id="mob-nav-overlay" class="mob-nav-overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+  <nav class="mob-nav-drawer">
+    <a href="#top" data-sec="top"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-home"></use></svg>Home</a>
+    <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-video"></use></svg>From the Bandstand</a>
+    <a href="#band" data-sec="band"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg>Meet the Band</a>
+    <a href="#stages" data-sec="stages"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-ticket"></use></svg>Our Shows</a>
+    <a href="#gram" data-sec="gram"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>On Instagram</a>
+    <a href="#moments" data-sec="moments"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg>Live Moments</a>
+    <a href="#originals" data-sec="originals"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-note"></use></svg>Original Music</a>
+    <a href="#covers" data-sec="covers"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-vinyl"></use></svg>Covers &amp; Impressions</a>
+    <a href="#story" data-sec="story"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-book"></use></svg>Our Story</a>
+    <a href="#listening" data-sec="listening"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-headphones"></use></svg>Recommended Listening</a>
+    <a href="#book" data-sec="book"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-calendar-check"></use></svg>Book Us</a>
+  </nav>
 </div>
 <nav id="sidenav" class="sidenav" aria-label="Site menu">
   <span class="sidenav-title">Menu</span>
@@ -1681,6 +1747,52 @@
       nav.querySelectorAll("a").forEach(function(a){var t=document.getElementById(a.dataset.sec); if(t) io.observe(t);});
     }
   }
+
+  // Mobile hamburger menu
+  (function(){
+    var btn = document.getElementById("mob-menu-btn");
+    var overlay = document.getElementById("mob-nav-overlay");
+    if(!btn || !overlay) return;
+    function openMenu(){
+      overlay.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+      btn.setAttribute("aria-label","Close site menu");
+      document.body.style.overflow = "hidden";
+    }
+    function closeMenu(){
+      overlay.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+      btn.setAttribute("aria-label","Open site menu");
+      document.body.style.overflow = "";
+    }
+    btn.addEventListener("click", function(){
+      overlay.classList.contains("open") ? closeMenu() : openMenu();
+    });
+    // Tap on backdrop (outside drawer) closes menu
+    overlay.addEventListener("click", function(e){
+      if(!e.target.closest(".mob-nav-drawer")) closeMenu();
+    });
+    // Tap a nav link: close menu then let the hash navigate
+    overlay.querySelectorAll("a").forEach(function(a){
+      a.addEventListener("click", function(){ closeMenu(); });
+    });
+    // Escape key
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && overlay.classList.contains("open")) closeMenu();
+    });
+    // Active-link highlight via IntersectionObserver (mirrors the sidenav logic)
+    if("IntersectionObserver" in window){
+      var mobLinks = overlay.querySelectorAll("a[data-sec]");
+      var mobIo = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(en.isIntersecting){
+            mobLinks.forEach(function(a){ a.classList.toggle("is-current", a.dataset.sec === en.target.id); });
+          }
+        });
+      },{rootMargin:"-45% 0px -50% 0px"});
+      mobLinks.forEach(function(a){ var t=document.getElementById(a.dataset.sec); if(t) mobIo.observe(t); });
+    }
+  })();
 
   document.addEventListener("click", function(e){
     var b = e.target.closest(".ig-play"); if(!b) return;
