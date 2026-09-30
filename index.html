@@ -504,7 +504,7 @@
   @media (max-width:599px){
     body{padding-left:0;}
     .sidenav{display:none;}
-    section, header, footer{scroll-margin-top:68px;}
+    section, header, footer{scroll-margin-top:12px;}
     /* Floating hamburger pill */
     .mob-menu-btn{
       display:flex; align-items:center; gap:.55em;
@@ -640,9 +640,9 @@
     .topbar-cta{gap:.35rem;}
     .book-us-group{padding:0 .4rem; gap:.2rem;}
   }
-  /* Mobile: give the Menu pill its space on the left, let search bar be shorter */
+  /* Mobile: hide topbar entirely — Menu pill is the sole top control */
   @media (max-width:599px){
-    .topbar{left:0; padding-left:134px;}
+    .topbar{display:none;}
   }
   .search-hit{animation:none;}
 
