@@ -5,7 +5,7 @@ edits this next (Claude, Karan, or anyone else on the band).
 
 **Live site:** https://thekemosabes.github.io
 **Repo:** https://github.com/thekemosabes/thekemosabes.github.io (GitHub account: `thekemosabes`)
-**Local copy:** `<repo folder>`
+
 
 ## Stack
 
