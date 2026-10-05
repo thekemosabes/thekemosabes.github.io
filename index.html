@@ -24,7 +24,7 @@
 <link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Londrina+Solid:wght@300;400;900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Londrina+Solid:wght@300;400&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -151,59 +151,48 @@
   }
   .hero > *{position:relative; z-index:1;}
   .hero > .hero-band{z-index:0;}
-  /* Hero lockup: the words-only wordmark with the tagline set under it as a subtitle (chunky Londrina Solid,
-     cream fill, ink outline, tilted to the wordmark's baseline), then the Est. line and the four buttons,
-     all on one dimmed, embossed card. --wm is the wordmark width; the subtitle scales from it. The vinyl
-     roundel lives in the footer. */
-  .hero-card{
-    --wm:min(72vw,300px);
-    position:relative; z-index:1; width:min(100%,560px); margin:0 auto; padding:.7rem 1rem 1rem;
-    border-radius:18px; background:rgba(10,15,36,.5);
-    -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px);
-    border:1px solid rgba(217,164,65,.24);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.4);
+  .hero-logo{
+    width:100%; max-width:172px; height:auto; margin:0 auto .4rem; display:block;
+    filter:drop-shadow(0 0 28px rgba(217,164,65,.35));
   }
-  .hero-name{margin:0; line-height:0;}
-  .hero-wordmark{display:block; width:var(--wm); height:auto; margin:0 auto; filter:drop-shadow(0 0 22px rgba(217,164,65,.35)) drop-shadow(0 3px 10px rgba(0,0,0,.6));}
-  .hero .tagline{
-    width:fit-content; max-width:100%; margin:calc(var(--wm) * -.075) auto 0; transform:rotate(-3.5deg);
-    font-family:"Londrina Solid",sans-serif; font-weight:900; font-style:normal; text-transform:uppercase;
-    font-size:calc(var(--wm) * .054); line-height:1.1; letter-spacing:.025em; color:var(--cream); white-space:nowrap;
-    -webkit-text-stroke:.28em var(--ink); paint-order:stroke fill;
-    text-shadow:.06em .09em 0 rgba(168,118,42,.9), 0 .12em .3em rgba(0,0,0,.5);
-  }
-  .hero .subline{
-    margin:.7rem 0 .8rem; font-family:"Londrina Solid",sans-serif; font-weight:400; text-transform:uppercase;
-    font-size:clamp(.7rem,3.1vw,.95rem); line-height:1.4; letter-spacing:.06em; color:var(--cream-dim); text-shadow:0 2px 8px rgba(0,0,0,.7);
-  }
-  .hero .icon-row{margin:0;}
+  .hero .icon-row{margin:1rem 0 0;}
   /* Band photo: shown at full width so all six members are in frame at every screen size (a cover crop
-     always lost the edge guitarists on a phone). It tucks up under the card: the empty brick wall above
-     the players is the backdrop, and the mask dissolves it into the page. The top 160px of the frame is
-     cropped (small band logo, neon and venue signs). */
-  .hero-band{position:relative; z-index:0; margin:calc(20px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
+     always lost the edge guitarists on a phone). It tucks up under the text: the empty brick wall above
+     the players (top ~37% of the frame) is the backdrop for the logo, and the mask dissolves it into the
+     page. The top 160px of the frame is cropped (small band logo, neon and venue signs). Tuck = 13% of the
+     hero width less 8px, which keeps the icon row 25px+ above the players' heads. */
+  .hero-band{position:relative; z-index:0; margin:calc(8px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
   .hero-band img{
     display:block; width:100%; height:auto; aspect-ratio:1800 / 931; object-fit:cover; object-position:50% 100%;
     filter:brightness(1.06) saturate(1.08);
     -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
     mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
   }
-  /* Desktop (1280px+): the photo is the full-bleed hero, sized to its own proportions so nobody is cropped
-     at the sides (the box is never narrower than the 1800x1091 frame). The lockup card floats over the
-     empty brick wall in the centre, above every head. Top 130px of the frame is pushed out of view. */
-  @media (min-width:1280px){
+  /* Desktop (1100px+): the photo goes back to being the full-bleed hero, sized to its own proportions so
+     nobody is cropped at the sides (the box is never narrower than the 1800x1091 frame; only the crowd at
+     the bottom is trimmed when the window is short). Logo + text sit beside each other on the empty brick
+     wall above the players, clear of every head, and a scrim keeps the type readable. The top 220px of the
+     frame (small band logo, neon, signs, empty wall) is pushed out of view: top = -220/1800 of the width. */
+  @media (min-width:1100px){
     .hero{
       --hw:calc(100vw - var(--page-inset));
-      display:flex; justify-content:center; align-items:flex-start; padding-top:.9rem;
+      display:grid; grid-template-columns:auto minmax(0,auto); justify-content:center; align-content:start; align-items:center;
+      column-gap:2rem; text-align:left; padding-top:1rem;
       height:clamp(calc(.38 * var(--hw)), calc(100vh - 56px), calc(.484 * var(--hw)));
       height:clamp(calc(.38 * var(--hw)), calc(100svh - 56px), calc(.484 * var(--hw)));
     }
-    .hero-card{--wm:clamp(210px,23vw,500px); width:fit-content; max-width:none; padding:.5rem clamp(1.2rem,2vw,2.2rem) .9rem;}
-    .hero .subline{white-space:nowrap; font-size:clamp(.78rem,.95vw,1.05rem); margin:.6rem 0 .7rem;}
+    .hero-logo{grid-area:1 / 1; width:clamp(110px,10.35vw,218px); max-width:none; margin:0;}
+    .hero-text{grid-area:1 / 2;}
+    .hero .tagline{max-width:none; margin:0 0 .3rem; text-align:left;}
+    .hero .subline{margin:0;}
+    .hero .icon-row{justify-content:flex-start; margin:1rem 0 0;}
     .hero > .hero-band{position:absolute; inset:0; margin:0; z-index:0; overflow:hidden;}
-    .hero-band img{position:absolute; left:0; top:calc(-.0722 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
-    .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.6), rgba(10,15,36,.3) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
+    .hero-band img{position:absolute; left:0; top:calc(-.1222 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
+    .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.68), rgba(10,15,36,.4) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
   }
+  .hero h1{font-size:2.1rem; color:var(--cream); letter-spacing:.02em; margin-bottom:.3em;}
+  .tagline{font-family:"Abril Fatface",Georgia,serif; font-weight:400; font-style:normal; font-size:clamp(1.45rem,5.8vw,2rem); line-height:1.25; letter-spacing:.01em; color:var(--brass); margin:.2rem auto .6em; max-width:22ch; text-shadow:0 2px 12px rgba(0,0,0,.7);}
+  .subline{font-family:"Londrina Solid",sans-serif;  font-size:clamp(1.07rem,4vw,1.2rem); line-height:1.5; color:var(--cream); text-transform:uppercase;  text-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:300;letter-spacing:.06em;}
 
   /* ALBUM banner */
   #album{padding:.4rem 16px 1.4rem;}
@@ -405,7 +394,7 @@
   .banner-fig{margin:0 0 1.6rem;} .banner-fig .stage-banner{margin-bottom:0;}
   .photo-credit{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream-dim); text-align:center; margin:.8rem 0 0;font-weight:300;letter-spacing:.06em;}
   .photo-credit a, .fine a{color:inherit;}
-  .footer-wordmark{display:block; width:min(150px,45vw); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 0 18px rgba(217,164,65,.25));}
+  .footer-wordmark{display:block; width:min(280px,75vw); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 0 18px rgba(217,164,65,.25));}
   .poster-dialog{border:0; padding:0; background:transparent; max-width:92vw; max-height:92vh; position:relative;}
   .poster-dialog::backdrop{background:rgba(5,8,20,.9);}
   .poster-dialog img{display:block; max-width:92vw; max-height:88dvh; width:auto; height:auto; border-radius:8px;}
@@ -784,8 +773,9 @@
 </nav>
 <div class="menu-scrim" aria-hidden="true"></div>
 <header class="hero" id="top">
-  <div class="hero-card">
-  <h1 class="hero-name"><img class="hero-wordmark" src="assets/wordmark-hero.webp" width="743" height="303" alt="The Kemosabes" fetchpriority="high"></h1>
+  <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="" fetchpriority="high">
+  <h1 class="visually-hidden">The Kemosabes</h1>
+  <div class="hero-text">
   <p class="tagline">The Ultimate Juke Joint Experience</p>
   <p class="subline">Est. 2024 · Mumbai · A Rhythm, Blues, &amp; Soul Band</p>
   <div class="icon-row">
@@ -1564,7 +1554,7 @@
 
 <footer id="book">
   <div class="wrap">
-    <img class="footer-wordmark" src="assets/logo.webp" width="640" height="768" alt="The Kemosabes" loading="lazy">
+    <img class="footer-wordmark" src="assets/wordmark.webp" width="800" height="352" alt="The Kemosabes" loading="lazy">
     <h2>Come Shimmy With Us!</h2>
     <p class="lead">Bookings, collaborations and fellowship.</p>
     <div class="footer-btns">
