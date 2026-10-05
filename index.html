@@ -516,15 +516,8 @@
     .sidenav:hover .nav-label{opacity:1; max-width:200px; transform:translateX(0);}
     .sidenav:hover a{ justify-content:flex-start; gap:1rem; }
   }
-  /* Wide desktop (1760px+): the page no longer reserves a strip for the rail. The rail floats in from the
-     screen edge to sit just outside the widest section (Our Story, 1200px + 16px padding), so it reads as
-     part of the page, and the content centers on the full width. Hover-expand still opens rightward.
-     Below 1760px a floating rail would sit on the lead guitarist's face in the full-bleed hero, so the
-     rail stays at the edge and the page (hero included) starts beside it. */
-  @media (min-width:1760px){
-    :root{ --page-inset:0px; }
-    .sidenav{ left:calc(50vw - 588px - var(--rail-collapsed)); }
-  }
+  /* Wide desktop: the rail stays at the screen edge and the page (hero included) starts beside it. A
+     floating rail (tried at 1760px+) landed on the full-bleed hero photo, so do not reintroduce it. */
   @media (max-width:480px){
     :root{ --rail-collapsed:68px; --rail-expanded:270px; }
     .sidenav a{font-size:1.05rem;}
