@@ -155,13 +155,16 @@
     width:100%; max-width:150px; height:auto; margin:0 auto .4rem; display:block;
     filter:drop-shadow(0 0 28px rgba(217,164,65,.35));
   }
-  .hero .icon-row{margin:1rem 0 0;}
+  /* buttons float over the crowd at the bottom of the photo (phones, tablets and desktop) */
+  .hero-text{position:static;}
+  .hero .tagline, .hero .subline{position:relative; z-index:1;}
+  .hero .icon-row{position:absolute; left:0; right:0; bottom:.2rem; margin:0; z-index:2;}
   /* Band photo: shown at full width so all six members are in frame at every screen size (a cover crop
      always lost the edge guitarists on a phone). It tucks up under the text: the empty brick wall above
      the players (top ~37% of the frame) is the backdrop for the logo, and the mask dissolves it into the
      page. The top 160px of the frame is cropped (small band logo, neon and venue signs). Tuck = 13% of the
      hero width less 8px, which keeps the icon row 25px+ above the players' heads. */
-  .hero-band{position:relative; z-index:0; margin:calc(8px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
+  .hero-band{position:relative; z-index:0; margin:calc(22px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
   .hero-band img{
     display:block; width:100%; height:auto; aspect-ratio:1800 / 931; object-fit:cover; object-position:50% 100%;
     filter:brightness(1.06) saturate(1.08);
@@ -177,14 +180,14 @@
       --hw:calc(100vw - var(--page-inset));
       --lw:clamp(198px,18.3vw,387px);
       padding-top:.6rem;
-      height:clamp(calc(.5 * var(--hw)), calc(100vh - 56px), calc(.56 * var(--hw)));
-      height:clamp(calc(.5 * var(--hw)), calc(100svh - 56px), calc(.56 * var(--hw)));
+      height:clamp(calc(.5 * var(--hw)), calc(100vh - 56px), calc(.58 * var(--hw)));
+      height:clamp(calc(.5 * var(--hw)), calc(100svh - 56px), calc(.58 * var(--hw)));
     }
     .hero-logo{width:var(--lw); max-width:none; margin:0 auto .4rem;}
-    .hero .icon-row{margin:.9rem 0 0;}
+    .hero .icon-row{bottom:1.6rem;}
     .hero-band{margin:calc(28px - .2083 * var(--hw)) -16px 0;}
-    .hero-band img{filter:brightness(1.17) saturate(1.08); -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 46%, #000 100%); mask-image:linear-gradient(180deg, transparent 0, #000 46%, #000 100%);}
-    .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:24%; background:linear-gradient(180deg, transparent, var(--ink)); z-index:1; pointer-events:none;}
+    .hero-band img{filter:brightness(1.17) saturate(1.08); -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 26%, #000 100%); mask-image:linear-gradient(180deg, transparent 0, #000 26%, #000 100%);}
+    .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:20%; background:linear-gradient(180deg, transparent, var(--ink)); z-index:1; pointer-events:none;}
     .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.72), rgba(10,15,36,.5) 30%, rgba(10,15,36,0) 52%, rgba(10,15,36,0) 86%, var(--ink));}
   }
   /* tagline and Est. line share one style: Londrina Solid caps, cream; the tagline stays on a single line */
