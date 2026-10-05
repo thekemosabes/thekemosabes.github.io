@@ -142,23 +142,54 @@
 
   /* HERO */
   .hero{
-    position:relative; padding:2rem 16px 1.2rem; text-align:center; overflow:hidden;
-    background:linear-gradient(180deg, rgba(10,15,36,.4), rgba(10,15,36,.55) 55%, rgba(10,15,36,.7)), url("assets/hero-antisocial.webp") center 0%/cover no-repeat, var(--ink);
+    position:relative; padding:1rem 16px 0; text-align:center; overflow:hidden; background:var(--ink);
   }
-  @media (max-width:699px){.hero{background-size:auto,auto 125%,auto; background-position:0 0,50% 0,0 0;}}
-  @media (min-width:1100px){.hero{background-position:0 0,50% min(0px, calc(530px - .333 * (100vw - 78px))),0 0;}}
   .hero::before{
     content:""; position:absolute; top:-20%; left:50%; width:600px; height:600px; transform:translateX(-50%);
     background:radial-gradient(circle, rgba(217,164,65,.28), transparent 65%);
     pointer-events:none; z-index:0;
   }
   .hero > *{position:relative; z-index:1;}
+  .hero > .hero-band{z-index:0;}
   .hero-logo{
-    width:100%; max-width:300px; height:auto; margin:0 auto 1rem; display:block;
+    width:100%; max-width:150px; height:auto; margin:0 auto .4rem; display:block;
     filter:drop-shadow(0 0 28px rgba(217,164,65,.35));
   }
-  @media (min-width:600px){.hero-logo{max-width:360px;}}
-  @media (min-width:1100px){.hero-logo{margin-bottom:96px;}}
+  .hero .icon-row{margin:1rem 0 0;}
+  /* Band photo: shown at full width so all six members are in frame at every screen size (a cover crop
+     always lost the edge guitarists on a phone). It tucks up under the text: the empty brick wall above
+     the players (top ~37% of the frame) is the backdrop for the logo, and the mask dissolves it into the
+     page. The top 160px of the frame is cropped (small band logo, neon and venue signs). Tuck = 13% of the
+     hero width less 8px, which keeps the icon row 25px+ above the players' heads. */
+  .hero-band{position:relative; z-index:0; margin:calc(8px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
+  .hero-band img{
+    display:block; width:100%; height:auto; aspect-ratio:1800 / 931; object-fit:cover; object-position:50% 100%;
+    filter:brightness(.92) saturate(1.08);
+    -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
+    mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
+  }
+  /* Desktop (1100px+): the photo goes back to being the full-bleed hero, sized to its own proportions so
+     nobody is cropped at the sides (the box is never narrower than the 1800x1091 frame; only the crowd at
+     the bottom is trimmed when the window is short). Logo + text sit beside each other on the empty brick
+     wall above the players, clear of every head, and a scrim keeps the type readable. The top 220px of the
+     frame (small band logo, neon, signs, empty wall) is pushed out of view: top = -220/1800 of the width. */
+  @media (min-width:1100px){
+    .hero{
+      --hw:calc(100vw - var(--page-inset));
+      display:grid; grid-template-columns:auto minmax(0,auto); justify-content:center; align-content:start; align-items:center;
+      column-gap:2rem; text-align:left; padding-top:1rem;
+      height:clamp(calc(.38 * var(--hw)), calc(100vh - 56px), calc(.484 * var(--hw)));
+      height:clamp(calc(.38 * var(--hw)), calc(100svh - 56px), calc(.484 * var(--hw)));
+    }
+    .hero-logo{grid-area:1 / 1; width:clamp(96px,9vw,190px); max-width:none; margin:0;}
+    .hero-text{grid-area:1 / 2;}
+    .hero .tagline{max-width:none; margin:0 0 .3rem; text-align:left;}
+    .hero .subline{margin:0;}
+    .hero .icon-row{justify-content:flex-start; margin:1rem 0 0;}
+    .hero > .hero-band{position:absolute; inset:0; margin:0; z-index:0; overflow:hidden;}
+    .hero-band img{position:absolute; left:0; top:calc(-.1222 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.02) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
+    .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.68), rgba(10,15,36,.4) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
+  }
   .hero h1{font-size:2.1rem; color:var(--cream); letter-spacing:.02em; margin-bottom:.3em;}
   .tagline{font-family:"Abril Fatface",Georgia,serif; font-weight:400; font-style:normal; font-size:clamp(1.45rem,5.8vw,2rem); line-height:1.25; letter-spacing:.01em; color:var(--brass); margin:.2rem auto .6em; max-width:22ch; text-shadow:0 2px 12px rgba(0,0,0,.7);}
   .subline{font-family:"Londrina Solid",sans-serif;  font-size:clamp(1.07rem,4vw,1.2rem); line-height:1.5; color:var(--cream); text-transform:uppercase;  text-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:300;letter-spacing:.06em;}
@@ -364,7 +395,6 @@
   .photo-credit{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream-dim); text-align:center; margin:.8rem 0 0;font-weight:300;letter-spacing:.06em;}
   .photo-credit a, .fine a{color:inherit;}
   .footer-wordmark{display:block; width:min(280px,75vw); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 0 18px rgba(217,164,65,.25));}
-  .sticky-bar a .icon{margin-right:.2em;}
   .poster-dialog{border:0; padding:0; background:transparent; max-width:92vw; max-height:92vh; position:relative;}
   .poster-dialog::backdrop{background:rgba(5,8,20,.9);}
   .poster-dialog img{display:block; max-width:92vw; max-height:88dvh; width:auto; height:auto; border-radius:8px;}
@@ -375,20 +405,6 @@
   .footer-btns{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.6rem;}
   .fine{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem; text-transform:uppercase;  color:var(--cream-dim); margin:.3em 0;font-weight:300;letter-spacing:.06em;}
 
-  /* STICKY BAR */
-  .sticky-bar{
-    position:fixed; left:0; right:0; bottom:0; z-index:500;
-    display:flex; gap:.6rem; padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom));
-    background:rgba(10,15,36,.96); border-top:1px solid var(--ink-3);
-    transform:translateY(100%); transition:transform .25s ease;
-  }
-  .sticky-bar.show{transform:translateY(0);}
-  .sticky-bar a{flex:1; min-width:0; min-height:48px; padding-inline:.8em; white-space:nowrap; border-radius:999px; font-size:1.02rem;}
-  body.has-stickybar{padding-bottom:calc(72px + env(safe-area-inset-bottom));}
-  @media (min-width:900px){
-    .sticky-bar{display:none;}
-    body.has-stickybar{padding-bottom:0;}
-  }
 .watch-label{display:block;width:100%;font-family:"Londrina Solid",sans-serif;font-size:0.95rem;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.4rem;font-weight:300;letter-spacing:.06em;}
 
   .yt .play{width:64px; height:64px;}
@@ -451,12 +467,11 @@
   .cut-cap:hover,.cut-cap:focus-visible{color:var(--brass);}
   .watch-links a.cut-cap{border-bottom:0; display:flex;}
   html{scroll-behavior:smooth;} section, header, footer{scroll-margin-top:68px;}
-  :root{ --rail-collapsed:78px; --rail-expanded:262px; }
-  body{padding-left:var(--rail-collapsed);}
-  .mob-menu-btn, .mob-nav-overlay{ display:none; }
+  :root{ --rail-collapsed:78px; --rail-expanded:262px; --page-inset:var(--rail-collapsed); }
+  body{padding-left:var(--page-inset);}
   .sidenav{
     position:fixed; left:0; top:0; bottom:0; z-index:600; width:var(--rail-collapsed);
-    display:flex; flex-direction:column; padding:5.5rem .5rem 1.5rem;
+    display:flex; flex-direction:column; padding:56px .5rem;
     padding-left:calc(.5rem + env(safe-area-inset-left));
     background:transparent; overflow-x:hidden; overflow-y:auto; white-space:nowrap;
     transition:width .22s ease; pointer-events:none;
@@ -464,7 +479,8 @@
   .sidenav:focus-within, .sidenav.open{ width:var(--rail-expanded); }
   .sidenav-title{
     font-family:"Londrina Solid",sans-serif; font-weight:400; letter-spacing:.08em; text-transform:uppercase;
-    font-size:.85rem; color:var(--cream-dim); margin:0 .6rem 1rem;
+    font-size:.85rem; line-height:1; color:var(--cream-dim); margin:auto .6rem 0;
+    height:0; transform:translateY(-1.6rem); /* zero-height in flow, drawn just above the links, so the links centre exactly */
     opacity:0; transition:opacity .15s ease;
   }
   .sidenav:focus-within .sidenav-title, .sidenav.open .sidenav-title{opacity:1;}
@@ -473,7 +489,7 @@
     background:rgba(10,15,36,.72); border:1px solid rgba(217,164,65,.16);
     backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
     box-shadow:0 2px 14px rgba(0,0,0,.4); transition:background .22s ease, box-shadow .22s ease;
-    pointer-events:auto; overflow:hidden;
+    pointer-events:auto; overflow:hidden; flex:none; margin-bottom:auto; /* title + links centre as one block below the top bar; auto margins stay scroll-safe on short screens */
   }
   .sidenav:focus-within .nav-links, .sidenav.open .nav-links{
     background:rgba(10,15,36,.8); box-shadow:0 6px 24px rgba(0,0,0,.5);
@@ -501,51 +517,18 @@
     .sidenav:hover .nav-label{opacity:1; max-width:200px; transform:translateX(0);}
     .sidenav:hover a{ justify-content:flex-start; gap:1rem; }
   }
-  @media (max-width:599px){
-    body{padding-left:0;}
-    .sidenav{display:none;}
-    section, header, footer{scroll-margin-top:68px;}
-    /* Hamburger pill — inline flex child of topbar on mobile */
-    .mob-menu-btn{
-      display:flex; align-items:center; gap:.55em;
-      flex:none;
-      padding:.35em .9em; border-radius:999px;
-      background:rgba(10,15,36,.88); border:1.5px solid var(--brass);
-      color:var(--cream); font-family:"Londrina Solid",sans-serif;
-      font-weight:300; letter-spacing:.07em; font-size:.95rem;
-      cursor:pointer;
-      transition:border-color .18s, box-shadow .18s;
-    }
-    .mob-menu-btn:hover,.mob-menu-btn:focus-visible{border-color:var(--cream); box-shadow:0 0 16px rgba(217,164,65,.4);}
-    .mob-menu-btn .mob-hamburger{display:flex; flex-direction:column; gap:4px; width:18px;}
-    .mob-menu-btn .mob-hamburger span{display:block; height:2px; background:var(--cream); border-radius:2px; transition:transform .2s, opacity .2s;}
-    .mob-menu-btn[aria-expanded="true"] .mob-hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg);}
-    .mob-menu-btn[aria-expanded="true"] .mob-hamburger span:nth-child(2){opacity:0;}
-    .mob-menu-btn[aria-expanded="true"] .mob-hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
-    /* Mobile nav overlay */
-    .mob-nav-overlay{
-      display:none; position:fixed; inset:0; z-index:790;
-      background:rgba(5,8,22,.6); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
-    }
-    .mob-nav-overlay.open{display:block;}
-    .mob-nav-drawer{
-      position:fixed; top:0; left:0; right:0; z-index:795;
-      max-height:90dvh; overflow-y:auto;
-      background:rgba(10,15,36,.97); border-bottom:1px solid rgba(217,164,65,.25);
-      padding:5rem 1.2rem 1.4rem; box-shadow:0 8px 32px rgba(0,0,0,.6);
-      transform:translateY(-100%); transition:transform .28s cubic-bezier(.4,0,.2,1);
-    }
-    .mob-nav-overlay.open .mob-nav-drawer{transform:translateY(0);}
-    .mob-nav-drawer a{
-      display:flex; align-items:center; gap:.9em;
-      padding:.78em .6em; border-radius:9px; border-left:2px solid transparent;
-      font-family:"Londrina Solid",sans-serif; font-weight:300; letter-spacing:.06em;
-      font-size:1.1rem; color:var(--cream-dim); text-decoration:none;
-    }
-    .mob-nav-drawer a:hover,.mob-nav-drawer a:focus-visible{color:var(--cream); background:rgba(255,255,255,.06);}
-    .mob-nav-drawer a.is-current{color:var(--brass); border-left-color:var(--brass); background:rgba(217,164,65,.12);}
-    .mob-nav-drawer .nav-icon{flex:none; width:22px; height:22px; opacity:.9;}
-    .mob-nav-drawer a.is-current .nav-icon{filter:drop-shadow(0 0 6px rgba(217,164,65,.65)); opacity:1;}
+  /* Wide desktop (1760px+): the page no longer reserves a strip for the rail. The rail floats in from the
+     screen edge to sit just outside the widest section (Our Story, 1200px + 16px padding), so it reads as
+     part of the page, and the content centers on the full width. Hover-expand still opens rightward.
+     Below 1760px a floating rail would sit on the lead guitarist's face in the full-bleed hero, so the
+     rail stays at the edge and the page (hero included) starts beside it. */
+  @media (min-width:1760px){
+    :root{ --page-inset:0px; }
+    .sidenav{ left:calc(50vw - 588px - var(--rail-collapsed)); }
+  }
+  @media (max-width:480px){
+    :root{ --rail-collapsed:68px; --rail-expanded:270px; }
+    .sidenav a{font-size:1.05rem;}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
@@ -554,17 +537,22 @@
   .btn.solid:focus-visible{background:var(--brass); border-color:var(--brass); color:var(--ink); box-shadow:0 0 20px rgba(217,164,65,.55);}
   .btn.solid:focus-visible .icon{color:var(--ink);}
   #book{position:relative; background:linear-gradient(180deg, rgba(10,15,36,.72), rgba(10,15,36,.7) 40%, rgba(10,15,36,.8)), url("assets/gallery/highspirits-congregation.webp") center 30%/cover no-repeat;}
-  .gallery > figure{flex:0 0 auto; scroll-snap-align:start; margin:0;}
-  .gallery a.lb{display:block; width:fit-content; max-width:100%; border-radius:8px; overflow:hidden; border:1px solid var(--ink-3);}
+  /* each frame is exactly as wide as its photo; the caption wraps to that width instead of widening the slot */
+  .gallery > figure{flex:0 0 auto; width:min-content; scroll-snap-align:start; margin:0;}
+  .gallery a.lb{display:block; width:fit-content; border-radius:8px; overflow:hidden; border:1px solid var(--ink-3);}
   .gallery a.lb:hover, .gallery a.lb:focus-visible{border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.4);}
-  .gallery img{display:block; width:auto; height:260px; object-fit:cover;}
-  @media (min-width:700px){.gallery img{height:310px;}}
+  /* Frame height --gh, width from the photo's own ratio (--ar, set inline per photo). A wide shot that would
+     overflow a phone screen is scaled down whole (never side-cropped, which cut through burned-in credits).
+     The cap is in vw, not %, because a % cap would let the figure's min-content squeeze the photo. */
+  .gallery{--gh:260px;}
+  .gallery img{display:block; height:auto; max-width:none; width:min(calc(var(--gh) * var(--ar, 1.5)), calc(100vw - var(--page-inset) - 48px));}
+  @media (min-width:700px){.gallery{--gh:310px;}}
   @media (min-width:1100px){
     #moments .wrap-wide{max-width:1600px;}
-    .gallery img{height:420px;}
-    .gallery figcaption{font-size:.9rem; max-width:min(100%,380px);}
+    .gallery{--gh:420px;}
+    .gallery figcaption{font-size:.9rem;}
   }
-  .gallery figcaption{max-width:min(100%,320px); font-size:.85rem; color:var(--cream-dim); margin:.35rem .1rem 0; line-height:1.35;}
+  .gallery figcaption{font-size:.85rem; color:var(--cream-dim); margin:.35rem .1rem 0; line-height:1.35;}
   .gallery figcaption a{color:inherit;}
   .gospel-title{font-family:"Abril Fatface",Georgia,serif; font-weight:400; color:var(--brass); font-size:clamp(1.9rem,7vw,2.6rem); line-height:1.15; margin:0 0 1.2rem;}
   .story{font-size:1.25rem; line-height:1.7; color:var(--cream);}
@@ -607,7 +595,7 @@
   }
 
   /* TOP BAR */
-  .topbar{position:fixed; top:0; left:var(--rail-collapsed); right:0; z-index:700; display:flex; align-items:center; gap:.6rem; height:56px; padding:0 12px 0 4px; background:rgba(10,15,36,.94); border-bottom:1px solid var(--ink-3); transition:left .22s ease;}
+  .topbar{position:fixed; top:0; left:0; right:0; z-index:700; display:flex; align-items:center; gap:.6rem; height:56px; padding:0 12px; background:rgba(10,15,36,.94); border-bottom:1px solid var(--ink-3); transition:left .22s ease;}
   .topbar-search{flex:1 1 0; min-width:0; display:flex; align-items:center; gap:.5rem; background:var(--ink-2); border:1px solid var(--ink-3); border-radius:999px; padding:0 .8rem; height:44px;}
   .topbar-search .icon{flex:none; color:var(--cream-dim);}
   .topbar-search input{flex:1; min-width:0; background:transparent; border:0; outline:0; color:var(--cream); font:1rem/1.2 "Ubuntu",system-ui,sans-serif;}
@@ -629,7 +617,8 @@
     transition:color .2s, transform .2s;
   }
   .topbar-icon-btn::after{content:""; position:absolute; inset:-7px;}
-  .topbar-icon-btn .icon{width:18px; height:18px;}
+  /* one icon size across the whole top bar: menu, search, press kit, WhatsApp, email */
+  .topbar .icon, .topbar-btn svg, .topbar-search svg{width:20px; height:20px;}
   .topbar-icon-btn:hover, .topbar-icon-btn:focus-visible{color:var(--brass); transform:translateY(-1px);}
   @media (max-width:480px){
     .topbar{gap:.35rem; padding:0 8px 0 4px;}
@@ -639,9 +628,40 @@
     .topbar-cta{gap:.35rem;}
     .book-us-group{padding:0 .4rem; gap:.2rem;}
   }
-  /* Mobile: topbar stays, pill is inline flex child */
-  @media (max-width:599px){
-    .topbar{left:0;}
+  /* MOBILE MENU (<700px): the icon rail gives way to a Menu button top-left that opens a labelled panel.
+     Sits after every .sidenav / .topbar rule so it wins ties; desktop and tablet keep the rail untouched. */
+  .menu-btn{display:none; align-items:center; gap:.45rem; flex:none; height:44px; padding:0 .85rem 0 .7rem; border-radius:999px; border:1px solid var(--brass-deep); background:transparent; color:var(--cream); font:300 .95rem/1 "Londrina Solid",sans-serif; letter-spacing:.06em; cursor:pointer; -webkit-tap-highlight-color:transparent; transition:border-color .2s, color .2s, box-shadow .2s;}
+  .menu-icon path{transform-box:fill-box; transform-origin:center; transition:transform .2s ease, opacity .15s ease;}
+  .menu-btn:focus-visible, .menu-btn[aria-expanded="true"]{border-color:var(--brass); color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.4);}
+  .menu-btn[aria-expanded="true"] .ml1{transform:translateY(5px) rotate(45deg);}
+  .menu-btn[aria-expanded="true"] .ml2{opacity:0;}
+  .menu-btn[aria-expanded="true"] .ml3{transform:translateY(-5px) rotate(-45deg);}
+  .menu-scrim{display:none;}
+  @media (max-width:699px){
+    :root{ --rail-collapsed:0px; }
+    .menu-btn{display:inline-flex;}
+    .topbar{padding-left:8px;}
+    .sidenav, .sidenav:hover, .sidenav:focus-within, .sidenav.open{
+      top:56px; bottom:auto; left:0; width:min(300px, 100vw); max-height:calc(100dvh - 56px);
+      padding:6px 8px 0; padding-left:calc(8px + env(safe-area-inset-left));
+      overflow:visible; visibility:hidden; opacity:0; transform:translateY(-6px);
+      transition:opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    }
+    .sidenav.open{visibility:visible; opacity:1; transform:none; pointer-events:auto; transition:opacity .18s ease, transform .18s ease, visibility 0s;}
+    .sidenav-title{display:none;}
+    .nav-links, .sidenav:hover .nav-links, .sidenav.open .nav-links{
+      max-height:calc(100dvh - 56px - 20px); overflow-y:auto; overscroll-behavior:contain;
+      background:rgba(10,15,36,.97); box-shadow:0 10px 32px rgba(0,0,0,.55);
+    }
+    .sidenav a, .sidenav:hover a{justify-content:flex-start; gap:.9rem; min-height:48px; padding:.6rem .8rem; font-size:1.1rem;}
+    .sidenav .nav-label, .sidenav:hover .nav-label{opacity:1; max-width:none; transform:none;}
+    .menu-scrim{display:block; position:fixed; inset:56px 0 0 0; z-index:590; background:rgba(5,8,20,.55); opacity:0; visibility:hidden; transition:opacity .18s ease, visibility 0s linear .18s;}
+    body.menu-open .menu-scrim{opacity:1; visibility:visible; transition:opacity .18s ease, visibility 0s;}
+  }
+  /* narrow phones: icon-only button hands its width back to the search field */
+  @media (max-width:389px){
+    .menu-btn{width:44px; padding:0; justify-content:center;}
+    .menu-btn-label{display:none;}
   }
   .search-hit{animation:none;}
 
@@ -691,10 +711,9 @@
 
 <!-- SECTION NAV: labels must match section ids below -->
 <div class="topbar">
-  <!-- Mobile hamburger button — first flex child, hidden on desktop -->
-  <button id="mob-menu-btn" class="mob-menu-btn" aria-controls="mob-nav-overlay" aria-expanded="false" aria-label="Open site menu">
-    <span class="mob-hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
-    Menu
+  <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="sidenav" aria-label="Menu">
+    <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="ml1" d="M4 7h16"/><path class="ml2" d="M4 12h16"/><path class="ml3" d="M4 17h16"/></svg>
+    <span class="menu-btn-label">Menu</span>
   </button>
   <div class="topbar-search">
     <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
@@ -713,22 +732,6 @@
   </div>
   <p id="search-status" class="visually-hidden" aria-live="polite"></p>
 </div>
-<!-- Mobile nav overlay -->
-<div id="mob-nav-overlay" class="mob-nav-overlay" role="dialog" aria-modal="true" aria-label="Site menu">
-  <nav class="mob-nav-drawer">
-    <a href="#top" data-sec="top"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-home"></use></svg>Home</a>
-    <a href="#watch" data-sec="watch"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-video"></use></svg>From the Bandstand</a>
-    <a href="#band" data-sec="band"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg>Meet the Band</a>
-    <a href="#stages" data-sec="stages"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-ticket"></use></svg>Our Shows</a>
-    <a href="#gram" data-sec="gram"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>On Instagram</a>
-    <a href="#moments" data-sec="moments"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg>Live Moments</a>
-    <a href="#originals" data-sec="originals"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-note"></use></svg>Original Music</a>
-    <a href="#covers" data-sec="covers"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-vinyl"></use></svg>Covers &amp; Impressions</a>
-    <a href="#story" data-sec="story"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-book"></use></svg>Our Story</a>
-    <a href="#listening" data-sec="listening"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-headphones"></use></svg>Recommended Listening</a>
-    <a href="#book" data-sec="book"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-calendar-check"></use></svg>Book Us</a>
-  </nav>
-</div>
 <nav id="sidenav" class="sidenav" aria-label="Site menu">
   <span class="sidenav-title">Menu</span>
   <div class="nav-links">
@@ -745,9 +748,11 @@
     <a href="#book" data-sec="book"><svg class="icon nav-icon" aria-hidden="true"><use href="#icon-calendar-check"></use></svg><span class="nav-label">Book Us</span></a>
   </div>
 </nav>
+<div class="menu-scrim" aria-hidden="true"></div>
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="" fetchpriority="high">
   <h1 class="visually-hidden">The Kemosabes</h1>
+  <div class="hero-text">
   <p class="tagline">The Ultimate Juke Joint Experience</p>
   <p class="subline">Est. 2024 · Mumbai · A Rhythm, Blues, &amp; Soul Band</p>
   <div class="icon-row">
@@ -756,6 +761,8 @@
     <a class="icon-btn" href="https://chat.whatsapp.com/GtEWxiJI1fZ9UlY1nmgKnY?mode=gi_t" target="_blank" rel="noopener" aria-label="Join our WhatsApp community"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg></a>
     <a class="icon-btn" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes" aria-label="Email us"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg></a>
   </div>
+  </div>
+  <div class="hero-band"><img src="assets/hero-antisocial.webp" width="1800" height="1091" alt="The Kemosabes on stage at antiSOCIAL: lead guitarist, drummer, bassist, vocalist, keyboardist and acoustic guitarist"></div>
 </header>
 
 <!-- ALBUM SECTION (parked until recording is done): restore by removing this comment wrapper, and move it to sit just below the next-show ticket in the Links section
@@ -821,7 +828,6 @@
       <svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>
       <span class="label">Book The Kemosabes</span><span class="chev" aria-hidden="true">›</span>
     </a>
-    <div id="linkstack-sentinel" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -1212,45 +1218,45 @@
     <div class="carousel" data-carousel>
       <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
       <div class="gallery car-track">
-<figure><a class="lb" href="assets/gallery/antisocial-jump-airborne.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-jump-airborne-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/cobbler-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune · Jan 2026"><img src="assets/gallery/cobbler-fullband-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · Jan 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/stables-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Stables, Mumbai · Feb 2026"><img src="assets/gallery/stables-fullband-t.webp" width="640" height="360" alt="The Kemosabes live at The Stables, Mumbai" loading="lazy"></a><figcaption>The Stables, Mumbai · Feb 2026</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/shisha-fullband-mosaic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune"><img src="assets/gallery/shisha-fullband-mosaic-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-orange-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img src="assets/gallery/bluebop-orange-fullband-t.webp" width="640" height="361" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-fullband-wide.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img src="assets/gallery/antisocial-fullband-wide-t.webp" width="640" height="361" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-drums-sticks.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-drums-sticks-t.webp" width="427" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-guitar-lowangle.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-lowangle-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-harp-kneel-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-harp-kneel-bw-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-keys-neon.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-keys-neon-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/shisha-bass-leap.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Jun 2026"><img src="assets/gallery/shisha-bass-leap-t.webp" width="360" height="640" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Jun 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-guitar-red.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-red-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/highspirits-mural.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Spirits Cafe, Pune · Apr 2026"><img src="assets/gallery/highspirits-mural-t.webp" width="640" height="427" alt="The Kemosabes live at High Spirits Cafe, Pune" loading="lazy"></a><figcaption>High Spirits Cafe, Pune · Apr 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-guitar-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-bw-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-drums.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-drums-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-action-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-action-bw-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-spotlight.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-spotlight-t.webp" width="480" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-bass.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-bass-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-guitar-warm.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-guitar-warm-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-congregation.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/antisocial-congregation-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/shisha-kneel.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Jun 2026"><img src="assets/gallery/shisha-kneel-t.webp" width="404" height="640" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Jun 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/highspirits-redstage.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Spirits Cafe, Pune · Apr 2026"><img src="assets/gallery/highspirits-redstage-t.webp" width="640" height="427" alt="The Kemosabes live at High Spirits Cafe, Pune" loading="lazy"></a><figcaption>High Spirits Cafe, Pune · Apr 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/ibd-guitar-red.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: International Blues Day · antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/ibd-guitar-red-t.webp" width="360" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>International Blues Day · antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/ibd-guitar-blondies.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: International Blues Day · antiSOCIAL, Mumbai · Aug 2025"><img src="assets/gallery/ibd-guitar-blondies-t.webp" width="360" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>International Blues Day · antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-lekhyani-keys.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-lekhyani-keys-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-lekhyani-rehearsal.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-lekhyani-rehearsal-t.webp" width="640" height="448" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/shisha-guitar-silhouette.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Feb 2026"><img src="assets/gallery/shisha-guitar-silhouette-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Feb 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/soulfry-zion-vocals.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Soul Fry, Mumbai · Feb 2026"><img src="assets/gallery/soulfry-zion-vocals-t.webp" width="427" height="640" alt="The Kemosabes live at Soul Fry, Mumbai" loading="lazy"></a><figcaption>Soul Fry, Mumbai · Feb 2026 · © Walrus Photography</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-bassist-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-bassist-bw-t.webp" width="640" height="428" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-zion-acoustic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img src="assets/gallery/bluebop-zion-acoustic-t.webp" width="640" height="428" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/cobbler-banner-signage.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img src="assets/gallery/cobbler-banner-signage-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune</figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-guitarist-purple.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img src="assets/gallery/antisocial-guitarist-purple-t.webp" width="640" height="959" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/cobbler-lekhyani-keys.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img src="assets/gallery/cobbler-lekhyani-keys-t.webp" width="640" height="960" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/cobbler-bassist.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img src="assets/gallery/cobbler-bassist-t.webp" width="640" height="960" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/cobbler-keys-2.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img src="assets/gallery/cobbler-keys-2-t.webp" width="640" height="960" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-singer-brick.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img src="assets/gallery/antisocial-singer-brick-t.webp" width="640" height="428" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-keys-purple.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img src="assets/gallery/antisocial-keys-purple-t.webp" width="640" height="428" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-singer-blue.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img src="assets/gallery/antisocial-singer-blue-t.webp" width="640" height="1138" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/antisocial-bassist-sign.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img src="assets/gallery/antisocial-bassist-sign-t.webp" width="640" height="1138" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-jump-airborne.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:640 / 427" src="assets/gallery/antisocial-jump-airborne-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune · Jan 2026"><img style="--ar:640 / 427" src="assets/gallery/cobbler-fullband-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · Jan 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/stables-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Stables, Mumbai · Feb 2026"><img style="--ar:640 / 360" src="assets/gallery/stables-fullband-t.webp" width="640" height="360" alt="The Kemosabes live at The Stables, Mumbai" loading="lazy"></a><figcaption>The Stables, Mumbai · Feb 2026</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-fullband-mosaic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune"><img style="--ar:640 / 427" src="assets/gallery/shisha-fullband-mosaic-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-orange-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img style="--ar:640 / 361" src="assets/gallery/bluebop-orange-fullband-t.webp" width="640" height="361" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-fullband-wide.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 361" src="assets/gallery/antisocial-fullband-wide-t.webp" width="640" height="361" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-drums-sticks.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:427 / 640" src="assets/gallery/antisocial-drums-sticks-t.webp" width="427" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-lowangle.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-guitar-lowangle-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-harp-kneel-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-harp-kneel-bw-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-keys-neon.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-keys-neon-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-bass-leap.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Jun 2026"><img style="--ar:360 / 640" src="assets/gallery/shisha-bass-leap-t.webp" width="360" height="640" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Jun 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-red.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 427" src="assets/gallery/bluebop-guitar-red-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/highspirits-mural.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Spirits Cafe, Pune · Apr 2026"><img style="--ar:640 / 427" src="assets/gallery/highspirits-mural-t.webp" width="640" height="427" alt="The Kemosabes live at High Spirits Cafe, Pune" loading="lazy"></a><figcaption>High Spirits Cafe, Pune · Apr 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-guitar-bw-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-drums.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 427" src="assets/gallery/bluebop-drums-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-action-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 427" src="assets/gallery/bluebop-action-bw-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-spotlight.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:480 / 640" src="assets/gallery/antisocial-spotlight-t.webp" width="480" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-bass.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 427" src="assets/gallery/bluebop-bass-t.webp" width="640" height="427" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-guitar-warm.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-guitar-warm-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-congregation.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:640 / 427" src="assets/gallery/antisocial-congregation-t.webp" width="640" height="427" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-kneel.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Jun 2026"><img style="--ar:404 / 640" src="assets/gallery/shisha-kneel-t.webp" width="404" height="640" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Jun 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/highspirits-redstage.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Spirits Cafe, Pune · Apr 2026"><img style="--ar:640 / 427" src="assets/gallery/highspirits-redstage-t.webp" width="640" height="427" alt="The Kemosabes live at High Spirits Cafe, Pune" loading="lazy"></a><figcaption>High Spirits Cafe, Pune · Apr 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/ibd-guitar-red.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: International Blues Day · antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:360 / 640" src="assets/gallery/ibd-guitar-red-t.webp" width="360" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>International Blues Day · antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/ibd-guitar-blondies.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: International Blues Day · antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:360 / 640" src="assets/gallery/ibd-guitar-blondies-t.webp" width="360" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>International Blues Day · antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-lekhyani-keys.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-lekhyani-keys-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-lekhyani-rehearsal.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 448" src="assets/gallery/bluebop-lekhyani-rehearsal-t.webp" width="640" height="448" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/shisha-guitar-silhouette.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune · Feb 2026"><img style="--ar:640 / 427" src="assets/gallery/shisha-guitar-silhouette-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · Feb 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/soulfry-zion-vocals.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Soul Fry, Mumbai · Feb 2026"><img style="--ar:427 / 640" src="assets/gallery/soulfry-zion-vocals-t.webp" width="427" height="640" alt="The Kemosabes live at Soul Fry, Mumbai" loading="lazy"></a><figcaption>Soul Fry, Mumbai · Feb 2026 · © Walrus Photography</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-bassist-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 428" src="assets/gallery/bluebop-bassist-bw-t.webp" width="640" height="428" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-zion-acoustic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:640 / 428" src="assets/gallery/bluebop-zion-acoustic-t.webp" width="640" height="428" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-banner-signage.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img style="--ar:640 / 427" src="assets/gallery/cobbler-banner-signage-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-guitarist-purple.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 959" src="assets/gallery/antisocial-guitarist-purple-t.webp" width="640" height="959" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-lekhyani-keys.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img style="--ar:640 / 960" src="assets/gallery/cobbler-lekhyani-keys-t.webp" width="640" height="960" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-bassist.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img style="--ar:640 / 960" src="assets/gallery/cobbler-bassist-t.webp" width="640" height="960" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/cobbler-keys-2.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune"><img style="--ar:640 / 960" src="assets/gallery/cobbler-keys-2-t.webp" width="640" height="960" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-singer-brick.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 428" src="assets/gallery/antisocial-singer-brick-t.webp" width="640" height="428" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-keys-purple.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 428" src="assets/gallery/antisocial-keys-purple-t.webp" width="640" height="428" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-singer-blue.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 1138" src="assets/gallery/antisocial-singer-blue-t.webp" width="640" height="1138" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/antisocial-bassist-sign.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 1138" src="assets/gallery/antisocial-bassist-sign-t.webp" width="640" height="1138" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
       </div>
       <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
     </div>
@@ -1529,8 +1535,8 @@
     <h2>Come Shimmy With Us!</h2>
     <p class="lead">Bookings, collaborations and fellowship.</p>
     <div class="footer-btns">
-      <a class="btn" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes">Email to book</a>
-      <a class="btn" href="https://api.whatsapp.com/send?phone=918076112334&amp;text=Hi%2C%20we%27d%20like%20to%20book%20The%20Kemosabes" target="_blank" rel="noopener">WhatsApp to book</a>
+      <a class="btn" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes">Email</a>
+      <a class="btn" href="https://api.whatsapp.com/send?phone=918076112334&amp;text=Hi%2C%20we%27d%20like%20to%20book%20The%20Kemosabes" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div class="icon-row">
       <a class="icon-btn" href="https://www.instagram.com/thekemosabes" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg></a>
@@ -1542,11 +1548,6 @@
     <p class="fine">Photography: <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a> (@tothegloriousunknown) · <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a> (@shotinfocus101) · Walrus Photography</p>
   </div>
 </footer>
-
-<nav class="sticky-bar" aria-label="Quick links">
-  <a class="btn" href="https://www.youtube.com/@The_Kemosabes?sub_confirmation=1" target="_blank" rel="noopener"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-youtube"></use></svg>YouTube</a>
-  <a class="btn solid" href="https://chat.whatsapp.com/GtEWxiJI1fZ9UlY1nmgKnY?mode=gi_t" target="_blank" rel="noopener" aria-label="Join our WhatsApp community"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Join on WhatsApp</a>
-</nav>
 
 <script>
 (function(){
@@ -1706,6 +1707,24 @@
 
   var nav=document.getElementById("sidenav");
   if(nav){
+    var menuBtn=document.getElementById("menu-btn");
+    // Below 700px the rail becomes a panel opened by the Menu button: tap toggles it, a mouse
+    // (narrow desktop window) opens it on hover. At 700px and up the rail keeps its own behavior.
+    var mobileMQ=window.matchMedia("(max-width:699px)");
+    var hoverTimer=null;
+    function setOpen(open){
+      nav.classList.toggle("open",open);
+      if(menuBtn) menuBtn.setAttribute("aria-expanded",open?"true":"false");
+      document.body.classList.toggle("menu-open",open && mobileMQ.matches);
+    }
+    function onBreakpoint(){ setOpen(false); }
+    if(mobileMQ.addEventListener) mobileMQ.addEventListener("change",onBreakpoint); else if(mobileMQ.addListener) mobileMQ.addListener(onBreakpoint);
+    if(menuBtn){
+      [menuBtn,nav].forEach(function(el){
+        el.addEventListener("pointerenter",function(e){ if(e.pointerType!=="mouse"||!mobileMQ.matches) return; clearTimeout(hoverTimer); setOpen(true); });
+        el.addEventListener("pointerleave",function(e){ if(e.pointerType!=="mouse"||!mobileMQ.matches) return; clearTimeout(hoverTimer); hoverTimer=setTimeout(function(){ setOpen(false); },220); });
+      });
+    }
     // Touch/coarse-pointer devices don't get a reliable persistent :hover, so the first
     // tap anywhere on the collapsed rail expands it instead of following the link; a
     // second tap on a link (now that labels are visible) navigates normally. Checked per
@@ -1720,6 +1739,22 @@
     // this whole open/close path runs (desktop's hover expand/collapse is plain CSS and
     // never touches page state, so it isn't affected).
     document.addEventListener("click", function(e){
+      if(mobileMQ.matches){
+        var isOpen=nav.classList.contains("open");
+        if(menuBtn && menuBtn.contains(e.target)){
+          e.preventDefault(); e.stopPropagation();
+          clearTimeout(hoverTimer);
+          var fromKeyboard=(e.detail===0);
+          // a mouse click after hover-open keeps the panel open; touch and keyboard toggle it
+          setOpen((lastPointerWasTouch||fromKeyboard) ? !isOpen : true);
+          if(fromKeyboard && nav.classList.contains("open")){ var first=nav.querySelector("a"); if(first) first.focus(); }
+          return;
+        }
+        if(!isOpen) return;
+        if(!nav.contains(e.target)){ setOpen(false); e.preventDefault(); e.stopPropagation(); return; }
+        if(e.target.closest("a")) setOpen(false);
+        return;
+      }
       if(!lastPointerWasTouch) return;
       if(!nav.contains(e.target)){
         if(nav.classList.contains("open")){
@@ -1740,8 +1775,9 @@
     }, true);
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape" && nav.classList.contains("open")){
-        nav.classList.remove("open");
-        if(document.activeElement && nav.contains(document.activeElement)) document.activeElement.blur();
+        var focusInNav=document.activeElement && nav.contains(document.activeElement);
+        setOpen(false);
+        if(focusInNav){ document.activeElement.blur(); if(mobileMQ.matches && menuBtn) menuBtn.focus(); }
       }
     });
     if("IntersectionObserver" in window){
@@ -1749,52 +1785,6 @@
       nav.querySelectorAll("a").forEach(function(a){var t=document.getElementById(a.dataset.sec); if(t) io.observe(t);});
     }
   }
-
-  // Mobile hamburger menu
-  (function(){
-    var btn = document.getElementById("mob-menu-btn");
-    var overlay = document.getElementById("mob-nav-overlay");
-    if(!btn || !overlay) return;
-    function openMenu(){
-      overlay.classList.add("open");
-      btn.setAttribute("aria-expanded","true");
-      btn.setAttribute("aria-label","Close site menu");
-      document.body.style.overflow = "hidden";
-    }
-    function closeMenu(){
-      overlay.classList.remove("open");
-      btn.setAttribute("aria-expanded","false");
-      btn.setAttribute("aria-label","Open site menu");
-      document.body.style.overflow = "";
-    }
-    btn.addEventListener("click", function(){
-      overlay.classList.contains("open") ? closeMenu() : openMenu();
-    });
-    // Tap on backdrop (outside drawer) closes menu
-    overlay.addEventListener("click", function(e){
-      if(!e.target.closest(".mob-nav-drawer")) closeMenu();
-    });
-    // Tap a nav link: close menu then let the hash navigate
-    overlay.querySelectorAll("a").forEach(function(a){
-      a.addEventListener("click", function(){ closeMenu(); });
-    });
-    // Escape key
-    document.addEventListener("keydown", function(e){
-      if(e.key === "Escape" && overlay.classList.contains("open")) closeMenu();
-    });
-    // Active-link highlight via IntersectionObserver (mirrors the sidenav logic)
-    if("IntersectionObserver" in window){
-      var mobLinks = overlay.querySelectorAll("a[data-sec]");
-      var mobIo = new IntersectionObserver(function(es){
-        es.forEach(function(en){
-          if(en.isIntersecting){
-            mobLinks.forEach(function(a){ a.classList.toggle("is-current", a.dataset.sec === en.target.id); });
-          }
-        });
-      },{rootMargin:"-45% 0px -50% 0px"});
-      mobLinks.forEach(function(a){ var t=document.getElementById(a.dataset.sec); if(t) mobIo.observe(t); });
-    }
-  })();
 
   document.addEventListener("click", function(e){
     var b = e.target.closest(".ig-play"); if(!b) return;
@@ -1853,20 +1843,6 @@
     }
     mountYt(btn.parentElement, id, title);
   });
-
-  // Sticky bottom bar: show once the link stack has been scrolled past.
-  var sentinel = document.getElementById("linkstack-sentinel");
-  var bar = document.querySelector(".sticky-bar");
-  if(sentinel && bar && "IntersectionObserver" in window){
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        var past = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-        bar.classList.toggle("show", past);
-        document.body.classList.toggle("has-stickybar", past);
-      });
-    }, {threshold: 0});
-    obs.observe(sentinel);
-  }
 })();
 
 (function(){

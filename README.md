@@ -1,100 +1,59 @@
-# The Kemosabes — Website
+# The Kemosabes - Band Website
 
-Internal maintainer notes. Not linked from the site itself; lives in the repo for whoever
-edits this next (Claude, Karan, or anyone else on the band).
-
-**Live site:** https://thekemosabes.github.io
-**Repo:** https://github.com/thekemosabes/thekemosabes.github.io (GitHub account: `thekemosabes`)
-
+Source for **https://thekemosabes.github.io**, the official site of The Kemosabes, a rhythm,
+blues and soul band from Mumbai.
 
 ## Stack
 
-One file, `index.html` — all CSS and JS inline, no build step, no frameworks, no
-dependencies. Images live under `assets/`. That's the entire site. Keep it that way;
-don't introduce a bundler/framework/package.json unless explicitly asked.
+One file, `index.html`, with all CSS and JS inline. No build step, no frameworks, no
+dependencies. Images live under `assets/`. Keep it that way.
 
-## Local dev
-
-```bash
-python3 -m http.server 8765 --directory <repo folder>
-```
-
-Then open http://localhost:8765/.
-
-## ⚠️ Before every `git add -A`: check what you're actually staging
-
-This bit the project once already — worth reading before you push.
-
-When this repo's local copy moved from a temporary scratch folder to its permanent home,
-the app auto-copied *everything* from the old location into the new one at the same paths —
-not just the site, but a `build/` archive of old drafts, and a `src/` folder containing the
-band's actual press-kit PDF, unreleased lyrics `.docx` files, and a raw saved copy of a
-YouTube page (which happened to contain YouTube's own embedded API keys, and GitHub's
-secret scanner flagged it as a leaked credential). A blind `git add -A` swept all of it into
-a commit and pushed it to this **public** repo before anyone noticed. Fixing it for real
-required both an untracking commit *and* a full `git filter-repo` history rewrite +
-force-push, since removing a file in a new commit does not remove it from earlier commits —
-anyone can still dig it out of git history/GitHub's commit view until the history itself is
-rewritten.
-
-**Rule going forward:**
-- Before any `git add -A`, run `git status` first and actually read the list — especially
-  right after a directory move, a restore-from-backup, or anything else that could have
-  dropped in files you didn't create in this session.
-- Only this repo's real content should ever be tracked: `index.html`, `assets/`,
-  `README.md`, `.gitignore`. If you see `build/`, `src/`, a `.zip`, loose screenshots, or
-  anything that isn't the site itself show up as untracked, that's a signal something
-  landed here that shouldn't have — `.gitignore` already excludes the known offenders
-  (`build/`, `src/`, `kemosabes-site.zip`, `qa-photo-credits.png`, `_spec/`), but a new one
-  could show up under a different name.
-- If something sensitive does get pushed anyway: removing it in a follow-up commit is not
-  enough on its own. It needs `git filter-repo --path <bad-path> --invert-paths` (or BFG)
-  run against full history, then `git push --force`. That's a history rewrite — always
-  confirm with Karan before force-pushing, but don't treat a plain removal commit as "handled"
-  when the leak is still sitting in history.
-
-## Deploying (push = live)
+## Run it locally
 
 ```bash
-cd <repo folder>
-git add -A
-git commit -m "describe what changed"
-git push
+python3 -m http.server 8765
 ```
 
-GitHub Pages rebuilds automatically within ~1 minute of every push to `main`. No dashboard
-steps needed. `gh` is already authenticated on this machine (`gh auth status` to confirm) —
-git push works with no credential prompt.
+Run it from the repo folder, then open http://localhost:8765/.
 
-## Hard content rules (stated explicitly, more than once)
+## Deploying
 
-- **No lyrics anywhere in the page source.** Not in a hidden div, not in a comment. Song
-  cards get a title + one-line description + links to live versions only.
-- **Exact venue name spellings** (used consistently everywhere): Cobbler & Crew · Shisha
-  Cafe · The Stables · Soul Fry · The Bluebop Cafe · High Spirits Cafe · antiSOCIAL. There may be other venues, cross-reference their names on Google Maps before you add them, and use the exact nomenclature.
-- **Band Location is "Mumbai"**, not "Mumbai & Pune" (footer, meta description, etc.) even though
-  some venues are in Pune.
-- **Never fabricate a photo credit or an Instagram handle.** If a photo's photographer isn't
-  confirmed (no watermark, no known handle), either credit them by the plain-text name only
-  (no link) or leave the credit off the figcaption entirely. Do not guess at a handle URL.
-  Confirmed photographers so far:
-  - **David Lall** — `https://www.instagram.com/shotinfocus101`
-  - **Pallavi Gawas** — `https://www.instagram.com/tothegloriousunknown`
-  - **Walrus Photography** and **Celeste X Frames** — real names seen on watermarks, but no
-    confirmed handle yet, so they're credited as plain text with no link. Ask the band before
-    inventing one.
-- Karan Gera goes by "**The Brown Kemosabe**" on the site; each member has a similar
-  Kemosabe title (see `#band` section) — keep those when editing member content.
+GitHub Pages serves `main`. Every push to `main` goes live within about a minute. Pages
+caches for 10 minutes, so hard-refresh (Cmd/Ctrl+Shift+R) to see a change.
 
-## Structure (section IDs, in page order)
+Before committing, run `git status` and read the list. Only `index.html`, `assets/`,
+`README.md` and `.gitignore` belong in this repo. Never push drafts, press-kit source
+files, lyrics or screenshots.
 
-`#album` → `#links` (main link stack) → `#watch` ("From the Bandstand", video carousel) →
-`#stages` ("Our Shows So Far", per-year poster carousels) → `#gram` ("From the 'Gram",
-Instagram reel carousel) → `#moments` ("Caught in the Act", live-photo carousel) →
-`#songbook` (Originals/Covers tabs) → `#band` (Meet the Band) → `#story` (Our Story +
-Gospel) → `#listening` (Spotify playlists) → footer/Book Us.
+## Content rules
 
-## The carousel pattern (used 4 times: Bandstand, Shows, Gram, Moments)
+- No lyrics anywhere in the page source, including comments and hidden elements.
+- Use exact venue spellings: Cobbler & Crew, Shisha Cafe, The Stables, Soul Fry,
+  The Bluebop Cafe, High Spirits Cafe, antiSOCIAL. Check new venues against Google Maps.
+- Band location is "Mumbai".
+- Never guess a photographer's credit or handle. If it isn't confirmed, credit the plain
+  name or leave it off.
+- Keep each member's Kemosabe title when editing the Meet the Band section.
+
+## Page structure
+
+Hero → album banner and next-show ticket → From the Bandstand (videos) → Meet the Band → Our Shows →
+On Instagram → Live Moments (photos) → Songbook (Originals / Covers) → Our Story →
+Recommended Listening → Book Us.
+
+Every section's `id` matches a link in the site menu (`#sidenav`). A new section needs a
+menu link with an icon from the SVG sprite at the top of `<body>`.
+
+## Navigation
+
+- **Desktop and tablet (700px+):** an icon rail on the left that expands on hover, focus or
+  tap. From 1760px wide it floats in beside the content. Below that it stays at the screen
+  edge, so it never covers the hero photo.
+- **Phone (under 700px):** a Menu button at the top left opens the same links as a panel.
+
+## Carousels
+
+Every carousel uses the same markup and one shared script:
 
 ```html
 <div class="carousel" data-carousel>
@@ -105,208 +64,39 @@ Gospel) → `#listening` (Spotify playlists) → footer/Book Us.
 <div class="car-progress"><span class="car-progress-fill"></span></div>
 ```
 
-One generic JS block (`document.querySelectorAll("[data-carousel]")...`) wires up *every*
-carousel on the page — arrows, scroll-snap, and the progress bar — automatically. To add a
-new carousel, just use this markup; you don't need to touch the JS.
+- A carousel inside a closed `<details>` measures zero width. Keep it inside a `.year-group`,
+  whose toggle listener fixes the measurement.
+- The lightbox and click tracking match class names (`a.poster`, `a.poster-lg`, `a.lb`).
+  If you rename a class, search the file for the old name.
 
-**Gotcha #1 — closed accordions.** A carousel inside a closed `<details>` (like the 2025/2024
-year groups in Shows) has zero width while hidden, so its scroll math is wrong until it's
-opened. There's a `toggle` listener on every `.year-group` that re-fires `window` resize to
-fix this — if you add another collapsible carousel, make sure it's still inside a
-`.year-group` (or extend that listener) or it'll silently mis-measure.
+## Adding photos (Live Moments)
 
-**Gotcha #2 — class name drift.** The lightbox click-handler and the analytics `labelFor()`
-classifier both hard-match specific class names (currently `a.poster, a.poster-lg, a.lb`).
-If you rename or restyle a clickable card's class, **grep the whole file for the old class
-name** before you're done — this exact bug (renamed `.poster` → `.poster-lg` during the Shows
-carousel conversion, forgot to update the JS selector, posters silently stopped opening the
-lightbox) shipped once already and took a QA pass to catch.
+- Each photo ships as a pair of `.webp` files: full size (long side 1400px) and a thumbnail
+  (long side 640px, `-t` suffix).
+- Name files `{venue}-{subject}.webp`: lowercase and hyphenated.
+- The `<img>` shows the thumbnail. Its `width`/`height` must match the thumbnail's real
+  pixels, and `style="--ar:W / H"` must use the same numbers, so the frame fits the photo.
 
-## Asset naming convention (`assets/gallery/`)
+## Adding a show
 
-Every photo ships as a pair: a full version and a thumbnail, both `.webp`.
+1. Poster: `assets/posters/YYYY-MM-DD.webp`, long side about 600-800px.
+2. Ticket stub near the top of the page: shows only the next upcoming show.
+3. Our Shows carousel: add a card first in the right year. Past shows stay as the archive.
 
-- Full: long side **1400px**, quality ~82.
-- Thumb: long side **640px**, quality ~80, filename suffix **`-t`** (e.g.
-  `antisocial-jump-airborne.webp` + `antisocial-jump-airborne-t.webp`).
-- Filename pattern: `{venue-or-context}-{subject}.webp` — lowercase, hyphenated, no spaces.
-- The gallery `<figure>` links to the **full** image (`target="_blank"`, opens in the in-page
-  lightbox via `a.lb`) and displays the **thumb** as the visible `<img>`.
-- `width`/`height` attributes on the `<img>` must match the **thumbnail's** actual pixel
-  dimensions, not the full image's — the browser uses these to reserve layout space before
-  the image loads.
+## Hero
 
-Quick resize recipe (Pillow):
-```python
-from PIL import Image, ImageOps
-im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
-scale = 1400 / max(im.size)
-im.resize([round(d*scale) for d in im.size], Image.LANCZOS).save(full_out, "WEBP", quality=82, method=6)
-```
+The hero photo shows all six members at every screen size. Logo and text sit on the brick
+wall above the players' heads. After changing the hero, check phone, tablet, laptop and
+large-monitor widths. No head should sit under the logo, the text, the icons or the
+menu rail.
 
-## Copy rule: don't repeat the same descriptor twice in a row
-
-The hero tagline ("The Ultimate Juke Joint Experience") deliberately does **not** say
-"...Blues & Soul Experience" — the subline directly below it already says "A Rhythm, Blues,
-& Soul Band," so repeating "Blues & Soul" in both lines back-to-back reads redundant. When
-editing copy that sits in a stack (tagline → subline → kicker, etc.), check the adjacent
-lines for repeated descriptors before finalizing wording, not just each line in isolation.
-
-## Responsive container widths (`.wrap` / `.wrap-wide`)
-
-Base: `.wrap{max-width:640px}` (text-heavy sections — intros, songbook, footer) and
-`.wrap-wide{max-width:1040px}` (carousels, galleries, the hero). Both scale up at two large
-breakpoints so the page doesn't look like a narrow stranded column with huge dead margins on
-big monitors — this was a real complaint ("spread out better on desktop"), fixed by:
-```css
-@media (min-width:1400px){ .wrap{max-width:760px;} .wrap-wide{max-width:1320px;} }
-@media (min-width:1800px){ .wrap{max-width:840px;} .wrap-wide{max-width:1520px;} }
-```
-`.wrap` is intentionally kept *narrower* than `.wrap-wide` even at these larger sizes —
-paragraph text shouldn't stretch past a comfortable reading width, but carousels/galleries
-should use the extra room. If you add a third breakpoint or change these numbers, update
-both classes together so the ratio between them stays sensible.
-
-## Site nav: a transparent icon rail, same pattern at every screen size
-
-`#sidenav` is a persistent, glass-transparent icon rail — not a hamburger menu, not a drawer
-that hides completely. It's always visible, always the same collapsed width
-(`--rail-collapsed`, 52-60px depending on viewport), and expands to `--rail-expanded`
-(~210-230px) to reveal text labels next to the icons. There is no separate toggle button
-anymore (`.nav-toggle` was removed) — the rail itself is the control.
-
-- **Desktop (has a real mouse):** expands on `:hover` / `:focus-within`, pure CSS, no JS.
-- **Touch devices:** `:hover` doesn't behave reliably, so JS detects
-  `matchMedia("(hover: none), (pointer: coarse)")` and handles it explicitly — the first tap
-  anywhere on the (not-yet-open) rail adds `.open` and `preventDefault()`s the navigation;
-  a second tap on a link (now that labels are visible) navigates normally and then removes
-  `.open`. Tapping outside the rail while open closes it.
-- Both paths land on the same CSS: `.sidenav:hover, .sidenav:focus-within, .sidenav.open` all
-  trigger the same expanded state, so there's only one visual definition of "expanded" to
-  maintain.
-- Icons are "embossed" via a double `drop-shadow` (light top-left, dark bottom-right) at
-  `opacity:.9` so they read clearly at rest against any hero photo behind them, not just on
-  hover — that was an explicit requirement ("glyphs can always be visible").
-- Since the rail never fully disappears, `body` and `.topbar` both reserve
-  `left/padding-left: var(--rail-collapsed)` permanently (not just above some breakpoint like
-  the old design did) — the rail overlays content on expand rather than pushing it, so this
-  reserved space never needs to change.
-- **Every nav item needs an icon.** Each `<a>` is `<svg class="icon nav-icon"><use
-  href="#icon-NAME"></use></svg><span class="nav-label">Text</span>`. The icon symbols live
-  in the hidden `<svg>` sprite near the top of `<body>` — add a new `<symbol id="icon-...">`
-  there (24×24 viewBox, stroke-based, matching the existing set) before referencing it. Pick
-  an icon that matches the *content type*, not just a generic bullet — e.g. "From the
-  Bandstand" got a screen+play glyph (`icon-video`), not a microphone, because the section is
-  videos, not audio; "Live Moments" got a camera because it's photos.
-- If you add a new top-level section, add both the nav icon *and* update the scrollspy will
-  pick it up automatically (it just observes every `[data-sec]` target by id — no separate
-  registration needed).
-
-## `og-image.jpg` and link-preview caching (a real gotcha this session hit)
-
-`assets/og-image.jpg` (1200×630) should be the band logo centered on the site's dark
-background with the brass glow — **not** a candid/solo photo of one member. If you regenerate
-it, keep the same filename so no HTML changes are needed.
-
-**The confusing part:** WhatsApp (and most chat apps) snapshot the link preview *once, at
-the moment a message is sent*, and bake it into that message forever — reopening an old chat
-bubble will keep showing the old image even after the live file is fixed and verified correct
-(checksum-diff the live file against your local copy to prove this to yourself before chasing
-a phantom bug). To see a fix, send the link in a **new** message, or append a throwaway query
-string (`?x=1`) to force a guaranteed-fresh fetch. Meta's Sharing Debugger can force a re-scrape
-but requires logging into a Facebook account — not something to do on the band's behalf without
-asking first.
-
-## Contact buttons in the topbar ("Book Us")
-
-Top-right of the topbar is Press Kit, then a "Book Us" label with **two** separate icon
-buttons next to it — WhatsApp and email — not one combined button. This was an explicit
-choice: bookers should be able to pick their preferred channel directly, not land on a
-generic mailto. Numbers/addresses currently wired:
-- WhatsApp: `https://api.whatsapp.com/send?phone=[booking number]&text=...` (band's booking
-  number, [booking number])
-- Email: `mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes`
-
-The `.book-us-label` text hides at `max-width:480px` (icons alone are enough at that width,
-matches how Press Kit's label already behaved) — if you add a third contact channel here,
-follow the same pattern (`.topbar-icon-btn`, 34-36px circle, hides label at the same
-breakpoint) rather than growing the visible label text, or you'll reintroduce the topbar
-overflow bug described below.
-
-## Adding a new show (the full checklist)
-
-A confirmed show touches **three** places, not one — miss any and it'll look inconsistent:
-1. **Poster asset**: `assets/posters/YYYY-MM-DD.webp`, resized so the long side is ~600-800px
-   (posters are a single file here, not a full+thumb pair like gallery photos — same file is
-   used for both the visible thumbnail and the lightbox's full view).
-2. **Hero ticket stub** (`.ticket` inside `#links`) — only ever shows the *next* upcoming
-   show. Replace its poster `<a class="poster-lg">`/`<img>` and the three ticket spans
-   (label/date/venue) with the new show's details when it becomes the soonest one.
-3. **Shows carousel** (`#stages`, the correct `.year-group`) — add a new `.show-card` as the
-   **first** card in that year (the list is newest-first). Keep an old show's card here even
-   after its ticket-stub turns over to a newer show — the carousel is the permanent archive,
-   the ticket stub is just "what's next."
-
-Venue name spelling still has to match the established list (see "Hard content rules"
-above) — if it's a brand-new venue not on that list, that's a real addition to make, not a
-typo to avoid.
-
-## Fixed-position elements need `overflow-x:hidden` on `<html>`, not just `<body>`
-
-`body{overflow-x:hidden}` alone does **not** reliably clip `position:fixed` elements (like
-the topbar and the nav rail) from an overflow bug elsewhere on the page — the initial
-containing block used for `right:0`/`left:...` on fixed elements can still be computed from
-`<html>`'s scrollWidth if `<html>` itself doesn't also have `overflow-x:hidden`. This
-actually happened: the topbar measurably extended ~17px past the viewport on mobile after
-the nav redesign, even though `.topbar{right:0}` "should" have stopped it dead at the edge.
-Both `html` and `body` now carry `overflow-x:hidden` — if a future mobile layout bug looks
-like "a fixed element is X px wider than the viewport for no visible reason," check this
-first before assuming the fixed element's own CSS is wrong.
-
-## Photo sourcing
-
-Band photos live across many albums in the band's Google Photos (`thekemosabes@gmail.com`),
-not just the "A Scroll through" compilation album — that compilation stores *downscaled*
-copies, so for full resolution go to the per-show album (Albums tab → e.g. "At The Crossroads
-- Live at Stables"). To pull a full-res image out of an *authenticated* (non-share-link)
-Google Photos page: open the photo, read the `<img>` `src` from the DOM (domain
-`photos.fife.usercontent.google.com`), then `fetch(url, {credentials:'include'})` from page
-JS and base64-encode the result — a plain `curl` on that URL will fail (needs the session
-cookie). A `photos.google.com/share/.../photo/...` link's `lh3.googleusercontent.com` image
-*can* be `curl`'d directly (no auth needed), just bump the `=w###-h###` suffix for higher res.
-
-## Analytics & subscribe (both wired, one needs a step from the band)
-
-- **Click analytics**: GoatCounter, free, privacy-friendly, no cookie banner needed. The
-  `<script>` tag near `</head>` has a placeholder site code (`THEKEMOSABES.goatcounter.com`)
-  that silently no-ops until replaced. To activate: sign up free at goatcounter.com, then
-  swap `THEKEMOSABES` for the real site code in that one line. A single delegated click
-  handler (`track()` / `labelFor()` near the top of the main `<script>`) already tags every
-  video play, reel play, tab switch, carousel arrow, lightbox open, and outbound link — no
-  further JS changes needed when adding content, the classifier picks new instances up
-  automatically as long as it reuses the existing classes (`.yt`, `.ig-play`, `.tab-btn`,
-  etc).
-- **Subscribe / mailing list**: a real Google Form ("The Kemosabes — Get Updates"), linked as
-  the "Get Updates on Shows & Releases" pill. Responses land in a Google Sheet linked to that
-  form (in the band's Drive). No backend, no third-party mailing service.
-
-## Domain
-
-Currently just `thekemosabes.github.io` (free). Band is considering a custom domain —
-**on hold pending band approval**, do not purchase anything. If/when they say go: cheapest
-honest (flat, no bait-and-switch renewal) options checked so far were `thekemosabes.in`
-($7.83/yr flat) and `thekemosabes.com` ($11.08/yr flat); the sub-$3 gTLDs (`.live`, `.online`,
-`.rocks`, etc.) all balloon to $18–29/yr on renewal.
-
-## Style, at a glance (read the CSS for anything more specific — don't assume, it has
-changed several times already)
+## Style
 
 ```
---ink:#0a0f24        page background
---brass:#d9a441      accent / links / active states
---cream:#f3e6c9       body text on dark
+--ink:#0a0f24     background
+--brass:#d9a441   accent, links, active states
+--cream:#f3e6c9   body text
 ```
-Fonts currently: Abril Fatface (headings/titles), Ubuntu (body), Londrina Solid (labels,
-kickers, dates, credits — uppercase, letter-spaced). This has changed more than once over the
-life of the project — if in doubt, check the actual `<link>`/`font-family` in the file rather
-than trusting a stale memory of an earlier revision.
+
+Fonts: Abril Fatface (headings), Ubuntu (body), Londrina Solid (labels, dates, credits).
+Check the CSS for anything more specific.

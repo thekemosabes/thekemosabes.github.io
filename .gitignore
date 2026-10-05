@@ -4,3 +4,6 @@ build/
 src/
 kemosabes-site.zip
 qa-photo-credits.png
+
+# Private maintainer notes (never committed)
+MAINTAINER-NOTES.local.md
