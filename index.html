@@ -151,6 +151,7 @@
   }
   .hero > *{position:relative; z-index:1;}
   .hero > .hero-band{z-index:0;}
+  .hero-wordmark{display:none;}
   .hero-logo{
     width:100%; max-width:150px; height:auto; margin:0 auto .4rem; display:block;
     filter:drop-shadow(0 0 28px rgba(217,164,65,.35));
@@ -181,7 +182,13 @@
       height:clamp(calc(.38 * var(--hw)), calc(100vh - 56px), calc(.484 * var(--hw)));
       height:clamp(calc(.38 * var(--hw)), calc(100svh - 56px), calc(.484 * var(--hw)));
     }
-    .hero-logo{grid-area:1 / 1; width:clamp(112px,11.5vw,250px); max-width:none; margin:0; filter:drop-shadow(0 0 22px rgba(217,164,65,.55)) drop-shadow(0 4px 14px rgba(0,0,0,.6));}
+    .hero-logo{display:none;}
+    /* Desktop shows the words-only wordmark as the band's name; the tagline drops to a subtitle beside it.
+       The vinyl roundel is used on phones/tablets and in the footer. */
+    .hero-wordmark{display:block; grid-area:1 / 1; width:clamp(260px,31vw,640px); height:auto; margin:0; filter:drop-shadow(0 0 26px rgba(217,164,65,.4)) drop-shadow(0 4px 16px rgba(0,0,0,.65));}
+    .hero-text{padding-left:clamp(1.2rem,2vw,2.4rem); border-left:1px solid rgba(217,164,65,.55);}
+    .hero .tagline{font-family:"Londrina Solid",sans-serif; font-weight:400; font-size:clamp(1.05rem,1.5vw,1.7rem); letter-spacing:.14em; text-transform:uppercase; line-height:1.25; margin:0 0 .55rem;}
+    .hero .subline{font-size:clamp(.85rem,.95vw,1.05rem); letter-spacing:.1em; color:var(--cream-dim);}
     .hero-text{grid-area:1 / 2;}
     .hero .tagline{max-width:none; margin:0 0 .3rem; text-align:left;}
     .hero .subline{margin:0;}
@@ -394,7 +401,7 @@
   .banner-fig{margin:0 0 1.6rem;} .banner-fig .stage-banner{margin-bottom:0;}
   .photo-credit{font-family:"Londrina Solid",sans-serif;  font-size:0.95rem;  text-transform:uppercase; color:var(--cream-dim); text-align:center; margin:.8rem 0 0;font-weight:300;letter-spacing:.06em;}
   .photo-credit a, .fine a{color:inherit;}
-  .footer-wordmark{display:block; width:min(280px,75vw); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 0 18px rgba(217,164,65,.25));}
+  .footer-wordmark{display:block; width:min(150px,45vw); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 0 18px rgba(217,164,65,.25));}
   .poster-dialog{border:0; padding:0; background:transparent; max-width:92vw; max-height:92vh; position:relative;}
   .poster-dialog::backdrop{background:rgba(5,8,20,.9);}
   .poster-dialog img{display:block; max-width:92vw; max-height:88dvh; width:auto; height:auto; border-radius:8px;}
@@ -775,6 +782,7 @@
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="" fetchpriority="high">
   <h1 class="visually-hidden">The Kemosabes</h1>
+  <img class="hero-wordmark" src="assets/wordmark-hero.webp" width="743" height="303" alt="" loading="lazy">
   <div class="hero-text">
   <p class="tagline">The Ultimate Juke Joint Experience</p>
   <p class="subline">Est. 2024 · Mumbai · A Rhythm, Blues, &amp; Soul Band</p>
@@ -1494,8 +1502,8 @@
     </div>
     </div>
     <div class="story-body">
-    <p class="story">Freshly minted in Mumbai. We went live, for real, in December 2024, at Cobbler &amp; Crew, Pune, and we haven't stopped since: <strong>21 shows</strong> and counting, across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Soul Fry, High Spirits Cafe and High Note. Every night the Congregation grows, one juke joint at a time.</p>
-    <p class="story">We write our own music about real experiences such as anxiety, love, loss, compassion, unity, and the beauty of life! We don't do mere covers. We do impressions of our deepest blues and soul influences. Our songbook will soon be available on our debut album.</p>
+    <p class="story">Freshly minted in Mumbai.<br>We went live in December 2024, at Cobbler &amp; Crew, Pune.<br>We haven't stopped since. <strong>21 shows.</strong> 8 venues. 2 cities.<br>The Congregation grows every night, one juke joint at a time.</p>
+    <p class="story">Our songbook comprises a mix of our original progressive blues and soul songs about anxiety, love, loss, compassion, unity and the beauty of life itself; and covers of iconic numbers whose songwriting and rhythms have inspired us. Our debut album is on the way!</p>
     <p class="story-coda"><span>It's Church.</span><span>It's Therapy.</span><span>It's The Blues.</span></p>
     </div>
     </div>
@@ -1554,7 +1562,7 @@
 
 <footer id="book">
   <div class="wrap">
-    <img class="footer-wordmark" src="assets/wordmark.webp" width="800" height="352" alt="The Kemosabes" loading="lazy">
+    <img class="footer-wordmark" src="assets/logo.webp" width="640" height="768" alt="The Kemosabes" loading="lazy">
     <h2>Come Shimmy With Us!</h2>
     <p class="lead">Bookings, collaborations and fellowship.</p>
     <div class="footer-btns">
@@ -1622,7 +1630,7 @@
     var wrap=input.closest(".topbar-search"), index=null, shown=[], active=-1, hitTimer=null;
     var TYPES={section:"Section",song:"Song",show:"Show",video:"Video",member:"Band",photo:"Photo",playlist:"Playlist",reel:"Reel"};
     var RANK={section:0,song:1,show:2,video:3,member:4,playlist:5,reel:6,photo:7};
-    var ALIAS={top:"home start",watch:"videos video watch youtube bandstand",band:"members musicians who",stages:"shows gigs concerts live dates venues posters",gram:"instagram reels",moments:"photos pictures gallery",originals:"songs original music",covers:"songs covers impressions",story:"about history who we are",listening:"playlists spotify music",book:"booking contact hire email whatsapp press kit"};
+    var ALIAS={top:"home start",watch:"videos video watch youtube bandstand",band:"members musicians who",stages:"shows gigs concerts live dates venues posters",gram:"instagram reels",moments:"photos pictures gallery",originals:"songs original music",covers:"songs covers impressions",story:"about history who we are album debut record gospel church therapy congregation kemosabe",listening:"playlists spotify music",book:"booking contact hire email whatsapp press kit"};
     function norm(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim(); }
     function txt(el){ return el?el.textContent.replace(/\s+/g," ").trim():""; }
     function add(type,el,title,ctx,target,extra){
@@ -1639,9 +1647,11 @@
         var panel=c.closest(".tab-panel");
         add("song",c,txt(c.querySelector(".song-title")),txt(c.querySelector(".song-meta")),c,panel&&panel.id==="covers"?"cover impression":"original");
       });
+      var tk=document.querySelector(".ticket"), nextTitle=tk?txt(tk.querySelector(".ticket-title")):"";
       document.querySelectorAll(".show-card").forEach(function(c){
-        var yr=c.closest(".year-group"), y=yr?txt(yr.querySelector("summary")):"";
-        add("show",c,txt(c.querySelector(".show-title")),txt(c.querySelector(".show-venue"))+" · "+txt(c.querySelector(".show-date"))+" "+y,c,"show gig concert");
+        var yr=c.closest(".year-group"), y=yr?txt(yr.querySelector("summary")):"", t=txt(c.querySelector(".show-title"));
+        var nxt=t===nextTitle;
+        add("show",c,t,(nxt?"Next show · ":"")+txt(c.querySelector(".show-venue"))+" · "+txt(c.querySelector(".show-date"))+" "+y,c,"show gig concert"+(nxt?" next upcoming tickets":""));
       });
       document.querySelectorAll(".video").forEach(function(v){
         var cap=txt(v.querySelector(".video-caption")); if(!cap) return;
@@ -1664,11 +1674,22 @@
         add("photo",f,"Live photo",cap,f,(img&&img.alt||"")+" photo");
       });
     }
+    function lev1(a,b){
+      if(Math.abs(a.length-b.length)>1) return false;
+      var i=0,j=0,d=0;
+      while(i<a.length&&j<b.length){
+        if(a.charAt(i)===b.charAt(j)){ i++; j++; continue; }
+        if(++d>1) return false;
+        if(a.length>b.length) i++; else if(a.length<b.length) j++; else { i++; j++; }
+      }
+      return d+(a.length-i)+(b.length-j)<=1;
+    }
+    function near(t,text){ var w=text.split(" "); for(var k=0;k<w.length;k++){ if(w[k].length>=3&&(lev1(t,w[k])||lev1(t,w[k].slice(0,t.length)))) return true; } return false; }
     function score(it,toks){
       var s=0;
       for(var i=0;i<toks.length;i++){
         var t=toks[i], inT=it.nt.indexOf(t), inC=it.nc.indexOf(t);
-        if(inT<0&&inC<0) return -1;
+        if(inT<0&&inC<0){ if(t.length>=4&&(near(t,it.nt)||near(t,it.nc))){ s+=2; continue; } return -1; }
         if(inT>-1) s+= (inT===0||it.nt.charAt(inT-1)===" ")?10:5; else s+= (it.nc.charAt(inC-1)===" "||inC===0)?3:1;
       }
       if(it.nt===toks.join(" ")) s+=20;
@@ -1685,7 +1706,7 @@
       active=-1;
       if(!toks.length){
         shown=[];
-        box.innerHTML='<p class="sr-hint">Search songs, shows, venues, videos or the band.</p><div class="sr-chips">'+["Blank Slate","High Note","Shisha","Pune","Mumbai","Book"].map(function(w){return '<button type="button" class="sr-chip" data-q="'+w+'">'+w+'</button>';}).join("")+"</div>";
+        box.innerHTML='<p class="sr-hint">Search songs, shows, venues, videos or the band.</p><div class="sr-chips">'+["Blank Slate","Young Town Stranger","Little Wing","Sweet Home Chicago","High Note","Shisha","Book Us"].map(function(w){return '<button type="button" class="sr-chip" data-q="'+w+'">'+w+'</button>';}).join("")+"</div>";
         status.textContent=""; wrap.classList.remove("is-empty"); return;
       }
       if(!index) build();
