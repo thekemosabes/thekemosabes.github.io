@@ -144,16 +144,11 @@
   .hero{
     position:relative; padding:1rem 16px 0; text-align:center; overflow:hidden; background:var(--ink);
   }
-  .hero::before{
-    content:""; position:absolute; top:-20%; left:50%; width:600px; height:600px; transform:translateX(-50%);
-    background:radial-gradient(circle, rgba(217,164,65,.28), transparent 65%);
-    pointer-events:none; z-index:0;
-  }
   .hero > *{position:relative; z-index:1;}
   .hero > .hero-band{z-index:0;}
   .hero-logo{
     width:100%; max-width:150px; height:auto; margin:0 auto .4rem; display:block;
-    filter:drop-shadow(0 0 28px rgba(217,164,65,.35));
+    filter:drop-shadow(0 4px 14px rgba(0,0,0,.55));
   }
   /* buttons float over the crowd at the bottom of the photo (phones, tablets and desktop) */
   .hero-text{position:static;}
@@ -165,12 +160,12 @@
      page. The top 160px of the frame is cropped (small band logo, neon and venue signs). Tuck = 13% of the
      hero width less 8px, which keeps the icon row 25px+ above the players' heads. */
   .hero-band{position:relative; z-index:0; margin:calc(22px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
-  .hero-band::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(10,15,36,.78) 0, rgba(10,15,36,.5) 16%, rgba(10,15,36,.2) 32%, rgba(10,15,36,0) 44%);}
+  .hero-band::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(10,15,36,.78) 0, rgba(10,15,36,.64) 10%, rgba(10,15,36,.46) 20%, rgba(10,15,36,.28) 30%, rgba(10,15,36,.12) 38%, rgba(10,15,36,.04) 43%, rgba(10,15,36,0) 48%);}
   .hero-band img{
     display:block; width:100%; height:auto; aspect-ratio:1800 / 931; object-fit:cover; object-position:50% 100%;
     filter:brightness(1.06) saturate(1.08);
-    -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
-    mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 86%, transparent 100%);
+    mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 86%, transparent 100%);
   }
   /* Desktop (1280px+): the logo sits at the exact centre, with the tagline, Est. line and buttons stacked
      below it. The photo tucks 20.8% of its width (less 28px) up under that stack, which puts every head 28px
@@ -187,11 +182,11 @@
     .hero-logo{width:var(--lw); max-width:none; margin:0 auto .4rem;}
     .hero .icon-row{bottom:1.6rem;}
     .hero-band{margin:calc(28px - .2083 * var(--hw)) -16px 0;}
-    .hero-band img{filter:brightness(1.17) saturate(1.08); -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 26%, #000 100%); mask-image:linear-gradient(180deg, transparent 0, #000 26%, #000 100%);}
+    .hero-band img{filter:brightness(1.17) saturate(1.08); -webkit-mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 100%); mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 100%);}
     .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:20%; background:linear-gradient(180deg, transparent, var(--ink)); z-index:1; pointer-events:none;}
     /* scrim: a soft pool right behind the tagline + Est. line (about a third of the way down the photo) on top
        of a gradient that is darkest at the top edge and gone before the heads begin */
-    .hero-band::after{background:radial-gradient(ellipse 42% 16% at 50% 31%, rgba(10,15,36,.66), rgba(10,15,36,.34) 60%, rgba(10,15,36,0) 100%), linear-gradient(180deg, rgba(10,15,36,.84) 0, rgba(10,15,36,.62) 18%, rgba(10,15,36,.3) 34%, rgba(10,15,36,0) 46%);}
+    .hero-band::after{background:radial-gradient(ellipse 42% 16% at 50% 31%, rgba(10,15,36,.66), rgba(10,15,36,.34) 60%, rgba(10,15,36,0) 100%), linear-gradient(180deg, rgba(10,15,36,.84) 0, rgba(10,15,36,.72) 10%, rgba(10,15,36,.55) 20%, rgba(10,15,36,.36) 30%, rgba(10,15,36,.18) 38%, rgba(10,15,36,.06) 43%, rgba(10,15,36,0) 48%);}
   }
   /* tagline and Est. line share one style: Londrina Solid caps, cream; the tagline stays on a single line */
   .tagline, .subline{font-family:"Londrina Solid",sans-serif; font-weight:400; font-style:normal; font-size:clamp(.88rem,3.8vw,1.2rem); line-height:1.5; letter-spacing:.06em; color:var(--cream); text-transform:uppercase; text-shadow:0 1px 2px rgba(0,0,0,.9), 0 2px 14px rgba(0,0,0,.85);}
