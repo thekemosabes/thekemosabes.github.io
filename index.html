@@ -182,13 +182,14 @@
       height:clamp(calc(.38 * var(--hw)), calc(100svh - 56px), calc(.484 * var(--hw)));
     }
     .hero-logo{grid-area:1 / 1; width:clamp(127px,11.9vw,251px); max-width:none; margin:0;}
-    .hero-text{grid-area:1 / 2;}
+    /* text column is exactly as tall as the logo: name at its top edge, buttons on its bottom edge */
+    .hero-text{grid-area:1 / 2; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between;}
     .hero .tagline{margin:0; text-align:left;}
     .hero .hero-name{margin:0 0 .1rem; font-size:clamp(1.9rem,2.9vw,3.4rem);}
     .hero .subline{margin:0;}
-    .hero .icon-row{justify-content:flex-start; margin:1rem 0 0;}
+    .hero .icon-row{justify-content:flex-start; margin:0;}
     .hero > .hero-band{position:absolute; inset:0; margin:0; z-index:0; overflow:hidden;}
-    .hero-band img{position:absolute; left:0; top:calc(-.12 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
+    .hero-band img{position:absolute; left:0; top:calc(-.108 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
     .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.68), rgba(10,15,36,.4) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
   }
   .hero .hero-name{font-family:"Abril Fatface",Georgia,serif; font-weight:400; font-size:clamp(1.7rem,7.2vw,2.4rem); line-height:1.1; letter-spacing:.01em; color:var(--brass); margin:.1rem 0 .15rem; text-shadow:0 2px 12px rgba(0,0,0,.7);}
