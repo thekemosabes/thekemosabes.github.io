@@ -176,27 +176,23 @@
   @media (min-width:1280px){
     .hero{
       --hw:calc(100vw - var(--page-inset));
-      --lw:clamp(140px,13.1vw,276px); --nf:clamp(1.9rem,2.9vw,3.4rem); --tf:clamp(.88rem,3.8vw,1.2rem);
+      --lw:clamp(180px,16.6vw,352px);
       display:grid; grid-template-columns:auto minmax(0,auto); justify-content:center; align-content:start; align-items:center;
       column-gap:2rem; text-align:left; padding-top:.6rem;
       height:clamp(calc(.38 * var(--hw)), calc(100vh - 56px), calc(.484 * var(--hw)));
       height:clamp(calc(.38 * var(--hw)), calc(100svh - 56px), calc(.484 * var(--hw)));
     }
     .hero-logo{grid-area:1 / 1; width:var(--lw); max-width:none; margin:0;}
-    /* text column is exactly as tall as the logo: name at its top edge, buttons on its bottom edge */
-    /* the three text lines sit 30% closer than when they were spread over the logo height: gap = 70% of the old even spacing */
-    .hero-text{grid-area:1 / 2; align-self:stretch; display:flex; flex-direction:column; justify-content:flex-start;
-      row-gap:max(.3rem, calc((1.2 * var(--lw) / 1.1 - (1.1 * var(--nf) + 3 * var(--tf) + 48px)) / 3 * .7));}
-    .hero .icon-row{margin-top:auto;}
+    /* text block is centred against the logo */
+    .hero-text{grid-area:1 / 2; align-self:center;}
+    .hero .icon-row{margin-top:1rem;}
     .hero .tagline{margin:0; text-align:left;}
-    .hero .hero-name{margin:0; font-size:var(--nf);}
     .hero .subline{margin:0;}
     .hero .icon-row{justify-content:flex-start;}
     .hero > .hero-band{position:absolute; inset:0; margin:0; z-index:0; overflow:hidden;}
-    .hero-band img{position:absolute; left:0; top:calc(-.078 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
-    .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.68), rgba(10,15,36,.4) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
+    .hero-band img{position:absolute; left:0; top:calc(-.06 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
+    .hero-band::after{content:""; position:absolute; inset:0; background:radial-gradient(ellipse calc(.2 * var(--hw)) calc(.09 * var(--hw)) at 100% 0, var(--ink) 40%, transparent 100%), linear-gradient(180deg, rgba(10,15,36,.68), rgba(10,15,36,.4) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
   }
-  .hero .hero-name{font-family:"Abril Fatface",Georgia,serif; font-weight:400; font-size:clamp(1.7rem,7.2vw,2.4rem); line-height:1.1; letter-spacing:.01em; color:var(--brass); margin:.1rem 0 .15rem; text-shadow:0 2px 12px rgba(0,0,0,.7);}
   /* tagline and Est. line share one style: Londrina Solid caps, cream; the tagline stays on a single line */
   .tagline, .subline{font-family:"Londrina Solid",sans-serif; font-weight:400; font-style:normal; font-size:clamp(.88rem,3.8vw,1.2rem); line-height:1.5; letter-spacing:.06em; color:var(--cream); text-transform:uppercase; text-shadow:0 2px 10px rgba(0,0,0,.7);}
   .tagline{margin:.2rem auto 0; white-space:nowrap;}
@@ -783,7 +779,7 @@
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="" fetchpriority="high">
   <div class="hero-text">
-  <h1 class="hero-name">The Kemosabes</h1>
+  <h1 class="visually-hidden">The Kemosabes</h1>
   <p class="tagline">The Ultimate Juke Joint Experience</p>
   <p class="subline">Est. 2024 · Mumbai · A Rhythm, Blues, &amp; Soul Band</p>
   <div class="icon-row">
