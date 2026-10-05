@@ -1,6 +1,6 @@
 # The Kemosabes - Band Website
 
-Source for **https://thekemosabes.github.io**, the official site of The Kemosabes, a rhythm,
+Source for **https://thekemosabes.com**, the official site of The Kemosabes, a rhythm,
 blues and soul band from Mumbai.
 
 ## Stack
@@ -18,7 +18,7 @@ Run it from the repo folder, then open http://localhost:8765/.
 
 ## Deploying
 
-GitHub Pages serves `main`. Every push to `main` goes live within about a minute. Pages
+GitHub Pages serves `main` on the custom domain thekemosabes.com (the `CNAME` file in the repo root must stay). Every push to `main` goes live within about a minute. Pages
 caches for 10 minutes, so hard-refresh (Cmd/Ctrl+Shift+R) to see a change.
 
 Before committing, run `git status` and read the list. Only `index.html`, `assets/`,
