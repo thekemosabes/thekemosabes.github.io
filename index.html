@@ -164,7 +164,7 @@
   .hero-band{position:relative; z-index:0; margin:calc(8px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
   .hero-band img{
     display:block; width:100%; height:auto; aspect-ratio:1800 / 931; object-fit:cover; object-position:50% 100%;
-    filter:brightness(.92) saturate(1.08);
+    filter:brightness(1.06) saturate(1.08);
     -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
     mask-image:linear-gradient(180deg, transparent 0, #000 22%, #000 86%, transparent 100%);
   }
@@ -181,13 +181,13 @@
       height:clamp(calc(.38 * var(--hw)), calc(100vh - 56px), calc(.484 * var(--hw)));
       height:clamp(calc(.38 * var(--hw)), calc(100svh - 56px), calc(.484 * var(--hw)));
     }
-    .hero-logo{grid-area:1 / 1; width:clamp(96px,9vw,190px); max-width:none; margin:0;}
+    .hero-logo{grid-area:1 / 1; width:clamp(112px,11.5vw,250px); max-width:none; margin:0; filter:drop-shadow(0 0 22px rgba(217,164,65,.55)) drop-shadow(0 4px 14px rgba(0,0,0,.6));}
     .hero-text{grid-area:1 / 2;}
     .hero .tagline{max-width:none; margin:0 0 .3rem; text-align:left;}
     .hero .subline{margin:0;}
     .hero .icon-row{justify-content:flex-start; margin:1rem 0 0;}
     .hero > .hero-band{position:absolute; inset:0; margin:0; z-index:0; overflow:hidden;}
-    .hero-band img{position:absolute; left:0; top:calc(-.1222 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.02) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
+    .hero-band img{position:absolute; left:0; top:calc(-.1222 * var(--hw)); aspect-ratio:1800 / 1091; object-fit:fill; filter:brightness(1.17) saturate(1.08); -webkit-mask-image:none; mask-image:none;}
     .hero-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,36,.68), rgba(10,15,36,.4) 30%, rgba(10,15,36,0) 46%, rgba(10,15,36,0) 84%, var(--ink));}
   }
   .hero h1{font-size:2.1rem; color:var(--cream); letter-spacing:.02em; margin-bottom:.3em;}
@@ -602,6 +602,27 @@
   .topbar-search input::placeholder{color:var(--cream-dim);}
   .topbar-search:focus-within{border-color:var(--brass);}
   .topbar-search.is-empty{border-color:var(--oxblood);}
+  .topbar-search{position:relative;}
+  .search-key{flex:none; font:600 .75rem/1 "Ubuntu",system-ui,sans-serif; color:var(--cream-dim); border:1px solid var(--ink-3); border-radius:5px; padding:.25em .5em;}
+  .topbar-search:focus-within .search-key{display:none;}
+  .search-results{position:absolute; top:calc(100% + 8px); left:0; width:max(100%, min(520px, calc(100vw - 24px))); max-height:min(70vh, 480px); overflow-y:auto; overscroll-behavior:contain; background:rgba(10,15,36,.98); border:1px solid rgba(217,164,65,.3); border-radius:14px; box-shadow:0 14px 40px rgba(0,0,0,.65); padding:.4rem; z-index:800;}
+  .search-results[hidden]{display:none;}
+  .sr-hint{margin:0; padding:.7rem .8rem .4rem; color:var(--cream-dim); font-size:.95rem; line-height:1.4;}
+  .sr-chips{display:flex; flex-wrap:wrap; gap:.4rem; padding:.3rem .8rem .7rem;}
+  .sr-chip{font:300 .95rem/1 "Londrina Solid",sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--cream); background:transparent; border:1px solid var(--brass-deep); border-radius:999px; padding:.55em .9em; min-height:36px; cursor:pointer;}
+  .sr-chip:hover, .sr-chip:focus-visible{border-color:var(--brass); color:var(--brass);}
+  .sr-item{display:flex; align-items:flex-start; gap:.8rem; width:100%; text-align:left; background:transparent; border:0; border-left:2px solid transparent; border-radius:9px; padding:.6rem .7rem; min-height:48px; cursor:pointer; color:var(--cream); font:inherit;}
+  .sr-item.is-active, .sr-item:hover{background:rgba(217,164,65,.14); border-left-color:var(--brass);}
+  .sr-type{flex:none; width:4.6rem; padding-top:.2rem; font:400 .8rem/1.2 "Londrina Solid",sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--brass);}
+  .sr-main{display:flex; flex-direction:column; gap:.1rem; min-width:0;}
+  .sr-title{font-size:1rem; line-height:1.3; color:var(--cream);}
+  .sr-ctx{font-size:.85rem; line-height:1.3; color:var(--cream-dim); overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+  .sr-item mark{background:transparent; color:var(--brass); font-weight:700; text-decoration:underline;}
+  @media (max-width:699px){
+    .search-key{display:none;}
+    .search-results{position:fixed; top:60px; left:8px; right:8px; width:auto; max-height:calc(100dvh - 76px);}
+    .sr-type{width:3.9rem;}
+  }
   .topbar-cta{display:flex; align-items:center; gap:.5rem; flex:none;}
   .topbar-btn{min-height:44px; padding:0 .9rem; font-size:.95rem; gap:.4rem;}
   .book-us-group{
@@ -717,7 +738,9 @@
   </button>
   <div class="topbar-search">
     <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-    <input type="search" id="site-search" placeholder="Search" aria-label="Search the site" autocomplete="off">
+    <input type="search" id="site-search" placeholder="Search songs, shows, venues&hellip;" aria-label="Search songs, shows, venues and the band" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
+    <kbd class="search-key" aria-hidden="true">/</kbd>
+    <div id="search-results" class="search-results" role="listbox" aria-label="Search results" hidden></div>
   </div>
   <div class="topbar-cta">
     <a class="btn topbar-btn" href="https://drive.google.com/file/d/176Rwmrj_vBc1HOWXrikCqfRd3n9nyuln/view?usp=sharing" target="_blank" rel="noopener">
@@ -1021,7 +1044,7 @@
 <section id="stages">
   <div class="wrap">
     <h2>Our Shows So Far</h2>
-    <p class="intro">Across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Cobbler &amp; Crew, Soul Fry, High Spirits Cafe, and more.</p>
+    <p class="intro">Across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Cobbler &amp; Crew, Soul Fry, High Spirits Cafe, High Note, and more.</p>
     <figure class="banner-fig"><img class="stage-banner" src="assets/gallery/band-and-fans-groupshot.webp" width="1400" height="935" alt="The Kemosabes with the crowd after a show" loading="lazy"><figcaption class="photo-credit">Photo © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
 
     <details class="year-group" open>
@@ -1465,13 +1488,13 @@
     <span class="kicker">How It Began</span>
     <h2>Our Story</h2>
     <div class="stats">
-      <div class="stat"><span class="stat-num" data-editable="show-count">20</span><span class="stat-label">Shows since Dec 2024</span></div>
-      <div class="stat"><span class="stat-num">7</span><span class="stat-label">Venues</span></div>
+      <div class="stat"><span class="stat-num" data-editable="show-count">21</span><span class="stat-label">Shows since Dec 2024</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Venues</span></div>
       <div class="stat"><span class="stat-num">2</span><span class="stat-label">Cities</span></div>
     </div>
     </div>
     <div class="story-body">
-    <p class="story">Freshly minted in Mumbai. We went live, for real, in December 2024, at Cobbler &amp; Crew, Pune, and we haven't stopped since: <strong>20 shows</strong> and counting, across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Soul Fry and High Spirits Cafe. Every night the Congregation grows, one juke joint at a time.</p>
+    <p class="story">Freshly minted in Mumbai. We went live, for real, in December 2024, at Cobbler &amp; Crew, Pune, and we haven't stopped since: <strong>21 shows</strong> and counting, across antiSOCIAL, The Bluebop Cafe, Shisha Cafe, The Stables, Soul Fry, High Spirits Cafe and High Note. Every night the Congregation grows, one juke joint at a time.</p>
     <p class="story">We write our own music about real experiences such as anxiety, love, loss, compassion, unity, and the beauty of life! We don't do mere covers. We do impressions of our deepest blues and soul influences. Our songbook will soon be available on our debut album.</p>
     <p class="story-coda"><span>It's Church.</span><span>It's Therapy.</span><span>It's The Blues.</span></p>
     </div>
@@ -1590,49 +1613,140 @@
     if(label) track(label);
   }, true);
 
-  // Site search: jumps to the first (then next) matching title/name on the page.
+  // Site search: a results panel. Type to see songs, shows, videos, band members, photos and sections;
+  // arrows + Enter or a click jumps straight to the item and highlights it.
   (function(){
     var input=document.getElementById("site-search"), status=document.getElementById("search-status");
-    if(!input) return;
-    var SEL='.song-title, .song-meta, .member-name, .member-title, h2, .ig-title, .show-title, .show-venue, .listen-card h3';
-    var items=[], lastQuery="", matchIndex=-1, hitTimer=null;
-    function buildIndex(){
-      items=[]; document.querySelectorAll(SEL).forEach(function(el){
-        var text=el.textContent.trim(); if(!text) return;
-        items.push({el:el, text:text.toLowerCase()});
+    var box=document.getElementById("search-results");
+    if(!input||!box) return;
+    var wrap=input.closest(".topbar-search"), index=null, shown=[], active=-1, hitTimer=null;
+    var TYPES={section:"Section",song:"Song",show:"Show",video:"Video",member:"Band",photo:"Photo",playlist:"Playlist",reel:"Reel"};
+    var RANK={section:0,song:1,show:2,video:3,member:4,playlist:5,reel:6,photo:7};
+    var ALIAS={top:"home start",watch:"videos video watch youtube bandstand",band:"members musicians who",stages:"shows gigs concerts live dates venues posters",gram:"instagram reels",moments:"photos pictures gallery",originals:"songs original music",covers:"songs covers impressions",story:"about history who we are",listening:"playlists spotify music",book:"booking contact hire email whatsapp press kit"};
+    function norm(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim(); }
+    function txt(el){ return el?el.textContent.replace(/\s+/g," ").trim():""; }
+    function add(type,el,title,ctx,target,extra){
+      title=title.trim(); if(!title) return;
+      index.push({type:type,el:el,title:title,ctx:ctx||"",target:target||el,nt:norm(title),nc:norm((ctx||"")+" "+(extra||""))});
+    }
+    function build(){
+      index=[];
+      document.querySelectorAll("#sidenav a[data-sec]").forEach(function(a){
+        var id=a.getAttribute("data-sec"), el=document.getElementById(id); if(!el) return;
+        add("section",el,txt(a.querySelector(".nav-label")||a),"",el,ALIAS[id]);
+      });
+      document.querySelectorAll(".song-card").forEach(function(c){
+        var panel=c.closest(".tab-panel");
+        add("song",c,txt(c.querySelector(".song-title")),txt(c.querySelector(".song-meta")),c,panel&&panel.id==="covers"?"cover impression":"original");
+      });
+      document.querySelectorAll(".show-card").forEach(function(c){
+        var yr=c.closest(".year-group"), y=yr?txt(yr.querySelector("summary")):"";
+        add("show",c,txt(c.querySelector(".show-title")),txt(c.querySelector(".show-venue"))+" · "+txt(c.querySelector(".show-date"))+" "+y,c,"show gig concert");
+      });
+      document.querySelectorAll(".video").forEach(function(v){
+        var cap=txt(v.querySelector(".video-caption")); if(!cap) return;
+        var parts=cap.split(" · ");
+        add("video",v,parts[0],parts.slice(1).join(" · "),v,"video watch live");
+      });
+      document.querySelectorAll(".band-card").forEach(function(c){
+        var m=c.querySelector(".member-name"); if(!m) return;
+        add("member",c,txt(m),txt(c.querySelector(".member-title"))+" · "+txt(c.querySelector(".member-role")),c,"band musician");
+      });
+      document.querySelectorAll(".listen-card").forEach(function(c){
+        add("playlist",c,txt(c.querySelector("h3")),txt(c.querySelector(".song-meta")),c,"playlist spotify");
+      });
+      document.querySelectorAll(".ig-play").forEach(function(b){
+        var l=(b.getAttribute("aria-label")||"").replace(/^Play\s+/,"").replace(/\s+on Instagram$/,"");
+        add("reel",b,l,"Instagram reel",b.closest(".ig-card")||b,"instagram reel");
+      });
+      document.querySelectorAll("#moments .gallery > figure").forEach(function(f){
+        var cap=txt(f.querySelector("figcaption")), img=f.querySelector("img"), parts=cap.split(" · ");
+        add("photo",f,"Live photo",cap,f,(img&&img.alt||"")+" photo");
       });
     }
-    function reveal(el){
-      var tabPanel=el.closest(".tab-panel[hidden]");
-      if(tabPanel){ var btn=document.querySelector('.tab-btn[data-tab="'+tabPanel.id+'"]'); if(btn) btn.click(); }
-      var details=el.closest("details"); if(details && !details.open) details.open=true;
+    function score(it,toks){
+      var s=0;
+      for(var i=0;i<toks.length;i++){
+        var t=toks[i], inT=it.nt.indexOf(t), inC=it.nc.indexOf(t);
+        if(inT<0&&inC<0) return -1;
+        if(inT>-1) s+= (inT===0||it.nt.charAt(inT-1)===" ")?10:5; else s+= (it.nc.charAt(inC-1)===" "||inC===0)?3:1;
+      }
+      if(it.nt===toks.join(" ")) s+=20;
+      return s;
+    }
+    function esc(s){ return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+    function mark(s,toks){
+      var out=esc(s);
+      toks.forEach(function(t){ if(t.length<2) return; out=out.replace(new RegExp("("+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")(?![^<]*>)","ig"),"<mark>$1</mark>"); });
+      return out;
+    }
+    function render(q){
+      var toks=norm(q).split(" ").filter(Boolean);
+      active=-1;
+      if(!toks.length){
+        shown=[];
+        box.innerHTML='<p class="sr-hint">Search songs, shows, venues, videos or the band.</p><div class="sr-chips">'+["Blank Slate","High Note","Shisha","Pune","Mumbai","Book"].map(function(w){return '<button type="button" class="sr-chip" data-q="'+w+'">'+w+'</button>';}).join("")+"</div>";
+        status.textContent=""; wrap.classList.remove("is-empty"); return;
+      }
+      if(!index) build();
+      var seen={};
+      shown=index.map(function(it){return {it:it,s:score(it,toks)};}).filter(function(r){return r.s>=0;})
+        .sort(function(a,b){return (b.s-a.s)||(RANK[a.it.type]-RANK[b.it.type]);}).filter(function(r){ var n=(seen[r.it.type]=(seen[r.it.type]||0)+1); return n<=(r.it.type==="photo"?2:4); }).slice(0,10).map(function(r){return r.it;});
+      if(!shown.length){
+        box.innerHTML='<p class="sr-hint">Nothing matches "'+esc(q.trim())+'". Try a song, a venue like Shisha or High Note, or a band member.</p>';
+        status.textContent="No results for "+q.trim(); wrap.classList.add("is-empty"); return;
+      }
+      wrap.classList.remove("is-empty");
+      box.innerHTML=shown.map(function(it,i){
+        return '<button type="button" role="option" id="sr-'+i+'" class="sr-item" data-i="'+i+'"><span class="sr-type sr-'+it.type+'">'+TYPES[it.type]+'</span><span class="sr-main"><span class="sr-title">'+mark(it.title,toks)+'</span>'+(it.ctx?'<span class="sr-ctx">'+mark(it.ctx,toks)+'</span>':"")+"</span></button>";
+      }).join("");
+      status.textContent=shown.length+" result"+(shown.length>1?"s":"")+". Use up and down arrows, then Enter.";
+    }
+    function open(){ box.hidden=false; input.setAttribute("aria-expanded","true"); }
+    function close(){ box.hidden=true; input.setAttribute("aria-expanded","false"); input.removeAttribute("aria-activedescendant"); active=-1; }
+    function setActive(i){
+      var items=box.querySelectorAll(".sr-item"); if(!items.length) return;
+      active=(i+items.length)%items.length;
+      items.forEach(function(n,k){ n.classList.toggle("is-active",k===active); n.setAttribute("aria-selected",k===active?"true":"false"); });
+      input.setAttribute("aria-activedescendant","sr-"+active);
+      items[active].scrollIntoView({block:"nearest"});
+    }
+    function go(it){
+      close(); input.blur();
+      var el=it.el, tab=el.closest(".tab-panel[hidden]");
+      if(tab){ var btn=document.querySelector('.tab-btn[data-tab="'+tab.id+'"]'); if(btn) btn.click(); }
+      var d=el.closest("details"); if(d&&!d.open) d.open=true;
       var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var target=el.closest(".show-card, .member-card, .song-card, .ig-card, .listen-card")||details||el;
-      target.scrollIntoView({behavior:reduce?"auto":"smooth", block:"center", inline:"center"});
+      var target=it.target;
+      if(it.type==="section"){
+        target.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"}); return;
+      }
+      target.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center",inline:"center"});
       if(hitTimer) clearTimeout(hitTimer);
+      document.querySelectorAll(".is-highlighted").forEach(function(n){n.classList.remove("is-highlighted");});
       target.classList.add("is-highlighted");
       hitTimer=setTimeout(function(){ target.classList.remove("is-highlighted"); },2600);
     }
-    function runSearch(next){
-      var q=input.value.trim().toLowerCase();
-      if(!q){ status.textContent=""; input.closest(".topbar-search").classList.remove("is-empty"); matchIndex=-1; lastQuery=""; return; }
-      if(q!==lastQuery){ buildIndex(); lastQuery=q; matchIndex=-1; }
-      var matches=items.filter(function(it){ return it.text.indexOf(q)>-1; });
-      if(!matches.length){
-        status.textContent='No matches for "'+input.value.trim()+'"';
-        input.title=status.textContent;
-        input.closest(".topbar-search").classList.add("is-empty");
-        return;
-      }
-      input.closest(".topbar-search").classList.remove("is-empty");
-      matchIndex = next ? (matchIndex+1)%matches.length : 0;
-      reveal(matches[matchIndex].el);
-      status.textContent = matches.length>1 ? "Match "+(matchIndex+1)+" of "+matches.length+" — press Enter for next" : "1 match found";
-      input.title=status.textContent;
-    }
-    var deb=null;
-    input.addEventListener("input",function(){ clearTimeout(deb); deb=setTimeout(function(){ runSearch(false); },250); });
-    input.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); runSearch(true); } else if(e.key==="Escape"){ input.value=""; status.textContent=""; input.closest(".topbar-search").classList.remove("is-empty"); input.blur(); } });
+    input.addEventListener("focus",function(){ if(!index) build(); render(input.value); open(); });
+    input.addEventListener("input",function(){ render(input.value); open(); });
+    input.addEventListener("keydown",function(e){
+      if(e.key==="ArrowDown"){ e.preventDefault(); open(); setActive(active+1); }
+      else if(e.key==="ArrowUp"){ e.preventDefault(); open(); setActive(active<0?-1:active-1); }
+      else if(e.key==="Enter"){ e.preventDefault(); var it=shown[active>-1?active:0]; if(it) go(it); }
+      else if(e.key==="Escape"){ if(input.value){ input.value=""; render(""); } else { close(); input.blur(); } }
+    });
+    box.addEventListener("mousedown",function(e){ e.preventDefault(); });
+    box.addEventListener("click",function(e){
+      var chip=e.target.closest(".sr-chip"); if(chip){ input.value=chip.getAttribute("data-q"); render(input.value); input.focus(); return; }
+      var b=e.target.closest(".sr-item"); if(b) go(shown[+b.getAttribute("data-i")]);
+    });
+    box.addEventListener("mousemove",function(e){ var b=e.target.closest(".sr-item"); if(b&&+b.getAttribute("data-i")!==active) setActive(+b.getAttribute("data-i")); });
+    document.addEventListener("click",function(e){ if(!wrap.contains(e.target)) close(); });
+    document.addEventListener("keydown",function(e){
+      if(e.key==="/"&&!/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)&&!document.activeElement.isContentEditable){ e.preventDefault(); input.focus(); }
+    });
+    var clear=document.getElementById("search-clear");
+    if(clear) clear.addEventListener("click",function(){ input.value=""; render(""); input.focus(); });
   })();
 
   // Songbook tabs (Original Music / Covers & Impressions)

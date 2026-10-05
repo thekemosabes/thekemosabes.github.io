@@ -29,7 +29,7 @@ files, lyrics or screenshots.
 
 - No lyrics anywhere in the page source, including comments and hidden elements.
 - Use exact venue spellings: Cobbler & Crew, Shisha Cafe, The Stables, Soul Fry,
-  The Bluebop Cafe, High Spirits Cafe, antiSOCIAL. Check new venues against Google Maps.
+  The Bluebop Cafe, High Spirits Cafe, High Note, antiSOCIAL. Check new venues against Google Maps.
 - Band location is "Mumbai".
 - Never guess a photographer's credit or handle. If it isn't confirmed, credit the plain
   name or leave it off.
