@@ -7,3 +7,6 @@ qa-photo-credits.png
 
 # Private maintainer notes (never committed)
 MAINTAINER-NOTES.local.md
+
+# Local-only project log (never committed)
+*.local.md

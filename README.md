@@ -1,7 +1,6 @@
-# The Kemosabes - Band Website
+# Site source
 
-Source for **https://thekemosabes.com**, the official site of The Kemosabes, a rhythm,
-blues and soul band from Mumbai.
+Static files for https://thekemosabes.com.
 
 ## Stack
 
