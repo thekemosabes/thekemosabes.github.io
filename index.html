@@ -479,23 +479,10 @@
   .video-grid > .video{flex:0 0 240px; scroll-snap-align:start;}
   @media (min-width:700px){.video-grid > .video{flex-basis:280px;}}
   .watch-more{text-align:center; margin-top:2rem;}
+  .watch-layout .video-featured{max-width:900px; margin:0 auto 2.2rem;}
   @media (min-width:1100px){
     #watch .wrap-wide{max-width:1500px;}
-    .watch-layout{display:grid; grid-template-columns:1.5fr 1fr; align-items:stretch; gap:2rem;}
-    .watch-layout .video-featured{margin-bottom:0;}
-    .watch-list{display:flex; flex-direction:column; min-height:0;}
-    .watch-list .carousel{flex:1; min-height:0; display:block;}
-    .watch-list .car-arrow{display:none;}
-    .watch-list .car-track{
-      display:flex; flex-direction:column; height:100%; overflow-x:visible; overflow-y:auto;
-      scroll-snap-type:none; gap:.6rem; padding:.2rem .4rem .2rem 2px;
-    }
-    .watch-list .video-grid > .video{flex:none; width:auto; display:flex; align-items:center; gap:.8rem;}
-    .watch-list .video-grid > .video .yt{width:150px; flex:none; aspect-ratio:16/9; border-radius:8px;}
-    .watch-list .video-grid > .video .yt .play{width:26px; height:26px;}
-    .watch-list .video-grid > .video .video-caption{margin:0; font-size:.95rem; line-height:1.3;}
-    .watch-list .video-grid > .video .video-fallback{font-size:.8rem; margin-top:.2rem;}
-    .watch-list .car-progress{display:none;}
+    .video-grid > .video{flex-basis:300px;}
   }
 
   /* ORIGINALS */
@@ -1055,19 +1042,27 @@
 
     <div class="watch-layout">
     <div class="video video-featured">
-      <button class="yt" data-id="S6kOc7U_mo0" data-title="Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Blank Slate">
-        <img src="https://i.ytimg.com/vi/S6kOc7U_mo0/hqdefault.jpg" loading="lazy" alt="Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025">
-        <svg class="icon play" width="64" height="64" aria-hidden="true"><use href="#icon-play"></use></svg>
-      </button>
-      <p class="video-caption">Blank Slate · Live at antiSOCIAL, Mumbai · Aug 2025</p>
-      <a class="video-fallback" href="https://www.youtube.com/watch?v=S6kOc7U_mo0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
-    </div>
+        <button class="yt" data-id="U4lPICNa1X0" data-title="Blank Slate · antiSOCIAL, Mumbai · 16 Aug 2025" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/U4lPICNa1X0/hqdefault.jpg" loading="lazy" alt="Blank Slate · antiSOCIAL, Mumbai · 16 Aug 2025">
+          <svg class="icon play" width="64" height="64" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · antiSOCIAL, Mumbai · 16 Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=U4lPICNa1X0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
 
     <div class="watch-list">
     <div class="carousel" data-carousel>
       <button type="button" class="car-arrow car-prev" aria-label="Scroll left">&#8249;</button>
       <div class="video-grid car-track">
-<div class="video">
+      <div class="video">
+        <button class="yt" data-id="U4lPICNa1X0" data-title="Blank Slate · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/U4lPICNa1X0/hqdefault.jpg" loading="lazy" alt="Blank Slate · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=U4lPICNa1X0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
         <button class="yt" data-id="yu12yTbeVR0" data-title="Time to Unite (Pts 1 &amp; 2) · The Bluebop Cafe, Mumbai · Dec 2025" aria-label="Play: Time to Unite (Pts 1 &amp; 2)">
           <img src="https://i.ytimg.com/vi/yu12yTbeVR0/hqdefault.jpg" loading="lazy" alt="Time to Unite (Pts 1 &amp; 2) · The Bluebop Cafe, Mumbai · Dec 2025">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
@@ -1076,36 +1071,52 @@
         <a class="video-fallback" href="https://www.youtube.com/watch?v=yu12yTbeVR0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
-        <button class="yt" data-id="uMicDNYhD9g" data-title="A Fool in Love · Shisha Cafe, Pune · Jun 2026" aria-label="Play: A Fool in Love">
-          <img src="https://i.ytimg.com/vi/uMicDNYhD9g/hqdefault.jpg" loading="lazy" alt="A Fool in Love · Shisha Cafe, Pune · Jun 2026">
+        <button class="yt" data-id="MQt3-3nyX-g" data-title="Hit The Road Jack (Cover) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Hit The Road Jack (Cover)">
+          <img src="https://i.ytimg.com/vi/MQt3-3nyX-g/hqdefault.jpg" loading="lazy" alt="Hit The Road Jack (Cover) · Shisha Cafe, Pune · Oct 2025">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
         </button>
-        <p class="video-caption">A Fool in Love · Shisha Cafe, Pune · Jun 2026</p>
-        <a class="video-fallback" href="https://www.youtube.com/watch?v=uMicDNYhD9g" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+        <p class="video-caption">Hit The Road Jack (Cover) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=MQt3-3nyX-g" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
-        <button class="yt" data-id="1w1HXDUnHiY" data-title="Donna · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Donna">
-          <img src="https://i.ytimg.com/vi/1w1HXDUnHiY/hqdefault.jpg" loading="lazy" alt="Donna · The Bluebop Cafe, Mumbai · Sep 2025">
+        <button class="yt" data-id="hjAYwYylLqk" data-title="The Loner (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: The Loner (Cover)">
+          <img src="https://i.ytimg.com/vi/hjAYwYylLqk/hqdefault.jpg" loading="lazy" alt="The Loner (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
         </button>
-        <p class="video-caption">Donna · The Bluebop Cafe, Mumbai · Sep 2025</p>
-        <a class="video-fallback" href="https://www.youtube.com/watch?v=1w1HXDUnHiY" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+        <p class="video-caption">The Loner (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=hjAYwYylLqk" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
-        <button class="yt" data-id="o57MaqdsWbc" data-title="Orion in The Sky · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Orion in The Sky">
-          <img src="https://i.ytimg.com/vi/o57MaqdsWbc/hqdefault.jpg" loading="lazy" alt="Orion in The Sky · Shisha Cafe, Pune · Jun 2026">
+        <button class="yt" data-id="vzC3w53TvDY" data-title="Just The Two Of Us (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Just The Two Of Us (Cover)">
+          <img src="https://i.ytimg.com/vi/vzC3w53TvDY/hqdefault.jpg" loading="lazy" alt="Just The Two Of Us (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
         </button>
-        <p class="video-caption">Orion in The Sky · Shisha Cafe, Pune · Jun 2026</p>
-        <a class="video-fallback" href="https://www.youtube.com/watch?v=o57MaqdsWbc" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+        <p class="video-caption">Just The Two Of Us (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=vzC3w53TvDY" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
-        <button class="yt" data-id="Ih8QVAP-xZc" data-title="Young Town Stranger · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Young Town Stranger">
-          <img src="https://i.ytimg.com/vi/Ih8QVAP-xZc/hqdefault.jpg" loading="lazy" alt="Young Town Stranger · Shisha Cafe, Pune · Oct 2025">
+        <button class="yt" data-id="ppivxvyTp8M" data-title="Sweet Home Chicago (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Sweet Home Chicago (Cover)">
+          <img src="https://i.ytimg.com/vi/ppivxvyTp8M/hqdefault.jpg" loading="lazy" alt="Sweet Home Chicago (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
         </button>
-        <p class="video-caption">Young Town Stranger · Shisha Cafe, Pune · Oct 2025</p>
-        <a class="video-fallback" href="https://www.youtube.com/watch?v=Ih8QVAP-xZc" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+        <p class="video-caption">Sweet Home Chicago (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=ppivxvyTp8M" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="U04NWhOOt9U" data-title="Blank Slate · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/U04NWhOOt9U/hqdefault.jpg" loading="lazy" alt="Blank Slate · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=U04NWhOOt9U" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="S6kOc7U_mo0" data-title="Blank Slate · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/S6kOc7U_mo0/hqdefault.jpg" loading="lazy" alt="Blank Slate · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=S6kOc7U_mo0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
         <button class="yt" data-id="Ul8j-KKNkHk" data-title="Johnny B. Goode (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Johnny B. Goode (Cover)">
@@ -1116,12 +1127,60 @@
         <a class="video-fallback" href="https://www.youtube.com/watch?v=Ul8j-KKNkHk" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
+        <button class="yt" data-id="nCJOAVcYv40" data-title="Young Town Stranger (Demo)" aria-label="Play: Young Town Stranger (Demo)">
+          <img src="https://i.ytimg.com/vi/nCJOAVcYv40/hqdefault.jpg" loading="lazy" alt="Young Town Stranger (Demo)">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Young Town Stranger (Demo)</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=nCJOAVcYv40" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="5YMi5gBIX14" data-title="Still Got the Blues (Gary Moore Cover) · antiSOCIAL, Mumbai" aria-label="Play: Still Got the Blues (Gary Moore Cover)">
+          <img src="https://i.ytimg.com/vi/5YMi5gBIX14/hqdefault.jpg" loading="lazy" alt="Still Got the Blues (Gary Moore Cover) · antiSOCIAL, Mumbai">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Still Got the Blues (Gary Moore Cover) · antiSOCIAL, Mumbai</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=5YMi5gBIX14" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="eKNj9a9fYKE" data-title="To Know You Is To Love You (Cover) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: To Know You Is To Love You (Cover)">
+          <img src="https://i.ytimg.com/vi/eKNj9a9fYKE/hqdefault.jpg" loading="lazy" alt="To Know You Is To Love You (Cover) · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">To Know You Is To Love You (Cover) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=eKNj9a9fYKE" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="zi2EK9AS-F0" data-title="Pride and Joy (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Pride and Joy (Cover)">
+          <img src="https://i.ytimg.com/vi/zi2EK9AS-F0/hqdefault.jpg" loading="lazy" alt="Pride and Joy (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Pride and Joy (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=zi2EK9AS-F0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="f8JhRaqkoWU" data-title="Shake Your Money Maker (Cover) · Shisha Cafe, Pune · May 2025" aria-label="Play: Shake Your Money Maker (Cover)">
+          <img src="https://i.ytimg.com/vi/f8JhRaqkoWU/hqdefault.jpg" loading="lazy" alt="Shake Your Money Maker (Cover) · Shisha Cafe, Pune · May 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Shake Your Money Maker (Cover) · Shisha Cafe, Pune · May 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=f8JhRaqkoWU" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
         <button class="yt" data-id="vPiO-Rl_luc" data-title="Hit The Road Jack (Cover) · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Hit The Road Jack (Cover)">
           <img src="https://i.ytimg.com/vi/vPiO-Rl_luc/hqdefault.jpg" loading="lazy" alt="Hit The Road Jack (Cover) · Shisha Cafe, Pune · Jun 2026">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
         </button>
         <p class="video-caption">Hit The Road Jack (Cover) · Shisha Cafe, Pune · Jun 2026</p>
         <a class="video-fallback" href="https://www.youtube.com/watch?v=vPiO-Rl_luc" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="PfRKiBblaSw" data-title="Johnny B. Goode (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Johnny B. Goode (Cover)">
+          <img src="https://i.ytimg.com/vi/PfRKiBblaSw/hqdefault.jpg" loading="lazy" alt="Johnny B. Goode (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Johnny B. Goode (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=PfRKiBblaSw" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
         <button class="yt" data-id="_cz4TRQjCqY" data-title="To Know You Is To Love You (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: To Know You Is To Love You (Cover)">
@@ -1132,6 +1191,62 @@
         <a class="video-fallback" href="https://www.youtube.com/watch?v=_cz4TRQjCqY" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
+        <button class="yt" data-id="P86mroIK9aA" data-title="Hit The Road Jack (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Hit The Road Jack (Cover)">
+          <img src="https://i.ytimg.com/vi/P86mroIK9aA/hqdefault.jpg" loading="lazy" alt="Hit The Road Jack (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Hit The Road Jack (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=P86mroIK9aA" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="9zXFmVdtT3A" data-title="Time to Unite (Pts 1 &amp; 2) · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Time to Unite (Pts 1 &amp; 2)">
+          <img src="https://i.ytimg.com/vi/9zXFmVdtT3A/hqdefault.jpg" loading="lazy" alt="Time to Unite (Pts 1 &amp; 2) · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Time to Unite (Pts 1 &amp; 2) · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=9zXFmVdtT3A" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="LeXSzq1pXz8" data-title="Time to Unite (Part I) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Time to Unite - Part I">
+          <img src="https://i.ytimg.com/vi/LeXSzq1pXz8/hqdefault.jpg" loading="lazy" alt="Time to Unite (Part I) · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Time to Unite (Part I) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=LeXSzq1pXz8" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="b9IaVSg2ZmA" data-title="Got My Mojo Workin&#x27; (Cover) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Got My Mojo Workin&#x27; (Cover)">
+          <img src="https://i.ytimg.com/vi/b9IaVSg2ZmA/hqdefault.jpg" loading="lazy" alt="Got My Mojo Workin&#x27; (Cover) · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Got My Mojo Workin&#x27; (Cover) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=b9IaVSg2ZmA" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="uMicDNYhD9g" data-title="A Fool in Love · Shisha Cafe, Pune · Jun 2026" aria-label="Play: A Fool in Love">
+          <img src="https://i.ytimg.com/vi/uMicDNYhD9g/hqdefault.jpg" loading="lazy" alt="A Fool in Love · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">A Fool in Love · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=uMicDNYhD9g" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="RCN_1y4eDt0" data-title="Hit the Road Jack (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Hit the Road Jack (Cover)">
+          <img src="https://i.ytimg.com/vi/RCN_1y4eDt0/hqdefault.jpg" loading="lazy" alt="Hit the Road Jack (Cover) · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Hit the Road Jack (Cover) · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=RCN_1y4eDt0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="o57MaqdsWbc" data-title="Orion in The Sky · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Orion in The Sky">
+          <img src="https://i.ytimg.com/vi/o57MaqdsWbc/hqdefault.jpg" loading="lazy" alt="Orion in The Sky · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Orion in The Sky · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=o57MaqdsWbc" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
         <button class="yt" data-id="jV6OkmemYHI" data-title="Hound Dog (Cover) · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Hound Dog (Cover)">
           <img src="https://i.ytimg.com/vi/jV6OkmemYHI/hqdefault.jpg" loading="lazy" alt="Hound Dog (Cover) · High Spirits Cafe, Pune · Apr 2026">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
@@ -1140,12 +1255,188 @@
         <a class="video-fallback" href="https://www.youtube.com/watch?v=jV6OkmemYHI" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="video">
+        <button class="yt" data-id="N1XcgTGgjAE" data-title="Got My Mojo Workin&#x27; (Cover, Demo)" aria-label="Play: Got My Mojo Workin&#x27; (Cover, Demo)">
+          <img src="https://i.ytimg.com/vi/N1XcgTGgjAE/hqdefault.jpg" loading="lazy" alt="Got My Mojo Workin&#x27; (Cover, Demo)">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Got My Mojo Workin&#x27; (Cover, Demo)</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=N1XcgTGgjAE" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="Ih8QVAP-xZc" data-title="Young Town Stranger · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Young Town Stranger">
+          <img src="https://i.ytimg.com/vi/Ih8QVAP-xZc/hqdefault.jpg" loading="lazy" alt="Young Town Stranger · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Young Town Stranger · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=Ih8QVAP-xZc" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="KERsC-7pHNg" data-title="Blank Slate · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/KERsC-7pHNg/hqdefault.jpg" loading="lazy" alt="Blank Slate · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=KERsC-7pHNg" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="9bAXRFStFck" data-title="Little Wing (Cover) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Little Wing (Cover)">
+          <img src="https://i.ytimg.com/vi/9bAXRFStFck/hqdefault.jpg" loading="lazy" alt="Little Wing (Cover) · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Little Wing (Cover) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=9bAXRFStFck" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="22MhNOqiyGE" data-title="Blank Slate · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/22MhNOqiyGE/hqdefault.jpg" loading="lazy" alt="Blank Slate · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=22MhNOqiyGE" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="LsNc6knyFII" data-title="Still Got The Blues (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Still Got The Blues (Cover)">
+          <img src="https://i.ytimg.com/vi/LsNc6knyFII/hqdefault.jpg" loading="lazy" alt="Still Got The Blues (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Still Got The Blues (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=LsNc6knyFII" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="BNW5mvf3yEU" data-title="Boom Boom (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Boom Boom (Cover)">
+          <img src="https://i.ytimg.com/vi/BNW5mvf3yEU/hqdefault.jpg" loading="lazy" alt="Boom Boom (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Boom Boom (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=BNW5mvf3yEU" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="YQgjzev9yG8" data-title="Hound Dog (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Hound Dog (Cover)">
+          <img src="https://i.ytimg.com/vi/YQgjzev9yG8/hqdefault.jpg" loading="lazy" alt="Hound Dog (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Hound Dog (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=YQgjzev9yG8" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="HIlay7b7TOA" data-title="Delta Blues Medley (Improv) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Delta Blues Medley (Improv)">
+          <img src="https://i.ytimg.com/vi/HIlay7b7TOA/hqdefault.jpg" loading="lazy" alt="Delta Blues Medley (Improv) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Delta Blues Medley (Improv) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=HIlay7b7TOA" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
         <button class="yt" data-id="DlU-POo0_ko" data-title="Blues Power (Improvisation) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Blues Power (Improvisation)">
           <img src="https://i.ytimg.com/vi/DlU-POo0_ko/hqdefault.jpg" loading="lazy" alt="Blues Power (Improvisation) · The Bluebop Cafe, Mumbai · Sep 2025">
           <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
         </button>
         <p class="video-caption">Blues Power (Improvisation) · The Bluebop Cafe, Mumbai · Sep 2025</p>
         <a class="video-fallback" href="https://www.youtube.com/watch?v=DlU-POo0_ko" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="ut0vGEtt6JE" data-title="Got My Mojo Workin&#x27; (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Got My Mojo Workin&#x27; (Cover)">
+          <img src="https://i.ytimg.com/vi/ut0vGEtt6JE/hqdefault.jpg" loading="lazy" alt="Got My Mojo Workin&#x27; (Cover) · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Got My Mojo Workin&#x27; (Cover) · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=ut0vGEtt6JE" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="WnoLjrve_qA" data-title="Boom Boom (Cover) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Boom Boom (Cover)">
+          <img src="https://i.ytimg.com/vi/WnoLjrve_qA/hqdefault.jpg" loading="lazy" alt="Boom Boom (Cover) · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Boom Boom (Cover) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=WnoLjrve_qA" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="3TNjazmVzeI" data-title="Donna · Shisha Cafe, Pune · Jun 2026" aria-label="Play: Donna">
+          <img src="https://i.ytimg.com/vi/3TNjazmVzeI/hqdefault.jpg" loading="lazy" alt="Donna · Shisha Cafe, Pune · Jun 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Donna · Shisha Cafe, Pune · Jun 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=3TNjazmVzeI" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="sSDQ7OUK9Ns" data-title="Little Wing (Cover) · antiSOCIAL, Mumbai · Aug 2025" aria-label="Play: Little Wing (Cover)">
+          <img src="https://i.ytimg.com/vi/sSDQ7OUK9Ns/hqdefault.jpg" loading="lazy" alt="Little Wing (Cover) · antiSOCIAL, Mumbai · Aug 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Little Wing (Cover) · antiSOCIAL, Mumbai · Aug 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=sSDQ7OUK9Ns" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="5N2fSOVZlL8" data-title="Old Love (Cover) · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Old Love (Cover)">
+          <img src="https://i.ytimg.com/vi/5N2fSOVZlL8/hqdefault.jpg" loading="lazy" alt="Old Love (Cover) · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Old Love (Cover) · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=5N2fSOVZlL8" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="oRNILX_FbWU" data-title="Got My Mojo Workin&#x27; · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Got My Mojo Workin&#x27;">
+          <img src="https://i.ytimg.com/vi/oRNILX_FbWU/hqdefault.jpg" loading="lazy" alt="Got My Mojo Workin&#x27; · High Spirits Cafe, Pune · Apr 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Got My Mojo Workin&#x27; · High Spirits Cafe, Pune · Apr 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=oRNILX_FbWU" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="TeUdxebGzds" data-title="Donna · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Donna">
+          <img src="https://i.ytimg.com/vi/TeUdxebGzds/hqdefault.jpg" loading="lazy" alt="Donna · High Spirits Cafe, Pune · Apr 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Donna · High Spirits Cafe, Pune · Apr 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=TeUdxebGzds" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="1w1HXDUnHiY" data-title="Donna · The Bluebop Cafe, Mumbai · Sep 2025" aria-label="Play: Donna">
+          <img src="https://i.ytimg.com/vi/1w1HXDUnHiY/hqdefault.jpg" loading="lazy" alt="Donna · The Bluebop Cafe, Mumbai · Sep 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Donna · The Bluebop Cafe, Mumbai · Sep 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=1w1HXDUnHiY" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="1V-U7DqcV_M" data-title="Time to Unite (Part II) · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Time to Unite - Part II">
+          <img src="https://i.ytimg.com/vi/1V-U7DqcV_M/hqdefault.jpg" loading="lazy" alt="Time to Unite (Part II) · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Time to Unite (Part II) · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=1V-U7DqcV_M" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="GyPq_OmiIEU" data-title="Time to Unite (Part I) · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Time to Unite (Part I)">
+          <img src="https://i.ytimg.com/vi/GyPq_OmiIEU/hqdefault.jpg" loading="lazy" alt="Time to Unite (Part I) · High Spirits Cafe, Pune · Apr 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Time to Unite (Part I) · High Spirits Cafe, Pune · Apr 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=GyPq_OmiIEU" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="T6nOKf_hJkc" data-title="Donna · Shisha Cafe, Pune · Oct 2025" aria-label="Play: Donna">
+          <img src="https://i.ytimg.com/vi/T6nOKf_hJkc/hqdefault.jpg" loading="lazy" alt="Donna · Shisha Cafe, Pune · Oct 2025">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Donna · Shisha Cafe, Pune · Oct 2025</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=T6nOKf_hJkc" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="qQ04rh1RrQ4" data-title="Blank Slate · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Blank Slate">
+          <img src="https://i.ytimg.com/vi/qQ04rh1RrQ4/hqdefault.jpg" loading="lazy" alt="Blank Slate · High Spirits Cafe, Pune · Apr 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Blank Slate · High Spirits Cafe, Pune · Apr 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=qQ04rh1RrQ4" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video">
+        <button class="yt" data-id="zkTHloFr3_0" data-title="Still Got the Blues (Cover) · High Spirits Cafe, Pune · Apr 2026" aria-label="Play: Still Got the Blues (Cover)">
+          <img src="https://i.ytimg.com/vi/zkTHloFr3_0/hqdefault.jpg" loading="lazy" alt="Still Got the Blues (Cover) · High Spirits Cafe, Pune · Apr 2026">
+          <svg class="icon play" width="48" height="48" aria-hidden="true"><use href="#icon-play"></use></svg>
+        </button>
+        <p class="video-caption">Still Got the Blues (Cover) · High Spirits Cafe, Pune · Apr 2026</p>
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=zkTHloFr3_0" target="_blank" rel="noopener">Open on YouTube <span aria-hidden="true">↗</span></a>
       </div>
     </div>
       <button type="button" class="car-arrow car-next" aria-label="Scroll right">&#8250;</button>
