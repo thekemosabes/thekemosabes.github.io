@@ -30,10 +30,11 @@
 <link rel="icon" type="image/png" href="/assets/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-<link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/logo.webp" imagesrcset="assets/logo-320.webp 320w, assets/logo.webp 640w" imagesizes="(max-width:699px) 150px, 387px" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Londrina+Solid:wght@300;400&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<noscript><style>#book{--bgi:url("assets/bg-congregation.webp");} .gospel-card{--bgi:url("assets/bg-preacher.webp");}</style></noscript>
 
 <script type="application/ld+json">
 {
@@ -710,7 +711,8 @@
   }
   .btn.solid:focus-visible{background:var(--brass); border-color:var(--brass); color:var(--ink); box-shadow:0 0 20px rgba(217,164,65,.55);}
   .btn.solid:focus-visible .icon{color:var(--ink);}
-  #book{position:relative; background:linear-gradient(180deg, rgba(10,15,36,.72), rgba(10,15,36,.7) 40%, rgba(10,15,36,.8)), url("assets/bg-congregation.webp") center 30%/cover no-repeat;}
+  #book{position:relative; --bgi:none; background:linear-gradient(180deg, rgba(10,15,36,.72), rgba(10,15,36,.7) 40%, rgba(10,15,36,.8)), var(--bgi) center 30%/cover no-repeat;}
+  #book.bg-ready{--bgi:url("assets/bg-congregation.webp");}
   /* each frame is exactly as wide as its photo; the caption wraps to that width instead of widening the slot */
   .gallery > figure{flex:0 0 auto; width:min-content; scroll-snap-align:start; margin:0;}
   .gallery a.lb{display:block; width:fit-content; border-radius:8px; overflow:hidden; border:1px solid var(--ink-3);}
@@ -749,7 +751,8 @@
     .story-body{text-align:left; max-width:68ch;}
     .story-body .story-coda{align-items:flex-start; text-align:left;}
   }
-  .gospel-card{position:relative; padding:4rem 0; text-align:center; background:linear-gradient(180deg, rgba(10,15,36,.88), rgba(10,15,36,.93)), url("assets/bg-preacher.webp") center/cover no-repeat, #050812; border-top:1px solid var(--ink-3); border-bottom:1px solid var(--ink-3);}
+  .gospel-card{position:relative; padding:4rem 0; text-align:center; --bgi:none; background:linear-gradient(180deg, rgba(10,15,36,.88), rgba(10,15,36,.93)), var(--bgi) center/cover no-repeat, #050812; border-top:1px solid var(--ink-3); border-bottom:1px solid var(--ink-3);}
+  .gospel-card.bg-ready{--bgi:url("assets/bg-preacher.webp");}
   .gospel-close{font-family:"Abril Fatface",Georgia,serif; color:var(--brass); font-size:clamp(1.3rem,5vw,1.7rem); line-height:1.35; margin:1.4rem 0 0;}
   .stage-cta{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.6rem;}
   .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; max-width:520px; margin-left:auto; margin-right:auto;}
@@ -947,7 +950,7 @@
 </nav>
 <div class="menu-scrim" aria-hidden="true"></div>
 <header class="hero" id="top">
-  <img class="hero-logo" src="assets/logo.webp" width="640" height="768" alt="" fetchpriority="high">
+  <img class="hero-logo" src="assets/logo.webp" srcset="assets/logo-320.webp 320w, assets/logo.webp 640w" sizes="(max-width:699px) 150px, 387px" width="640" height="768" alt="" fetchpriority="high">
   <div class="hero-text">
   <h1 class="visually-hidden">The Kemosabes</h1>
   <p class="tagline">The Ultimate Juke Joint Experience</p>
@@ -1784,7 +1787,7 @@
 <figure><a class="lb" href="assets/gallery/cobbler-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Cobbler &amp; Crew, Pune · Jan 2026"><img style="--ar:640 / 427" src="assets/gallery/cobbler-fullband-t.webp" width="640" height="427" alt="The Kemosabes live at Cobbler &amp; Crew, Pune" loading="lazy"></a><figcaption>Cobbler &amp; Crew, Pune · Jan 2026 · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/stables-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Stables, Mumbai · Feb 2026"><img style="--ar:640 / 360" src="assets/gallery/stables-fullband-t.webp" width="640" height="360" alt="The Kemosabes live at The Stables, Mumbai" loading="lazy"></a><figcaption>The Stables, Mumbai · Feb 2026</figcaption></figure>
 <figure><a class="lb" href="assets/gallery/shisha-fullband-mosaic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: Shisha Cafe, Pune"><img style="--ar:640 / 427" src="assets/gallery/shisha-fullband-mosaic-t.webp" width="640" height="427" alt="The Kemosabes live at Shisha Cafe, Pune" loading="lazy"></a><figcaption>Shisha Cafe, Pune · © <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/bluebop-orange-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img style="--ar:640 / 361" src="assets/gallery/bluebop-orange-fullband-t.webp" width="640" height="361" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © Omkar Dighe</figcaption></figure>
+<figure><a class="lb" href="assets/gallery/bluebop-orange-fullband.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai"><img style="--ar:640 / 361" src="assets/gallery/bluebop-orange-fullband-t.webp" width="640" height="361" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · © <a href="https://www.instagram.com/omkar_2099_" target="_blank" rel="noopener">Omkar Dighe</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/antisocial-fullband-wide.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai"><img style="--ar:640 / 361" src="assets/gallery/antisocial-fullband-wide-t.webp" width="640" height="361" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/antisocial-drums-sticks.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: antiSOCIAL, Mumbai · Aug 2025"><img style="--ar:427 / 640" src="assets/gallery/antisocial-drums-sticks-t.webp" width="427" height="640" alt="The Kemosabes live at antiSOCIAL, Mumbai" loading="lazy"></a><figcaption>antiSOCIAL, Mumbai · Aug 2025 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/bluebop-guitar-lowangle.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: The Bluebop Cafe, Mumbai · Jul 2026"><img style="--ar:427 / 640" src="assets/gallery/bluebop-guitar-lowangle-t.webp" width="427" height="640" alt="The Kemosabes live at The Bluebop Cafe, Mumbai" loading="lazy"></a><figcaption>The Bluebop Cafe, Mumbai · Jul 2026 · © <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a></figcaption></figure>
@@ -2107,7 +2110,7 @@
       <a class="icon-btn" href="mailto:thekemosabes@gmail.com" aria-label="Email us"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg></a>
     </div>
     <p class="fine">© 2026 The Kemosabes · Mumbai</p>
-    <p class="fine">Photography: <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a> (@tothegloriousunknown) · <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a> (@shotinfocus101) · Walrus Photography</p>
+    <p class="fine">Photography: <a href="https://www.instagram.com/tothegloriousunknown" target="_blank" rel="noopener">Pallavi Gawas</a> (@tothegloriousunknown) · <a href="https://www.instagram.com/shotinfocus101" target="_blank" rel="noopener">David Lall</a> (@shotinfocus101) · <a href="https://www.instagram.com/omkar_2099_" target="_blank" rel="noopener">Omkar Dighe</a> (@omkar_2099_) · Walrus Photography</p>
   </div>
 </footer>
 
@@ -2532,6 +2535,21 @@
       if(highlightTimer) clearTimeout(highlightTimer);
       highlightTimer = setTimeout(function(){ card.classList.remove("is-highlighted"); }, 2800);
     });
+  });
+})();
+</script>
+<script>
+// Section backgrounds (Book Us, Our Story) sit far below the fold: fetch them when the visitor gets near, or jumps there from the menu.
+(function(){
+  var els=[].slice.call(document.querySelectorAll("#book, .gospel-card"));
+  function ready(el){ el.classList.add("bg-ready"); }
+  if(!("IntersectionObserver" in window)){ els.forEach(ready); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ ready(e.target); io.unobserve(e.target); } }); },{rootMargin:"1200px 0px"});
+  els.forEach(function(el){ io.observe(el); });
+  document.addEventListener("click",function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a||a.getAttribute("href").length<2) return;
+    var t=document.getElementById(a.getAttribute("href").slice(1)); if(!t) return;
+    els.forEach(function(el){ if(el===t||t.contains(el)||el.contains(t)) ready(el); });
   });
 })();
 </script>
