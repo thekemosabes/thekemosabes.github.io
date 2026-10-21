@@ -371,6 +371,10 @@
   /* scrim: a soft pool behind the lockup plus a top gradient that is gone before the heads begin */
   .hero-band::after{content:""; position:absolute; left:0; right:0; bottom:0; top:var(--ext); pointer-events:none; background:radial-gradient(ellipse 36% 24% at 50% 19%, rgba(10,15,36,.6), rgba(10,15,36,.3) 60%, rgba(10,15,36,0) 100%), linear-gradient(180deg, rgba(10,15,36,.5) 0, rgba(10,15,36,.28) 14%, rgba(10,15,36,.1) 26%, rgba(10,15,36,0) 34%);}
   .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:14%; background:linear-gradient(180deg, transparent, var(--ink)); z-index:1; pointer-events:none;}
+  /* large laptop screens (1400-1919px): logo and type 15% bigger */
+  @media (min-width:1400px) and (max-width:1919.98px){
+    .hero{--lw:clamp(96px,calc(.15525 * var(--hw)),380px); --tf:1.38rem;}
+  }
   /* widest screens: logo about 10% bigger, type about 5% bigger */
   @media (min-width:1920px){
     .hero{--lw:clamp(96px,calc(.1485 * var(--hw)),363px); --tf:1.26rem;}
