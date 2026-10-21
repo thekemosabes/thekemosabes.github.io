@@ -30,7 +30,7 @@
 <link rel="icon" type="image/png" href="/assets/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-<link rel="preload" as="image" href="assets/logo.webp" imagesrcset="assets/logo-320.webp 320w, assets/logo.webp 640w" imagesizes="(max-width:699px) 150px, 387px" fetchpriority="high">
+<link rel="preload" as="image" href="assets/logo.webp" imagesrcset="assets/logo-320.webp 320w, assets/logo.webp 640w" imagesizes="clamp(96px,14vw,363px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Londrina+Solid:wght@300;400&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
@@ -333,56 +333,54 @@
   }
   .icon-btn:focus-visible{border-color:var(--brass); box-shadow:0 0 14px rgba(217,164,65,.55); transform:translateY(-1px);}
 
-  /* HERO */
+  /* HERO
+     One composition at every width: the photo starts at the top and the logo, tagline and Est. line sit on
+     the empty brick wall above the band. The wall is about 29% of the photo width tall in the centre column
+     (the first head starts at about 44% of the photo height). On wide screens that is plenty. On a phone it
+     is not, so --ext adds just enough dark strip above the photo for the lockup to fit, and the photo fades
+     up into it. --ext is 0 from about 700px. Buttons float over the crowd at the bottom (the dark crowd is
+     trimmed on short windows, never the band). Re-check head clearance after any change here. */
   .hero{
-    position:relative; padding:1rem 16px 0; text-align:center; overflow:hidden; background:var(--ink);
+    --hw:calc(100vw - var(--page-inset));
+    --tf:clamp(.88rem,3.8vw,1.2rem);
+    --lw:clamp(96px,calc(.135 * var(--hw)),330px);
+    --lt:clamp(8px,calc(.016 * var(--hw)),40px);
+    --tt:calc(var(--lt) + var(--lw) * 1.2 + 4px);
+    --ext:max(0px, calc(var(--lw) * 1.2 + 3 * var(--tf) + var(--lt) + 18px - .287 * var(--hw)));
+    position:relative; padding:0; text-align:center; overflow:hidden; background:var(--ink);
+    height:clamp(calc(.58 * var(--hw) + var(--ext)), calc(100vh - 56px), calc(.668 * var(--hw) + var(--ext)));
+    height:clamp(calc(.58 * var(--hw) + var(--ext)), calc(100svh - 56px), calc(.668 * var(--hw) + var(--ext)));
   }
   .hero > *{position:relative; z-index:1;}
   .hero > .hero-band{z-index:0;}
   .hero-logo{
-    width:100%; max-width:150px; height:auto; margin:0 auto .4rem; display:block;
+    position:absolute; top:var(--lt); left:50%; transform:translateX(-50%); width:var(--lw); max-width:none; height:auto; margin:0; display:block;
     filter:drop-shadow(0 4px 14px rgba(0,0,0,.55));
   }
-  /* buttons float over the crowd at the bottom of the photo (phones, tablets and desktop) */
   .hero-text{position:static;}
-  .hero .tagline, .hero .subline{position:relative; z-index:1;}
+  .hero .tagline{position:absolute; z-index:1; left:0; right:0; top:var(--tt); margin:0;}
+  .hero .subline{position:absolute; z-index:1; left:0; right:0; top:calc(var(--tt) + 1.5 * var(--tf)); margin:0;}
   .hero .icon-row{position:absolute; left:0; right:0; bottom:.2rem; margin:0; z-index:2;}
-  /* Band photo: shown at full width so all six members are in frame at every screen size (a cover crop
-     always lost the edge guitarists on a phone). It tucks up under the text: the empty brick wall above
-     the players (top ~37% of the frame) is the backdrop for the logo, and the mask dissolves it into the
-     page. The top 160px of the frame is cropped (small band logo, neon and venue signs). Tuck = 13% of the
-     hero width less 8px, which keeps the icon row 25px+ above the players' heads. */
-  .hero-band{position:relative; z-index:0; margin:calc(22px - .13 * (100vw - var(--page-inset))) -16px 0; pointer-events:none;}
-  .hero-band::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(10,15,36,.78) 0, rgba(10,15,36,.64) 10%, rgba(10,15,36,.46) 20%, rgba(10,15,36,.28) 30%, rgba(10,15,36,.12) 38%, rgba(10,15,36,.04) 43%, rgba(10,15,36,0) 48%);}
+  .hero-band{position:relative; z-index:0; margin:0; padding-top:var(--ext); pointer-events:none;}
   .hero-band img{
-    display:block; width:100%; height:auto; aspect-ratio:1800 / 931; object-fit:cover; object-position:50% 100%;
-    filter:brightness(1.06) saturate(1.08);
-    -webkit-mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 86%, transparent 100%);
-    mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 86%, transparent 100%);
+    display:block; width:100%; height:auto; aspect-ratio:1800 / 1202; object-fit:cover; object-position:50% 0;
+    filter:brightness(1.12) saturate(1.08);
+    -webkit-mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.4) 9%, rgba(0,0,0,.8) 20%, #000 32%, #000 80%, transparent 100%);
+    mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.4) 9%, rgba(0,0,0,.8) 20%, #000 32%, #000 80%, transparent 100%);
   }
-  /* Desktop (1280px+): the logo sits at the exact centre, with the tagline, Est. line and buttons stacked
-     below it. The photo tucks 20.8% of its width (less 28px) up under that stack, which puts every head 28px
-     below the buttons while the logo and text sit on the empty brick wall. The hero is capped to the
-     window height (the dark crowd at the bottom is trimmed, never the band). */
-  @media (min-width:1280px){
-    .hero{
-      --hw:calc(100vw - var(--page-inset));
-      --lw:clamp(198px,18.3vw,387px);
-      padding-top:.6rem;
-      height:clamp(calc(.5 * var(--hw)), calc(100vh - 56px), calc(.58 * var(--hw)));
-      height:clamp(calc(.5 * var(--hw)), calc(100svh - 56px), calc(.58 * var(--hw)));
-    }
-    .hero-logo{width:var(--lw); max-width:none; margin:0 auto .4rem;}
-    .hero .icon-row{bottom:1.6rem;}
-    .hero-band{margin:calc(28px - .2083 * var(--hw)) -16px 0;}
-    .hero-band img{filter:brightness(1.17) saturate(1.08); -webkit-mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 100%); mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.05) 10%, rgba(0,0,0,.2) 20%, rgba(0,0,0,.44) 28%, rgba(0,0,0,.7) 34%, rgba(0,0,0,.92) 40%, #000 46%, #000 100%);}
-    .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:20%; background:linear-gradient(180deg, transparent, var(--ink)); z-index:1; pointer-events:none;}
-    /* scrim: a soft pool right behind the tagline + Est. line (about a third of the way down the photo) on top
-       of a gradient that is darkest at the top edge and gone before the heads begin */
-    .hero-band::after{background:radial-gradient(ellipse 42% 16% at 50% 31%, rgba(10,15,36,.66), rgba(10,15,36,.34) 60%, rgba(10,15,36,0) 100%), linear-gradient(180deg, rgba(10,15,36,.84) 0, rgba(10,15,36,.72) 10%, rgba(10,15,36,.55) 20%, rgba(10,15,36,.36) 30%, rgba(10,15,36,.18) 38%, rgba(10,15,36,.06) 43%, rgba(10,15,36,0) 48%);}
+  /* scrim: a soft pool behind the lockup plus a top gradient that is gone before the heads begin */
+  .hero-band::after{content:""; position:absolute; left:0; right:0; bottom:0; top:var(--ext); pointer-events:none; background:radial-gradient(ellipse 36% 24% at 50% 19%, rgba(10,15,36,.6), rgba(10,15,36,.3) 60%, rgba(10,15,36,0) 100%), linear-gradient(180deg, rgba(10,15,36,.5) 0, rgba(10,15,36,.28) 14%, rgba(10,15,36,.1) 26%, rgba(10,15,36,0) 34%);}
+  .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:14%; background:linear-gradient(180deg, transparent, var(--ink)); z-index:1; pointer-events:none;}
+  /* widest screens: logo about 10% bigger, type about 5% bigger */
+  @media (min-width:1920px){
+    .hero{--lw:clamp(96px,calc(.1485 * var(--hw)),363px); --tf:1.26rem;}
+  }
+  @media (min-width:700px){
+    .hero .icon-row{bottom:1.2rem;}
+    .hero-band img{-webkit-mask-image:linear-gradient(180deg, #000 0, #000 80%, transparent 100%); mask-image:linear-gradient(180deg, #000 0, #000 80%, transparent 100%);}
   }
   /* tagline and Est. line share one style: Londrina Solid caps, cream; the tagline stays on a single line */
-  .tagline, .subline{font-family:"Londrina Solid",sans-serif; font-weight:400; font-style:normal; font-size:clamp(.88rem,3.8vw,1.2rem); line-height:1.5; letter-spacing:.06em; color:var(--cream); text-transform:uppercase; text-shadow:0 1px 2px rgba(0,0,0,.9), 0 2px 14px rgba(0,0,0,.85);}
+  .tagline, .subline{font-family:"Londrina Solid",sans-serif; font-weight:400; font-style:normal; font-size:var(--tf, clamp(.88rem,3.8vw,1.2rem)); line-height:1.5; letter-spacing:.06em; color:var(--cream); text-transform:uppercase; text-shadow:0 1px 2px rgba(0,0,0,.9), 0 2px 14px rgba(0,0,0,.85);}
   .tagline{margin:.2rem auto 0; white-space:nowrap;}
   .subline{margin:0 auto; font-weight:300;}
 
@@ -950,7 +948,7 @@
 </nav>
 <div class="menu-scrim" aria-hidden="true"></div>
 <header class="hero" id="top">
-  <img class="hero-logo" src="assets/logo.webp" srcset="assets/logo-320.webp 320w, assets/logo.webp 640w" sizes="(max-width:699px) 150px, 387px" width="640" height="768" alt="" fetchpriority="high">
+  <img class="hero-logo" src="assets/logo.webp" srcset="assets/logo-320.webp 320w, assets/logo.webp 640w" sizes="clamp(96px,14vw,363px)" width="640" height="768" alt="" fetchpriority="high">
   <div class="hero-text">
   <h1 class="visually-hidden">The Kemosabes</h1>
   <p class="tagline">The Ultimate Juke Joint Experience</p>
@@ -962,7 +960,7 @@
     <a class="icon-btn" href="mailto:thekemosabes@gmail.com?subject=Booking%20The%20Kemosabes" aria-label="Email us"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg></a>
   </div>
   </div>
-  <div class="hero-band"><img src="assets/hero-antisocial.webp" srcset="assets/hero-antisocial-900.webp 900w, assets/hero-antisocial.webp 1800w" sizes="100vw" width="1800" height="1091" fetchpriority="high" decoding="async" alt="The Kemosabes on stage at antiSOCIAL: lead guitarist, drummer, bassist, vocalist, keyboardist and acoustic guitarist"></div>
+  <div class="hero-band"><img src="assets/hero-band.webp" srcset="assets/hero-band-900.webp 900w, assets/hero-band.webp 1800w" sizes="100vw" width="1800" height="1202" fetchpriority="high" decoding="async" alt="The Kemosabes on stage at antiSOCIAL: lead guitarist, drummer, bassist, vocalist, keyboardist and acoustic guitarist"></div>
 </header>
 
 <!-- ALBUM SECTION (parked until recording is done): restore by removing this comment wrapper, and move it to sit just below the next-show ticket in the Links section
@@ -1774,11 +1772,11 @@
       <div class="gallery car-track">
 <figure><a class="lb" href="assets/gallery/highnote-singer-lights.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-singer-lights-t.webp" width="427" height="640" alt="The Kemosabes vocalist singing under the stage lights at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-keys-focus.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-keys-focus-t.webp" width="427" height="640" alt="The Kemosabes keyboardist playing at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/highnote-guitar-leopard.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-guitar-leopard-t.webp" width="427" height="640" alt="The Kemosabes guitarist at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/highnote-guitar-keys-duo.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-guitar-keys-duo-t.webp" width="427" height="640" alt="The Kemosabes guitarist with the keyboardist behind him at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-bass-neon.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-bass-neon-t.webp" width="427" height="640" alt="The Kemosabes bassist beside the neon High Note sign, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-drums-smile.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-drums-smile-t.webp" width="427" height="640" alt="The Kemosabes drummer grinning behind the kit at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-singer-bw.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-singer-bw-t.webp" width="427" height="640" alt="Black and white shot of The Kemosabes vocalist with one arm raised at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
-<figure><a class="lb" href="assets/gallery/highnote-bass-mic.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-bass-mic-t.webp" width="427" height="640" alt="The Kemosabes bassist at the microphone at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
+<figure><a class="lb" href="assets/gallery/highnote-bass-closed-eyes.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-bass-closed-eyes-t.webp" width="427" height="640" alt="The Kemosabes bassist and singer lost in the music at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-harmonica.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-harmonica-t.webp" width="427" height="640" alt="The Kemosabes vocalist playing harmonica at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-drums-sticks.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-drums-sticks-t.webp" width="427" height="640" alt="The Kemosabes drummer mid-fill at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
 <figure><a class="lb" href="assets/gallery/highnote-drums-profile.webp" target="_blank" rel="noopener" aria-label="Enlarge photo: High Note, Mumbai · Oct 2026"><img style="--ar:427 / 640" src="assets/gallery/highnote-drums-profile-t.webp" width="427" height="640" alt="The Kemosabes drummer in profile at High Note, Mumbai" loading="lazy"></a><figcaption>High Note, Mumbai · Oct 2026 · © <a href="https://www.instagram.com/walrus_of_the_south" target="_blank" rel="noopener">@walrus_of_the_south</a></figcaption></figure>
